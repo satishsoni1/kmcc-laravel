@@ -1,0 +1,90 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Models\Faculty;
+use Illuminate\Http\Request;
+
+class FacultyController extends Controller
+{
+    public function index()
+    {
+        $faculty = Faculty::orderBy('department')->orderBy('order')->paginate(30);
+        return view('admin.faculty.index', compact('faculty'));
+    }
+
+    public function create()
+    {
+        return view('admin.faculty.create');
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'name'             => 'required|string|max:255',
+            'designation'      => 'required|string|max:255',
+            'department'       => 'required|string|max:255',
+            'qualification'    => 'nullable|string|max:255',
+            'specialization'   => 'nullable|string|max:255',
+            'email'            => 'nullable|email|max:255',
+            'phone'            => 'nullable|string|max:20',
+            'bio'              => 'nullable|string',
+            'experience_years' => 'nullable|integer|min:0',
+            'order'            => 'nullable|integer|min:0',
+            'is_active'        => 'boolean',
+            'photo'            => 'nullable|image|max:3072',
+        ]);
+
+        if ($request->hasFile('photo')) {
+            $data['photo'] = $request->file('photo')->store('faculty', 'public');
+        }
+
+        $data['is_active'] = $request->boolean('is_active', true);
+        $data['order']     = $data['order'] ?? 0;
+
+        Faculty::create($data);
+
+        return redirect()->route('admin.faculty.index')->with('success', 'Faculty member added successfully.');
+    }
+
+    public function edit(Faculty $faculty)
+    {
+        return view('admin.faculty.edit', compact('faculty'));
+    }
+
+    public function update(Request $request, Faculty $faculty)
+    {
+        $data = $request->validate([
+            'name'             => 'required|string|max:255',
+            'designation'      => 'required|string|max:255',
+            'department'       => 'required|string|max:255',
+            'qualification'    => 'nullable|string|max:255',
+            'specialization'   => 'nullable|string|max:255',
+            'email'            => 'nullable|email|max:255',
+            'phone'            => 'nullable|string|max:20',
+            'bio'              => 'nullable|string',
+            'experience_years' => 'nullable|integer|min:0',
+            'order'            => 'nullable|integer|min:0',
+            'is_active'        => 'boolean',
+            'photo'            => 'nullable|image|max:3072',
+        ]);
+
+        if ($request->hasFile('photo')) {
+            $data['photo'] = $request->file('photo')->store('faculty', 'public');
+        }
+
+        $data['is_active'] = $request->boolean('is_active');
+        $data['order']     = $data['order'] ?? 0;
+
+        $faculty->update($data);
+
+        return redirect()->route('admin.faculty.index')->with('success', 'Faculty member updated successfully.');
+    }
+
+    public function destroy(Faculty $faculty)
+    {
+        $faculty->delete();
+        return redirect()->route('admin.faculty.index')->with('success', 'Faculty member deleted.');
+    }
+}
