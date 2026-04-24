@@ -9,10 +9,15 @@ return Application::configure(basePath: dirname(__DIR__))
         web: __DIR__.'/../routes/web.php',
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
+        then: function () {
+            \Illuminate\Support\Facades\Route::middleware('web')
+                ->group(base_path('routes/naac-portal.php'));
+        },
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
-            'admin' => \App\Http\Middleware\EnsureIsAdmin::class,
+            'admin'       => \App\Http\Middleware\EnsureIsAdmin::class,
+            'np.auth'     => \App\Http\Middleware\NaacPortalAuth::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
