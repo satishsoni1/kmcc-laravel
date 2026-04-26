@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Faculty;
 use App\Models\CommitteeMember;
+use App\Models\CollegeCommittee;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -56,7 +57,11 @@ class AboutController extends Controller
 
     public function committees()
     {
-        return view('about.committees');
+        $naac = CollegeCommittee::with(['activeMembers'])
+            ->active()->forCategory('naac_criteria')->orderBy('sort_order')->get();
+        $other = CollegeCommittee::with(['activeMembers'])
+            ->active()->forCategory('other')->orderBy('sort_order')->get();
+        return view('about.committees', compact('naac', 'other'));
     }
 
     public function boardOfExecutives()

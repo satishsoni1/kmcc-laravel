@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CommitteeMember;
+use App\Models\CollegeCommittee;
 
 class GovernanceController extends Controller
 {
@@ -45,5 +46,19 @@ class GovernanceController extends Controller
     {
         $members = CommitteeMember::active()->forType('autonomy')->orderBy('sort_order')->get();
         return view('governance.autonomy', compact('members'));
+    }
+
+    public function naacCommittees()
+    {
+        $committees = CollegeCommittee::with(['activeMembers'])
+            ->active()->forCategory('naac_criteria')->orderBy('sort_order')->get();
+        return view('governance.naac-committees', compact('committees'));
+    }
+
+    public function otherCommittees()
+    {
+        $committees = CollegeCommittee::with(['activeMembers'])
+            ->active()->forCategory('other')->orderBy('sort_order')->get();
+        return view('governance.other-committees', compact('committees'));
     }
 }

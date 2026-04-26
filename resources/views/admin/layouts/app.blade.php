@@ -139,7 +139,10 @@
                 <i class="fas fa-chalkboard-teacher icon"></i><span class="nav-label">Faculty</span>
             </a>
             <a href="{{ route('admin.committees.index') }}" class="nav-link {{ request()->routeIs('admin.committees.*') ? 'active' : '' }}">
-                <i class="fas fa-sitemap icon"></i><span class="nav-label">Committees</span>
+                <i class="fas fa-sitemap icon"></i><span class="nav-label">Governance Committees</span>
+            </a>
+            <a href="{{ route('admin.college-committees.index') }}" class="nav-link {{ request()->routeIs('admin.college-committees.*') ? 'active' : '' }}">
+                <i class="fas fa-layer-group icon"></i><span class="nav-label">College Committees</span>
             </a>
 
             <p class="sidebar-section-label">System</p>

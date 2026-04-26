@@ -33,6 +33,7 @@ use App\Http\Controllers\Admin\StudentCouncilController as AdminStudentCouncilCo
 use App\Http\Controllers\Admin\GrievanceController as AdminGrievanceController;
 use App\Http\Controllers\Admin\FeedbackAdminController as AdminFeedbackController;
 use App\Http\Controllers\Admin\ContactSubmissionController as AdminContactSubmissionController;
+use App\Http\Controllers\Admin\CollegeCommitteeController as AdminCollegeCommitteeController;
 
 // Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -62,6 +63,8 @@ Route::prefix('governance')->name('governance.')->group(function () {
     Route::get('/board-of-studies', [GovernanceController::class, 'boardOfStudies'])->name('board-of-studies');
     Route::get('/cdc', [GovernanceController::class, 'cdc'])->name('cdc');
     Route::get('/autonomy-committee', [GovernanceController::class, 'autonomyCommittee'])->name('autonomy');
+    Route::get('/naac-committees', [GovernanceController::class, 'naacCommittees'])->name('naac-committees');
+    Route::get('/other-committees', [GovernanceController::class, 'otherCommittees'])->name('other-committees');
 });
 
 // Academics
@@ -189,6 +192,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('downloads', AdminDownloadController::class)->only(['index', 'create', 'store', 'destroy']);
 
         Route::resource('committees', AdminCommitteeController::class)->except(['show']);
+
+        // ── College Committees (About > Committees page) ────────────────────
+        Route::resource('college-committees', AdminCollegeCommitteeController::class)->except(['show']);
+        Route::get('college-committees/{collegeCommittee}/members', [AdminCollegeCommitteeController::class, 'members'])->name('college-committees.members');
+        Route::post('college-committees/{collegeCommittee}/members', [AdminCollegeCommitteeController::class, 'storeMember'])->name('college-committees.members.store');
+        Route::get('college-committees/{collegeCommittee}/members/{member}/edit', [AdminCollegeCommitteeController::class, 'editMember'])->name('college-committees.members.edit');
+        Route::put('college-committees/{collegeCommittee}/members/{member}', [AdminCollegeCommitteeController::class, 'updateMember'])->name('college-committees.members.update');
+        Route::delete('college-committees/{collegeCommittee}/members/{member}', [AdminCollegeCommitteeController::class, 'destroyMember'])->name('college-committees.members.destroy');
 
         Route::get('settings', [AdminSettingsController::class, 'index'])->name('settings.index');
         Route::put('settings', [AdminSettingsController::class, 'update'])->name('settings.update');
