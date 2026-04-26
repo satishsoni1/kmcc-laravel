@@ -79,8 +79,8 @@
                 </a>
                 <div>
                     <p class="text-xs text-gray-500 font-medium">Khalapur Taluka Shikshan Prasarak Mandal's</p>
-                    <h1 class="text-xl md:text-2xl font-bold leading-tight" style="color: var(--kmc-crimson-lt);">K.M.C. College, Khopoli</h1>
-                    <p class="text-xs md:text-sm text-gray-500">Dist. Raigad (Estd. 1979) &bull; Affiliated to University of Mumbai &bull; NAAC Reaccredited 'B+' Grade</p>
+                    <h1 class="text-xl md:text-2xl font-bold leading-tight" style="color: var(--kmc-crimson-lt);">K.M.C. College</h1>
+                    <p class="text-xs md:text-sm text-gray-500">Khopoli, Dist. Raigad (Estd. 1979) &bull; Affiliated to University of Mumbai &bull; NAAC Reaccredited 'B+' Grade</p>
                     <p class="text-xs font-semibold tracking-widest mt-0.5" style="color: var(--kmc-navy);">TEJ &bull; GATI &bull; SHAKTI</p>
                 </div>
             </div>

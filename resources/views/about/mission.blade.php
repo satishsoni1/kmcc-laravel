@@ -14,7 +14,7 @@
                         "To provide quality higher education that integrates academic rigor with ethical values, fosters critical thinking and innovation, and prepares students for meaningful participation in a diverse and dynamic world."
                     </p>
                 </div>
-                <p class="text-gray-600 leading-relaxed mb-6">Our mission guides every academic and administrative decision at KMCC College. We are committed to delivering a transformative educational experience that equips students not just with degrees, but with the wisdom, skills, and character needed to lead fulfilling lives.</p>
+                <p class="text-gray-600 leading-relaxed mb-6">Our mission guides every academic and administrative decision at KMC College. We are committed to delivering a transformative educational experience that equips students not just with degrees, but with the wisdom, skills, and character needed to lead fulfilling lives.</p>
                 <h3 class="text-lg font-bold text-blue-900 mb-4">Mission Statements</h3>
                 <ul class="space-y-3">
                     @foreach([

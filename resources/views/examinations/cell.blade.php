@@ -9,7 +9,7 @@
             <div class="bg-white rounded-xl shadow-md p-8">
                 <h2 class="text-2xl font-bold text-blue-900 mb-2">About the Examination Cell</h2>
                 <div class="w-12 h-1 bg-yellow-500 mb-5"></div>
-                <p class="text-gray-600 mb-5">The Examination Cell of KMCC College is responsible for conducting fair, transparent, and timely examinations. As an Autonomous institution, the college independently manages its examination system from paper-setting to declaration of results.</p>
+                <p class="text-gray-600 mb-5">The Examination Cell of KMC College is responsible for conducting fair, transparent, and timely examinations. As an Autonomous institution, the college independently manages its examination system from paper-setting to declaration of results.</p>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
                     <div class="bg-blue-50 rounded-xl p-4 text-center border border-blue-100">
                         <i class="fas fa-user-tie text-blue-900 text-2xl mb-2 block"></i>

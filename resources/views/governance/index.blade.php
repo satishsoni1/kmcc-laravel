@@ -20,7 +20,7 @@
             <div class="bg-white rounded-xl shadow-md p-8">
                 <h2 class="text-2xl font-bold text-blue-900 mb-2">Governance &amp; Administration</h2>
                 <div class="w-12 h-1 bg-yellow-500 mb-5"></div>
-                <p class="text-gray-600 mb-6">KMCC College is governed by a set of statutory and non-statutory bodies that ensure transparent, democratic, and quality-driven administration. These bodies collectively guide academic policy, financial management, and institutional development.</p>
+                <p class="text-gray-600 mb-6">KMC College is governed by a set of statutory and non-statutory bodies that ensure transparent, democratic, and quality-driven administration. These bodies collectively guide academic policy, financial management, and institutional development.</p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     @foreach([
                         [route('governance.governing-body'), 'fas fa-landmark', 'Governing Body', 'Apex body responsible for policy decisions and institutional oversight.'],

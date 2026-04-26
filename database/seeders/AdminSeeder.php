@@ -23,7 +23,7 @@ class AdminSeeder extends Seeder
 
         // Seed default site settings
         $settings = [
-            ['key' => 'college_name',       'value' => 'K.M.C. College, Khopoli',                          'type' => 'text',     'label' => 'College Name',          'group' => 'general'],
+            ['key' => 'college_name',       'value' => 'K.M.C. College',                          'type' => 'text',     'label' => 'College Name',          'group' => 'general'],
             ['key' => 'college_tagline',     'value' => 'Khalapur Taluka Shikshan Prasarak Mandal\'s',       'type' => 'text',     'label' => 'College Tagline',       'group' => 'general'],
             ['key' => 'college_motto',       'value' => 'TEJ • GATI • SHAKTI',                               'type' => 'text',     'label' => 'College Motto',         'group' => 'general'],
             ['key' => 'naac_grade',          'value' => "NAAC Reaccredited 'B+' Grade (3rd Cycle)",          'type' => 'text',     'label' => 'NAAC Status',           'group' => 'general'],

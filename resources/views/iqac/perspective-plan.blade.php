@@ -9,7 +9,7 @@
             <div class="bg-white rounded-xl shadow-md p-8">
                 <h2 class="text-2xl font-bold text-blue-900 mb-2">Perspective Plan 2024-29</h2>
                 <div class="w-12 h-1 bg-yellow-500 mb-5"></div>
-                <p class="text-gray-600 mb-5">The five-year Perspective Plan (2024-29) outlines the strategic goals and development roadmap of KMCC College, aligned with NEP 2020 and UGC guidelines.</p>
+                <p class="text-gray-600 mb-5">The five-year Perspective Plan (2024-29) outlines the strategic goals and development roadmap of KMC College, aligned with NEP 2020 and UGC guidelines.</p>
                 @foreach([
                     ['2024-25', 'Foundation Year', ['Upgrade all science laboratories','Implement OBE framework across all programmes','Launch e-content development initiative','Expand digital library to 50,000 resources']],
                     ['2025-26', 'Growth Year', ['Introduce 3 new interdisciplinary programmes','Establish Research & Innovation Centre','Achieve NAAC re-accreditation','Expand placement cell partnerships to 100+ companies']],

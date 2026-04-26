@@ -42,7 +42,7 @@
                 <h2 class="text-2xl font-bold mb-4" style="color: var(--kmc-navy);">About K.M.C. College, Khopoli</h2>
                 <div class="w-12 h-1 mb-6 rounded" style="background-color: var(--kmc-gold);"></div>
                 <p class="text-gray-600 leading-relaxed mb-4">
-                    K.M.C. College, Khopoli was established in 1993 under the Khalapur Taluka Shikshan Prasarak Mandal (K.T.S.P. Mandal) with a vision to provide accessible, quality higher education to all sections of society. Over three decades, our institution has grown into a pillar of academic excellence in the Khalapur taluka region of Raigad district.
+                    K.M.C. College, Khopoli was established in 1979 under the Khalapur Taluka Shikshan Prasarak Mandal (K.T.S.P. Mandal) — a renowned educational body registered as a public trust and society, working since 1957 to bring transformation in the educational, cultural and social fields of Maharashtra. Over four decades, our institution has grown into a pillar of academic excellence in the Khalapur taluka region of Raigad district.
                 </p>
                 <p class="text-gray-600 leading-relaxed mb-4">
                     Affiliated to the University of Mumbai and recognized by the University Grants Commission, the college offers undergraduate programmes in Arts, Commerce and Science streams. Our NAAC Grade B+ accreditation reflects our commitment to quality education and continuous improvement.

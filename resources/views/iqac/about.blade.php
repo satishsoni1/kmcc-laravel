@@ -9,7 +9,7 @@
             <div class="bg-white rounded-xl shadow-md p-8">
                 <h2 class="text-2xl font-bold text-blue-900 mb-2">About IQAC</h2>
                 <div class="w-12 h-1 bg-yellow-500 mb-5"></div>
-                <p class="text-gray-600 mb-4">The IQAC of KMCC College was constituted on 15th September 2004 as per the NAAC guidelines. It has been instrumental in channeling the efforts and measures of the institution towards academic excellence and quality enhancement.</p>
+                <p class="text-gray-600 mb-4">The IQAC of KMC College was constituted on 15th September 2004 as per the NAAC guidelines. It has been instrumental in channeling the efforts and measures of the institution towards academic excellence and quality enhancement.</p>
                 <p class="text-gray-600 mb-4">The primary aim of the IQAC is to develop a system for conscious, consistent, and catalytic action to improve the academic and administrative performance of the institution.</p>
                 <h3 class="font-bold text-blue-900 mb-3 mt-5">Key Functions of IQAC</h3>
                 <ul class="space-y-2">

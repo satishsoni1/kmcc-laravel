@@ -9,7 +9,7 @@
             <div class="bg-white rounded-xl shadow-md p-8">
                 <h2 class="text-2xl font-bold text-blue-900 mb-2">IQAC Objectives</h2>
                 <div class="w-12 h-1 bg-yellow-500 mb-5"></div>
-                <p class="text-gray-600 mb-5">The IQAC at KMCC College operates with a clear set of objectives that guide all quality assurance and enhancement activities within the institution.</p>
+                <p class="text-gray-600 mb-5">The IQAC at KMC College operates with a clear set of objectives that guide all quality assurance and enhancement activities within the institution.</p>
                 <div class="space-y-3">
                     @foreach([
                         ['Quality Benchmarks', 'fas fa-ruler', 'To develop and apply quality benchmarks for the various academic and administrative activities of the institution.'],

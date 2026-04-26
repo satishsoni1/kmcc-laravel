@@ -9,10 +9,10 @@
             <div class="bg-white rounded-xl shadow-md p-8">
                 <h2 class="text-2xl font-bold text-blue-900 mb-2">Best Practices</h2>
                 <div class="w-12 h-1 bg-yellow-500 mb-5"></div>
-                <p class="text-gray-600 mb-6">KMCC College has institutionalized several best practices that distinguish it as a quality-driven institution. These practices are reviewed and updated regularly by the IQAC.</p>
+                <p class="text-gray-600 mb-6">KMC College has institutionalized several best practices that distinguish it as a quality-driven institution. These practices are reviewed and updated regularly by the IQAC.</p>
                 @foreach([
                     ['Mentor-Mentee Programme', 'fas fa-user-friends', 'Every student is assigned a faculty mentor at the start of their academic journey. Regular one-on-one sessions help monitor academic progress, address personal challenges, and provide career guidance.','Since 2010'],
-                    ['Green Campus Initiative', 'fas fa-leaf', 'KMCC College has adopted comprehensive eco-friendly practices including rainwater harvesting, solar energy use, waste management, tree plantation drives, and a plastic-free campus policy.','Since 2015'],
+                    ['Green Campus Initiative', 'fas fa-leaf', 'KMC College has adopted comprehensive eco-friendly practices including rainwater harvesting, solar energy use, waste management, tree plantation drives, and a plastic-free campus policy.','Since 2015'],
                     ['Digital Classroom Teaching', 'fas fa-laptop', 'All classrooms are equipped with smart boards, projectors, and internet connectivity. Faculty use digital tools, recorded lectures, and e-resources to enhance the learning experience.','Since 2018'],
                     ['Community Outreach — "Reach Out" Programme', 'fas fa-hand-holding-heart', 'NSS volunteers conduct regular community activities including adult literacy, health awareness camps, cleanliness drives, and skill training for underprivileged youth in nearby villages.','Since 2005'],
                 ] as [$title, $icon, $desc, $since])

@@ -9,13 +9,13 @@
             <div class="bg-white rounded-xl shadow-md p-8">
                 <h2 class="text-2xl font-bold text-blue-900 mb-2">Institutional Distinctiveness</h2>
                 <div class="w-12 h-1 bg-yellow-500 mb-5"></div>
-                <p class="text-gray-600 mb-6">KMCC College stands apart through its unique blend of academic excellence, cultural heritage, and community commitment. Our distinctive features reflect our institutional identity and purpose.</p>
+                <p class="text-gray-600 mb-6">KMC College stands apart through its unique blend of academic excellence, cultural heritage, and community commitment. Our distinctive features reflect our institutional identity and purpose.</p>
                 <div class="space-y-5">
                     @foreach([
-                        ['Cultural Heritage & Academic Excellence', 'fas fa-star', 'Established by the Kerala Muslim Cultural Centre, the college uniquely integrates its rich cultural heritage into academic life. This creates a distinctive environment where students excel academically while remaining deeply rooted in their cultural identity.'],
-                        ['Inclusive Education', 'fas fa-users', 'KMCC College has consistently prioritized access to quality education for first-generation learners, economically weaker sections, and students from minority communities. Over 40% of our students receive some form of financial assistance.'],
+                        ['Cultural Heritage & Academic Excellence', 'fas fa-star', 'Established by the Khalapur Taluka Shikshan Prasarak Mandal, the college uniquely integrates its rich cultural heritage into academic life. This creates a distinctive environment where students excel academically while remaining deeply rooted in their cultural identity.'],
+                        ['Inclusive Education', 'fas fa-users', 'KMC College has consistently prioritized access to quality education for first-generation learners, economically weaker sections, and students from minority communities. Over 40% of our students receive some form of financial assistance.'],
                         ['Industry-Academia Interface', 'fas fa-handshake', 'Our strong industry network, active placement cell, and regular industry interactions ensure that academic programmes remain aligned with professional requirements, giving graduates a competitive edge.'],
-                        ['Research Culture', 'fas fa-flask', 'Despite being an undergraduate institution, KMCC College has cultivated a strong research culture. Faculty members publish regularly in peer-reviewed journals and guide students in minor research projects.'],
+                        ['Research Culture', 'fas fa-flask', 'Despite being an undergraduate institution, KMC College has cultivated a strong research culture. Faculty members publish regularly in peer-reviewed journals and guide students in minor research projects.'],
                         ['Community Development', 'fas fa-hand-holding-heart', 'The college\'s "Reach Out" community programme has transformed the lives of thousands in surrounding villages through education, healthcare awareness, and skill development initiatives conducted by NSS volunteers.'],
                     ] as [$title, $icon, $desc])
                     <div class="flex items-start gap-4 border border-gray-200 rounded-xl p-5 hover:border-blue-200 transition-colors">

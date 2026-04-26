@@ -20,7 +20,7 @@
             <div class="bg-white rounded-xl shadow-md p-8">
                 <h2 class="text-2xl font-bold text-blue-900 mb-4">Academic Overview</h2>
                 <div class="w-12 h-1 bg-yellow-500 mb-5"></div>
-                <p class="text-gray-600 mb-6">KMCC College offers a comprehensive range of undergraduate programmes across four faculties, designed to provide students with strong theoretical foundations and practical skills for the modern world.</p>
+                <p class="text-gray-600 mb-6">KMC College offers a comprehensive range of undergraduate programmes across four faculties, designed to provide students with strong theoretical foundations and practical skills for the modern world.</p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     @foreach($departments as $slug => $dept)
                     <a href="{{ route('academics.department', $slug) }}" class="flex items-center gap-4 bg-gray-50 border-2 border-gray-100 hover:border-blue-900 rounded-xl p-5 transition-all group">

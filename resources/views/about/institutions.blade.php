@@ -7,15 +7,14 @@
         <aside>@include('about._sidebar')</aside>
         <main class="lg:col-span-2">
             <div class="bg-white rounded-xl shadow-md p-8">
-                <h2 class="text-2xl font-bold text-blue-900 mb-2">KMCC Institutions</h2>
+                <h2 class="text-2xl font-bold text-blue-900 mb-2">KTSP Institutions</h2>
                 <div class="w-12 h-1 bg-yellow-500 mb-6"></div>
-                <p class="text-gray-600 mb-6">The Kerala Muslim Cultural Centre (KMCC) manages a network of educational, healthcare, and cultural institutions across Maharashtra, serving thousands of beneficiaries each year.</p>
+                <p class="text-gray-600 mb-6">The Khalapur Taluka Shikshan Prasarak Mandal (KTSP) manages a network of educational, healthcare, and cultural institutions across Maharashtra, serving thousands of beneficiaries each year.</p>
                 <div class="space-y-4">
                     @foreach([
                         ['KMCC Arts, Science & Commerce College', 'Higher Education', 'Khopoli, Raigad', 'fas fa-university'],
                         ['KMCC Junior College', 'Secondary Education (HSC)', 'Khopoli, Raigad', 'fas fa-school'],
                         ['KMCC English Medium School', 'Primary & Secondary (CBSE)', 'Khopoli, Raigad', 'fas fa-chalkboard'],
-                        ['KMCC Urdu Medium School', 'Primary Education', 'Khopoli, Raigad', 'fas fa-book'],
                         ['KMCC Vocational Training Centre', 'Skill Development & Vocational Training', 'Khopoli, Raigad', 'fas fa-tools'],
                         ['KMCC Community Health Centre', 'Healthcare & Medical Services', 'Khopoli, Raigad', 'fas fa-hospital'],
                     ] as [$name, $type, $location, $icon])

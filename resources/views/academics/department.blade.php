@@ -13,11 +13,11 @@
                     </div>
                     <div>
                         <h2 class="text-2xl font-bold text-blue-900">{{ $dept['name'] }}</h2>
-                        <p class="text-gray-500 text-sm">KMCC College</p>
+                        <p class="text-gray-500 text-sm">KMC College</p>
                     </div>
                 </div>
                 <div class="w-12 h-1 bg-yellow-500 mb-5"></div>
-                <p class="text-gray-600 leading-relaxed mb-5">The {{ $dept['name'] }} at KMCC College is committed to delivering high-quality education through innovative pedagogy, research-driven teaching, and strong industry linkages. Our distinguished faculty guide students through a curriculum that blends foundational knowledge with practical skills.</p>
+                <p class="text-gray-600 leading-relaxed mb-5">The {{ $dept['name'] }} at KMC College is committed to delivering high-quality education through innovative pedagogy, research-driven teaching, and strong industry linkages. Our distinguished faculty guide students through a curriculum that blends foundational knowledge with practical skills.</p>
                 <div class="grid grid-cols-2 gap-4 mb-5">
                     @foreach([['Courses Offered','5+'],['Faculty Members','15+'],['Students Enrolled','800+'],['Pass Rate','97%']] as [$l,$v])
                     <div class="bg-blue-50 rounded-xl p-4 text-center">

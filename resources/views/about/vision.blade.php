@@ -16,7 +16,7 @@
                         "To be a leading centre of higher learning that empowers students with knowledge, skills, and values to become responsible global citizens and contribute positively to society."
                     </p>
                 </div>
-                <p class="text-gray-600 leading-relaxed mb-4">Our vision is rooted in the belief that education is the most transformative force available to society. KMCC College aspires to be recognized not only for academic excellence but also for producing graduates who are ethically grounded, socially committed, and professionally competent.</p>
+                <p class="text-gray-600 leading-relaxed mb-4">Our vision is rooted in the belief that education is the most transformative force available to society. KMC College aspires to be recognized not only for academic excellence but also for producing graduates who are ethically grounded, socially committed, and professionally competent.</p>
                 <p class="text-gray-600 leading-relaxed mb-6">We envision a campus where intellectual curiosity thrives, where diversity is celebrated, and where every student — regardless of background — has the opportunity to reach their full potential.</p>
                 <h3 class="text-lg font-bold text-blue-900 mb-4">Strategic Vision Pillars</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">

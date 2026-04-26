@@ -9,7 +9,7 @@
             <div class="bg-white rounded-xl shadow-md p-8">
                 <h2 class="text-2xl font-bold text-blue-900 mb-2">College Facilities</h2>
                 <div class="w-12 h-1 bg-yellow-500 mb-6"></div>
-                <p class="text-gray-600 mb-6">KMCC College provides world-class infrastructure designed to support holistic academic and personal development. Our facilities are continuously upgraded to meet the evolving demands of modern education.</p>
+                <p class="text-gray-600 mb-6">KMC College provides world-class infrastructure designed to support holistic academic and personal development. Our facilities are continuously upgraded to meet the evolving demands of modern education.</p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     @foreach([
                         ['fas fa-book', 'Central Library', 'Over 40,000 books, 200+ journals, digital resources, e-databases, reading rooms, and reprographic services.', 'bg-blue-50'],

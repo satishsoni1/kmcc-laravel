@@ -9,7 +9,7 @@
             <div class="bg-white rounded-xl shadow-md p-6">
                 <h2 class="text-2xl font-bold text-blue-900 mb-2">Committees &amp; Associations</h2>
                 <div class="w-12 h-1 bg-yellow-500 mb-5"></div>
-                <p class="text-gray-600 mb-5">KMCC College has a robust network of committees and associations that support student welfare, academic quality, and institutional governance. Each body plays a distinct role in the college ecosystem.</p>
+                <p class="text-gray-600 mb-5">KMC College has a robust network of committees and associations that support student welfare, academic quality, and institutional governance. Each body plays a distinct role in the college ecosystem.</p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     @foreach([
                         ['Internal Quality Assurance Cell (IQAC)', 'Monitors and ensures quality in all academic and administrative activities.'],

@@ -9,7 +9,7 @@
             <div class="bg-white rounded-xl shadow-md p-8">
                 <h2 class="text-2xl font-bold text-blue-900 mb-2">Programme Outcomes</h2>
                 <div class="w-12 h-1 bg-yellow-500 mb-5"></div>
-                <p class="text-gray-600 mb-5">As an Autonomous institution affiliated to the University of Mumbai, KMCC College defines Programme Outcomes (POs), Course Outcomes (COs), and Programme Specific Outcomes (PSOs) aligned with NEP 2020.</p>
+                <p class="text-gray-600 mb-5">As an Autonomous institution affiliated to the University of Mumbai, KMC College defines Programme Outcomes (POs), Course Outcomes (COs), and Programme Specific Outcomes (PSOs) aligned with NEP 2020.</p>
                 <h3 class="font-bold text-blue-900 mb-3">Graduate Attributes (General Programme Outcomes)</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
                     @foreach(['Disciplinary Knowledge','Critical Thinking','Communication Skills','Problem Solving Ability','Research Aptitude','Ethical Values','Social Responsibility','Digital Literacy','Teamwork & Leadership','Lifelong Learning'] as $i => $attr)

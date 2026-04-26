@@ -9,7 +9,7 @@
             <div class="bg-white rounded-xl shadow-md p-8">
                 <h2 class="text-2xl font-bold mb-2" style="color: var(--kmc-navy);">Examination Cell</h2>
                 <div class="w-12 h-1 mb-5 rounded" style="background-color: var(--kmc-gold);"></div>
-                <p class="text-gray-600 mb-5">The Examination Cell at KMCC College manages all aspects of internal and external examinations, ensuring a fair, transparent, and efficient examination process for all students.</p>
+                <p class="text-gray-600 mb-5">The Examination Cell at KMC College manages all aspects of internal and external examinations, ensuring a fair, transparent, and efficient examination process for all students.</p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     @foreach([
                         [route('examinations.exam-form'),'fas fa-file-alt','bg-blue-50 border-blue-100','Exam Form','Fill and submit your examination form online'],

@@ -39,7 +39,7 @@
         <div class="flex-1 text-center md:text-left">
             <p class="font-semibold mb-1 tracking-wider text-xs uppercase" style="color: var(--kmc-gold);">Khalapur Taluka Shikshan Prasarak Mandal's</p>
             <h2 class="text-3xl md:text-5xl font-bold leading-tight mb-1" style="color: var(--kmc-gold);">
-                K.M.C. College, Khopoli
+                K.M.C. College
             </h2>
             <p class="text-sm font-semibold tracking-widest mb-3" style="color: var(--kmc-gold);">TEJ &bull; GATI &bull; SHAKTI</p>
             <p class="text-white text-lg mb-2 max-w-xl">
