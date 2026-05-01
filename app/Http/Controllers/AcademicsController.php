@@ -4,20 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\AcademicProgramme;
 use App\Models\AcademicDocument;
+use App\Models\Department;
+use App\Models\Faculty;
 use Illuminate\Http\Request;
 
 class AcademicsController extends Controller
 {
-    private array $departments = [
-        'arts'     => ['name' => 'Faculty of Arts',           'icon' => 'fa-theater-masks', 'color' => 'blue'],
-        'commerce' => ['name' => 'Faculty of Commerce',       'icon' => 'fa-chart-line',    'color' => 'green'],
-        'science'  => ['name' => 'Faculty of Science',        'icon' => 'fa-flask',         'color' => 'purple'],
-        'inter'    => ['name' => 'Interdisciplinary Studies', 'icon' => 'fa-globe',         'color' => 'orange'],
-    ];
-
     public function index()
     {
-        return view('academics.index', ['departments' => $this->departments]);
+        $departments = Department::active()->orderBy('order')->get();
+        return view('academics.index', compact('departments'));
     }
 
     public function programs()
@@ -57,12 +53,14 @@ class AcademicsController extends Controller
 
     public function departments()
     {
-        return view('academics.departments', ['departments' => $this->departments]);
+        $departments = Department::active()->orderBy('order')->get();
+        return view('academics.departments', compact('departments'));
     }
 
     public function department(string $slug)
     {
-        $dept = $this->departments[$slug] ?? abort(404);
-        return view('academics.department', ['dept' => $dept, 'slug' => $slug]);
+        $dept    = Department::where('slug', $slug)->where('is_active', true)->firstOrFail();
+        $faculty = Faculty::where('department', $slug)->where('is_active', true)->orderBy('order')->get();
+        return view('academics.department', compact('dept', 'faculty'));
     }
 }

@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(php artisan *)"
+      "Bash(php artisan *)",
+      "Bash(python3 -c \"import docx\")",
+      "Bash(textutil -convert txt -stdout \"/Users/apple/Documents/kmcc-laravel/public/documents/About English Dept.docx\")"
     ]
   }
 }
