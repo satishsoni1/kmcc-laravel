@@ -44,6 +44,21 @@ class AboutController extends Controller
         return view('about.college');
     }
 
+    public function chairmanDesk()
+    {
+        return view('about.chairman');
+    }
+
+    public function vcDesk()
+    {
+        return view('about.vc');
+    }
+
+    public function principalDesk()
+    {
+        return view('about.principal');
+    }
+
     public function team()
     {
         $faculty = Faculty::where('is_active', true)->orderBy('order')->get()->groupBy('department');

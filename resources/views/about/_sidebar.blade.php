@@ -2,6 +2,9 @@
     <div class="text-white px-5 py-3 font-bold text-sm" style="background-color: var(--kmc-navy);">About Us</div>
     <nav class="divide-y divide-gray-100">
         @foreach([
+            ['From Chairman\'s Desk', route('about.chairman')],
+            ['From VC\'s Desk', route('about.vc')],
+            ['From Principal\'s Desk', route('about.principal')],
             ['About Sanstha', route('about.sanstha')],
             ['About Emblem', route('about.emblem')],
             ['Vision', route('about.vision')],

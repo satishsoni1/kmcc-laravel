@@ -26,7 +26,7 @@
         /* Ticker */
         @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
         .ticker-wrap { overflow: hidden; }
-        .ticker-content { display: inline-block; white-space: nowrap; animation: ticker 35s linear infinite; }
+        .ticker-content { display: inline-block; white-space: nowrap; animation: ticker 120s linear infinite; }
         .ticker-content:hover { animation-play-state: paused; }
         html { scroll-behavior: smooth; }
         /* Nav active/hover */
@@ -36,7 +36,7 @@
             color: var(--kmc-navy) !important;
         }
         /* College name */
-        .college-name { color: var(--kmc-crimson-lt); }
+        .college-name { color: var(--kmc-crimson); }
         /* Sidebar active */
         .sidebar-link.active {
             background-color: #eff6ff;
@@ -79,7 +79,7 @@
                 </a>
                 <div>
                     <p class="text-xs text-gray-500 font-medium">Khalapur Taluka Shikshan Prasarak Mandal's</p>
-                    <h1 class="text-xl md:text-2xl font-bold leading-tight" style="color: var(--kmc-crimson-lt);">K.M.C. College</h1>
+                    <h1 class="text-4xl md:text-4xl font-bold leading-tight" style="color: var(--kmc-crimson);">K.M.C. College</h1>
                     <p class="text-xs md:text-sm text-gray-500">Khopoli, Dist. Raigad (Estd. 1979) &bull; Affiliated to University of Mumbai &bull; NAAC Reaccredited 'B+' Grade</p>
                     <p class="text-xs font-semibold tracking-widest mt-0.5" style="color: var(--kmc-navy);">TEJ &bull; GATI &bull; SHAKTI</p>
                 </div>
@@ -115,7 +115,10 @@
                         </a>
                         <div class="dropdown-menu kmc-dropdown hidden absolute left-0 top-full bg-white shadow-xl z-50 min-w-[230px]">
                             @foreach([
-                                ['About Sanstha', 'about.sanstha'],
+                                ['From Chairman\'s Desk', 'about.chairman'],
+                                ['From VC\'s Desk', 'about.vc'],
+                                ['From Principal\'s Desk', 'about.principal'],
+                                ['About K.T.S.P.', 'about.sanstha'],
                                 ['About Emblem', 'about.emblem'],
                                 ['Vision &amp; Mission', 'about.vision'],
                                 ['Goals &amp; Objectives', 'about.goals'],
@@ -290,6 +293,14 @@
                             Contact
                         </a>
                     </li>
+                    {{-- Search Button --}}
+                    <li>
+                        <button id="search-toggle-btn" title="Search Website"
+                                class="nav-link text-white px-3 py-4 flex items-center gap-1.5 text-sm font-medium transition-colors">
+                            <i class="fas fa-search"></i>
+                            <span class="hidden xl:inline">Search</span>
+                        </button>
+                    </li>
                 </ul>
 
                 {{-- Mobile toggle --}}
@@ -322,6 +333,25 @@
         </div>
     </nav>
 
+    {{-- Search Overlay --}}
+    <div id="search-overlay" class="hidden fixed inset-0 z-[9999] bg-black/70 flex items-start pt-28 px-4"
+         onclick="if(event.target===this)toggleSearch()">
+        <div class="w-full max-w-2xl mx-auto">
+            <form action="{{ route('search') }}" method="GET">
+                <div class="flex rounded-xl overflow-hidden shadow-2xl" style="outline: 4px solid var(--kmc-gold);">
+                    <input type="text" name="q" id="search-input" value="{{ request('q') }}"
+                           placeholder="Search faculty, courses, notices, events..."
+                           class="flex-1 px-5 py-4 text-gray-800 text-base outline-none bg-white" autocomplete="off">
+                    <button type="submit" class="px-6 text-sm font-semibold text-black"
+                            style="background-color: var(--kmc-gold);">
+                        <i class="fas fa-search mr-1"></i> Search
+                    </button>
+                </div>
+            </form>
+            <p class="text-white/50 text-xs mt-2 text-center">Search notices, faculty, courses, events, downloads &mdash; Press Esc to close</p>
+        </div>
+    </div>
+
     {{-- Main Content --}}
     <main>
         @yield('content')
@@ -338,7 +368,7 @@
                         <img src="{{ asset('images/college-shield-transparent.png') }}" alt="K.M.C. College Logo" class="w-20 object-contain">
                         <div>
                             <p class="text-xs text-white">K.T.S.P. Mandal's</p>
-                            <h3 class="text-base font-bold leading-tight" style="color: var(--kmc-gold);">K.M.C. College, Khopoli</h3>
+                            <h3 class="text-base font-bold leading-tight" style="color: var(--kmc-gold);">K.M.C. College<br/>Arts, Science And Commerce</h3>
                         </div>
                     </div>
                     <p class="text-white text-sm mb-3 leading-relaxed">Permanently affiliated to the University of Mumbai. NAAC Reaccredited 'B+' Grade (3rd Cycle). Serving the educational needs of rural and tribal communities since 1979.</p>
@@ -402,10 +432,45 @@
             </div>
         </div>
 
-        <div class="border-t" style="border-color: var(--kmc-navy);">
+        {{-- Emergency Helplines --}}
+        <div style="background-color: #b91c1c;" class="border-t border-red-900">
+            <div class="max-w-7xl mx-auto px-4 py-2.5">
+                <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-xs text-white">
+                    <span class="font-bold tracking-wider text-red-200 flex items-center gap-1">
+                        <i class="fas fa-exclamation-triangle"></i> EMERGENCY HELPLINES:
+                    </span>
+                    @foreach([
+                        ['fas fa-shield-alt',   'Police',             '100'],
+                        ['fas fa-ambulance',    'Ambulance',          '108'],
+                        ['fas fa-fire',         'Fire',               '101'],
+                        ['fas fa-female',       'Women\'s Helpline',  '1091'],
+                        ['fas fa-child',        'Child Helpline',     '1098'],
+                        ['fas fa-phone',        'Anti-Ragging',       setting('anti_ragging_number','1800-180-5522')],
+                        ['fas fa-phone-alt',    'College',            setting('phone','95116 16009')],
+                    ] as [$icon, $label, $number])
+                    &nbsp;&nbsp;
+                    <span class="flex items-center gap-1 whitespace-nowrap">
+                        <i class="{{ $icon }} text-red-300"></i>
+                        <span class="text-red-200">{{ $label }}:</span>
+                        <a href="tel:{{ preg_replace('/\s+/','',$number) }}" class="font-bold text-white hover:text-red-200 transition-colors">{{ $number }}</a>
+                    </span>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+
+        {{-- Copyright + Visitor Counter --}}
+        <div style="background-color: var(--kmc-navy);">
             <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-2 text-xs text-white">
                 <p>&copy; {{ date('Y') }} K.M.C. College, Khopoli — Khalapur Taluka Shikshan Prasarak Mandal. All Rights Reserved.</p>
-                <div class="flex gap-4">
+                <div class="flex items-center gap-4 flex-wrap justify-center">
+                    <span class="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs" style="background-color: var(--kmc-navy-dark);">
+                        <i class="fas fa-eye" style="color: var(--kmc-gold);"></i>
+                        <span style="color: var(--kmc-gold);" class="font-bold">
+                            {{ number_format((int)\App\Models\SiteSetting::get('visitor_count', 2459)) }}
+                        </span>
+                        <span class="text-gray-400">Visitors</span>
+                    </span>
                     <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
                     <a href="#" class="hover:text-white transition-colors">RTI</a>
                     <a href="#" class="hover:text-white transition-colors">Disclaimer</a>
@@ -430,6 +495,20 @@
             btn.classList.toggle('flex', window.scrollY >= 300);
         });
         btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Search overlay
+        function toggleSearch() {
+            const overlay = document.getElementById('search-overlay');
+            overlay.classList.toggle('hidden');
+            if (!overlay.classList.contains('hidden')) {
+                setTimeout(() => document.getElementById('search-input').focus(), 50);
+            }
+        }
+        document.getElementById('search-toggle-btn').addEventListener('click', toggleSearch);
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') document.getElementById('search-overlay').classList.add('hidden');
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); toggleSearch(); }
+        });
     </script>
     @stack('scripts')
 </body>

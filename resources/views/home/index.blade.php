@@ -39,7 +39,7 @@
         <div class="flex-1 text-center md:text-left">
             <p class="font-semibold mb-1 tracking-wider text-xs uppercase" style="color: var(--kmc-gold);">Khalapur Taluka Shikshan Prasarak Mandal's</p>
             <h2 class="text-3xl md:text-5xl font-bold leading-tight mb-1" style="color: var(--kmc-gold);">
-                K.M.C. College
+                K.M.C. College Arts Science And Commerce
             </h2>
             <p class="text-sm font-semibold tracking-widest mb-3" style="color: var(--kmc-gold);">TEJ &bull; GATI &bull; SHAKTI</p>
             <p class="text-white text-lg mb-2 max-w-xl">
@@ -85,7 +85,7 @@
                 </h3>
                 <a href="{{ route('about.index') }}" class="text-xs hover:text-white opacity-75 hover:opacity-100" style="color: var(--kmc-gold-light);">View All</a>
             </div>
-            <div class="divide-y divide-gray-100 max-h-80 overflow-y-auto">
+            <div id="ann-scroll" class="divide-y divide-gray-100 overflow-hidden" style="height:320px;">
                 @forelse($announcements as $ann)
                 <div class="px-4 py-3 hover:bg-gray-50 transition-colors">
                     <div class="flex items-start gap-2">
@@ -143,7 +143,7 @@
                     <i class="fas fa-calendar-alt" style="color: var(--kmc-gold);"></i> Upcoming Events
                 </h3>
             </div>
-            <div class="divide-y divide-gray-100 max-h-80 overflow-y-auto">
+            <div id="evt-scroll" class="divide-y divide-gray-100 overflow-hidden" style="height:320px;">
                 @forelse($events as $event)
                 <div class="px-4 py-3 flex gap-3 hover:bg-gray-50">
                     <div class="text-white text-center rounded-lg p-2 flex-shrink-0 w-12" style="background-color: var(--kmc-navy);">
@@ -233,9 +233,9 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             @foreach([
-                ['Chairman', setting('chairman_name','Shri. Santosh Gurunath Jangam'), 'Chairman, K.T.S.P. Mandal Khopoli', '"In the field of higher education, KMC College\'s remarkable work over the last 46 years is legendary not only in Raigad District but is recognized as an ideal college in the University of Mumbai. The college has achieved NAAC reaccreditation with B+ Grade and has been honoured as the Best College by Mumbai University. Our journey towards the golden jubilee continues."'],
-                ['Principal', setting('principal_name','Dr. Dayanand Prabhu Gaikwad'), 'I/c Principal, K.M.C. College Khopoli', '"A correct career choice is the key to life development. K.M.C. College strives to provide students the knowledge, skills and values needed to succeed in their chosen careers. With experienced faculty, necessary infrastructure and a supportive academic environment, we are committed to delivering quality education to all our students."'],
-            ] as [$role, $name, $title, $message])
+                ['Chairman', 'मा. श्री. संतोष गुरुनाथ जंगम', 'अध्यक्ष – खालापूर तालुका शिक्षण प्रसारक मंडळ, खोपोली', '"शैक्षणिक वर्ष २०२५–२६ मध्ये खालापूर तालुका शिक्षण प्रसारक मंडळाच्या के.एम.सी. महाविद्यालयात प्रवेश घेणाऱ्या सर्व विद्यार्थ्यांचे मनःपूर्वक अभिनंदन व स्वागत. बदलत्या व स्पर्धात्मक युगामध्ये उत्कृष्ट व दर्जेदार शिक्षण घेणे अत्यंत गरजेचे आहे. आपल्या महाविद्यालयात विद्यार्थ्यांच्या सर्वांगीण विकासासाठी आवश्यक ते सर्व प्रयत्न केले जात आहेत. महाविद्यालयाने शैक्षणिक क्षेत्रात उल्लेखनीय प्रगती साधली असून विद्यार्थ्यांना उत्तम मार्गदर्शन मिळत आहे."','about.chairman'],
+                ['Principal', setting('principal_name','Dr. Dayanand Prabhu Gaikwad'), 'I/c Principal, K.M.C. College Khopoli', '"A correct career choice is the key to life development. K.M.C. College strives to provide students the knowledge, skills and values needed to succeed in their chosen careers. With experienced faculty, necessary infrastructure and a supportive academic environment, we are committed to delivering quality education to all our students."','about.principal'],
+            ] as [$role, $name, $title, $message,$link])
             <div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col md:flex-row">
                 <div class="text-white p-4 flex flex-col items-center justify-center md:w-48 flex-shrink-0" style="background-color: var(--kmc-navy);">
                     <div class="w-20 h-20 rounded-full flex items-center justify-center mb-3" style="background-color: var(--kmc-navy-mid);">
@@ -248,8 +248,8 @@
                 <div class="p-6">
                     <i class="fas fa-quote-left text-3xl text-yellow-200 mb-3 block"></i>
                     <p class="text-gray-600 text-sm leading-relaxed italic">{{ $message }}</p>
-                    <a href="{{ route('about.index') }}" class="inline-block mt-4 text-sm font-semibold transition-colors hover:opacity-75" style="color: var(--kmc-navy);">
-                        Read Full Message <i class="fas fa-arrow-right ml-1"></i>
+                    <a href="{{ route($link) }}" class="inline-block mt-4 text-sm font-semibold transition-colors hover:opacity-75" style="color: var(--kmc-navy);">
+                        More <i class="fas fa-arrow-right ml-1"></i>
                     </a>
                 </div>
             </div>
@@ -392,3 +392,37 @@
 </section>
 
 @endsection
+
+@push('scripts')
+<script>
+function initAutoScroll(id, speed) {
+    var el = document.getElementById(id);
+    if (!el || el.children.length === 0) return;
+
+    // Record original content height before cloning
+    var originalH = el.scrollHeight;
+    if (originalH <= el.clientHeight) return; // content fits, no scroll needed
+
+    // Clone all items and append for seamless loop
+    Array.from(el.children).forEach(function(child) {
+        el.appendChild(child.cloneNode(true));
+    });
+
+    var pos = 0, paused = false;
+    el.addEventListener('mouseenter', function() { paused = true; });
+    el.addEventListener('mouseleave', function() { paused = false; });
+
+    (function tick() {
+        if (!paused) {
+            pos += speed;
+            if (pos >= originalH) pos = 0;
+            el.scrollTop = pos;
+        }
+        requestAnimationFrame(tick);
+    })();
+}
+
+initAutoScroll('ann-scroll', 0.5);
+initAutoScroll('evt-scroll', 0.5);
+</script>
+@endpush

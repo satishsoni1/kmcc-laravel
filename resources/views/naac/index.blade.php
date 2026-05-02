@@ -23,7 +23,7 @@
                 <div class="bg-gradient-to-r from-blue-900 to-blue-700 text-white rounded-xl p-6 text-center mb-6">
                     <p class="text-sm text-blue-200 mb-1">NAAC Accreditation Status</p>
                     <p class="text-5xl font-black text-yellow-400">A+</p>
-                    <p class="text-lg font-bold mt-1">Grade A+ | CGPA: 3.51/4.00</p>
+                    <p class="text-lg font-bold mt-1">Grade B+ | CGPA: 3.51/4.00</p>
                     <p class="text-blue-200 text-sm mt-1">3rd Cycle | Valid: 2022 – 2027</p>
                 </div>
                 <h3 class="font-bold text-blue-900 mb-3">NAAC Accreditation History</h3>

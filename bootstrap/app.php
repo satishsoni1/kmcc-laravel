@@ -19,6 +19,9 @@ return Application::configure(basePath: dirname(__DIR__))
             'admin'       => \App\Http\Middleware\EnsureIsAdmin::class,
             'np.auth'     => \App\Http\Middleware\NaacPortalAuth::class,
         ]);
+        $middleware->web(append: [
+            \App\Http\Middleware\CountVisitor::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

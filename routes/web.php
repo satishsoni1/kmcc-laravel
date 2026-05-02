@@ -37,9 +37,13 @@ use App\Http\Controllers\Admin\CollegeCommitteeController as AdminCollegeCommitt
 use App\Http\Controllers\Admin\ResearchArticleController as AdminResearchArticleController;
 use App\Http\Controllers\Admin\DepartmentController as AdminDepartmentController;
 use App\Http\Controllers\Admin\DepartmentGalleryController as AdminDepartmentGalleryController;
+use App\Http\Controllers\SearchController;
 
 // Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// Search
+Route::get('/search', [SearchController::class, 'index'])->name('search');
 
 // About Us
 Route::prefix('about')->name('about.')->group(function () {
@@ -50,6 +54,9 @@ Route::prefix('about')->name('about.')->group(function () {
     Route::get('/mission', [AboutController::class, 'mission'])->name('mission');
     Route::get('/goals-objectives', [AboutController::class, 'goals'])->name('goals');
     Route::get('/about-college', [AboutController::class, 'college'])->name('college');
+    Route::get('/chairmans-desk', [AboutController::class, 'chairmanDesk'])->name('chairman');
+    Route::get('/vcs-desk', [AboutController::class, 'vcDesk'])->name('vc');
+    Route::get('/principals-desk', [AboutController::class, 'principalDesk'])->name('principal');
     Route::get('/our-team', [AboutController::class, 'team'])->name('team');
     Route::get('/facilities', [AboutController::class, 'facilities'])->name('facilities');
     Route::get('/committees', [AboutController::class, 'committees'])->name('committees');
