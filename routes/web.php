@@ -34,6 +34,9 @@ use App\Http\Controllers\Admin\GrievanceController as AdminGrievanceController;
 use App\Http\Controllers\Admin\FeedbackAdminController as AdminFeedbackController;
 use App\Http\Controllers\Admin\ContactSubmissionController as AdminContactSubmissionController;
 use App\Http\Controllers\Admin\CollegeCommitteeController as AdminCollegeCommitteeController;
+use App\Http\Controllers\Admin\ResearchArticleController as AdminResearchArticleController;
+use App\Http\Controllers\Admin\DepartmentController as AdminDepartmentController;
+use App\Http\Controllers\Admin\DepartmentGalleryController as AdminDepartmentGalleryController;
 
 // Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -74,6 +77,7 @@ Route::prefix('academics')->name('academics.')->group(function () {
     Route::get('/calendar', [AcademicsController::class, 'calendar'])->name('calendar');
     Route::get('/programme-outcomes', [AcademicsController::class, 'outcomes'])->name('outcomes');
     Route::get('/departments', [AcademicsController::class, 'departments'])->name('departments');
+    Route::get('/stream/{group}', [AcademicsController::class, 'stream'])->name('stream');
     Route::get('/departments/{slug}', [AcademicsController::class, 'department'])->name('department');
     Route::get('/timetable', [AcademicsController::class, 'timetable'])->name('timetable');
     Route::get('/syllabus', [AcademicsController::class, 'syllabus'])->name('syllabus');
@@ -240,5 +244,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('contact-submissions/{contactSubmission}', [AdminContactSubmissionController::class, 'show'])->name('contact-submissions.show');
         Route::put('contact-submissions/{contactSubmission}', [AdminContactSubmissionController::class, 'update'])->name('contact-submissions.update');
         Route::delete('contact-submissions/{contactSubmission}', [AdminContactSubmissionController::class, 'destroy'])->name('contact-submissions.destroy');
+
+        Route::resource('research-articles', AdminResearchArticleController::class)->except(['show']);
+
+        Route::resource('departments', AdminDepartmentController::class)->except(['show']);
+        Route::get('department-gallery', [AdminDepartmentGalleryController::class, 'index'])->name('department-gallery.index');
+        Route::post('department-gallery', [AdminDepartmentGalleryController::class, 'store'])->name('department-gallery.store');
+        Route::delete('department-gallery/{departmentGallery}', [AdminDepartmentGalleryController::class, 'destroy'])->name('department-gallery.destroy');
     });
 });

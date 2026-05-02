@@ -268,6 +268,23 @@
                         </div>
                     </li>
 
+                    <li class="nav-item relative">
+                        <a href="{{ route('research.index') }}" class="nav-link text-white px-3 py-4 flex items-center gap-1 text-sm font-medium transition-colors {{ request()->routeIs('research.*') ? 'active' : '' }}">
+                            Research <i class="fas fa-chevron-down text-xs ml-0.5"></i>
+                        </a>
+                        <div class="dropdown-menu kmc-dropdown hidden absolute right-0 top-full bg-white shadow-xl z-50 min-w-[200px]">
+                            @foreach([
+                                ['Research Overview', 'research.index'],
+                                ['Publications',      'research.publications'],
+                                ['Projects',          'research.projects'],
+                                ['Collaborations',    'research.collaborations'],
+                            ] as [$label, $route])
+                            <a href="{{ route($route) }}" class="block px-4 py-2.5 text-sm text-gray-700 border-b border-gray-100 hover:bg-blue-50 transition-colors"
+                               onmouseover="this.style.color='var(--kmc-navy)'" onmouseout="this.style.color=''">{{ $label }}</a>
+                            @endforeach
+                        </div>
+                    </li>
+
                     <li>
                         <a href="{{ route('contact.index') }}" class="nav-link text-white px-3 py-4 block text-sm font-medium transition-colors {{ request()->routeIs('contact.*') ? 'active' : '' }}">
                             Contact

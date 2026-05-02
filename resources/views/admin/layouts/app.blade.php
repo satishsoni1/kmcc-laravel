@@ -87,6 +87,12 @@
             </a>
 
             <p class="sidebar-section-label">Academics</p>
+            <a href="{{ route('admin.departments.index') }}" class="nav-link {{ request()->routeIs('admin.departments.*') ? 'active' : '' }}">
+                <i class="fas fa-university icon"></i><span class="nav-label">Departments</span>
+            </a>
+            <a href="{{ route('admin.department-gallery.index') }}" class="nav-link {{ request()->routeIs('admin.department-gallery.*') ? 'active' : '' }}">
+                <i class="fas fa-images icon"></i><span class="nav-label">Dept. Gallery</span>
+            </a>
             <a href="{{ route('admin.academic-programmes.index') }}" class="nav-link {{ request()->routeIs('admin.academic-programmes.*') ? 'active' : '' }}">
                 <i class="fas fa-graduation-cap icon"></i><span class="nav-label">Programmes</span>
             </a>
@@ -143,6 +149,11 @@
             </a>
             <a href="{{ route('admin.college-committees.index') }}" class="nav-link {{ request()->routeIs('admin.college-committees.*') ? 'active' : '' }}">
                 <i class="fas fa-layer-group icon"></i><span class="nav-label">College Committees</span>
+            </a>
+
+            <p class="sidebar-section-label">Research</p>
+            <a href="{{ route('admin.research-articles.index') }}" class="nav-link {{ request()->routeIs('admin.research-articles.*') ? 'active' : '' }}">
+                <i class="fas fa-microscope icon"></i><span class="nav-label">Research Articles</span>
             </a>
 
             <p class="sidebar-section-label">System</p>

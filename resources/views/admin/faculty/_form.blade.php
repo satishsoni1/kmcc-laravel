@@ -19,10 +19,27 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
             <label class="block text-sm font-semibold text-gray-700 mb-1.5">Department <span class="text-red-500">*</span></label>
-            <input type="text" name="department" value="{{ old('department', $m?->department) }}" required
-                   class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#2d4077] transition"
-                   placeholder="e.g. Chemistry, Commerce">
+            <select name="department" required
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#2d4077] transition">
+                <option value="">— Select Department —</option>
+                @foreach($departments ?? [] as $dept)
+                <option value="{{ $dept->slug }}" {{ old('department', $m?->department) === $dept->slug ? 'selected' : '' }}>
+                    {{ $dept->name }}
+                </option>
+                @endforeach
+            </select>
         </div>
+        <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1.5">Staff Type <span class="text-red-500">*</span></label>
+            <select name="staff_type" required
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#2d4077] transition">
+                <option value="teaching"     {{ old('staff_type', $m?->staff_type ?? 'teaching') === 'teaching'     ? 'selected' : '' }}>Teaching Staff</option>
+                <option value="non_teaching" {{ old('staff_type', $m?->staff_type) === 'non_teaching' ? 'selected' : '' }}>Non-Teaching Staff</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
             <label class="block text-sm font-semibold text-gray-700 mb-1.5">Qualification</label>
             <input type="text" name="qualification" value="{{ old('qualification', $m?->qualification) }}"

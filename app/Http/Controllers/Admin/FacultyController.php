@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Department;
 use App\Models\Faculty;
 use Illuminate\Http\Request;
 
@@ -10,13 +11,14 @@ class FacultyController extends Controller
 {
     public function index()
     {
-        $faculty = Faculty::orderBy('department')->orderBy('order')->paginate(30);
+        $faculty = Faculty::orderBy('staff_type')->orderBy('department')->orderBy('order')->paginate(30);
         return view('admin.faculty.index', compact('faculty'));
     }
 
     public function create()
     {
-        return view('admin.faculty.create');
+        $departments = Department::active()->orderBy('order')->get();
+        return view('admin.faculty.create', compact('departments'));
     }
 
     public function store(Request $request)
@@ -25,6 +27,7 @@ class FacultyController extends Controller
             'name'             => 'required|string|max:255',
             'designation'      => 'required|string|max:255',
             'department'       => 'required|string|max:255',
+            'staff_type'       => 'required|in:teaching,non_teaching',
             'qualification'    => 'nullable|string|max:255',
             'specialization'   => 'nullable|string|max:255',
             'email'            => 'nullable|email|max:255',
@@ -50,7 +53,8 @@ class FacultyController extends Controller
 
     public function edit(Faculty $faculty)
     {
-        return view('admin.faculty.edit', compact('faculty'));
+        $departments = Department::active()->orderBy('order')->get();
+        return view('admin.faculty.edit', compact('faculty', 'departments'));
     }
 
     public function update(Request $request, Faculty $faculty)
@@ -59,6 +63,7 @@ class FacultyController extends Controller
             'name'             => 'required|string|max:255',
             'designation'      => 'required|string|max:255',
             'department'       => 'required|string|max:255',
+            'staff_type'       => 'required|in:teaching,non_teaching',
             'qualification'    => 'nullable|string|max:255',
             'specialization'   => 'nullable|string|max:255',
             'email'            => 'nullable|email|max:255',

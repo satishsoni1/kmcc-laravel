@@ -9,13 +9,14 @@ class Department extends Model
     protected $fillable = [
         'slug', 'name', 'faculty_group', 'icon', 'color',
         'established_year', 'about', 'vision', 'mission', 'goals',
-        'highlights', 'programmes_offered', 'intake_ug', 'intake_pg',
-        'has_phd', 'hod_name', 'is_active', 'order',
+        'highlights', 'programmes_offered', 'facilities',
+        'intake_ug', 'intake_pg', 'has_phd', 'hod_name', 'is_active', 'order',
     ];
 
     protected $casts = [
         'highlights'          => 'array',
         'programmes_offered'  => 'array',
+        'facilities'          => 'array',
         'has_phd'             => 'boolean',
         'is_active'           => 'boolean',
     ];
