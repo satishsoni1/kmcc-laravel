@@ -35,8 +35,10 @@
             <path d="M31 2 L58 14 L58 38 Q58 58 31 70 Q4 58 4 38 L4 14 Z" fill="white"/>
         </svg>
     </div>
-    <div class="relative max-w-7xl mx-auto px-4 py-20 md:py-28 flex flex-col md:flex-row items-center gap-10">
-        <div class="flex-1 text-center md:text-left">
+    <div class="relative max-w-7xl mx-auto px-4 py-16 md:py-24 flex flex-col md:flex-row items-center gap-8">
+
+        {{-- Left: College identity — always visible, exactly 50% on desktop --}}
+        <div class="w-full md:w-1/2 text-center md:text-left">
             <p class="font-semibold mb-1 tracking-wider text-xs uppercase" style="color: var(--kmc-gold);">Khalapur Taluka Shikshan Prasarak Mandal's</p>
             <h2 class="text-3xl md:text-5xl font-bold leading-tight mb-1" style="color: var(--kmc-gold);">
                 K.M.C. College Arts Science And Commerce
@@ -57,19 +59,69 @@
                 </a>
             </div>
         </div>
-        <div class="flex-shrink-0 grid grid-cols-2 gap-4 text-center">
-            @foreach([
-                [setting('total_students','2600+'), 'Students'],
-                ['45+', 'Years of Excellence'],
-                ['3', 'Faculties'],
-                ['10+', 'PG & PhD Programmes']
-            ] as [$num, $label])
-            <div class="bg-white/10 backdrop-blur border border-white/20 rounded-xl p-5">
-                <p class="text-3xl font-bold" style="color: var(--kmc-gold);">{{ $num }}</p>
-                <p class="text-sm text-white mt-1">{{ $label }}</p>
+
+        {{-- Right: Banner carousel (if uploaded) OR stats grid — exactly 50% on desktop --}}
+        <div class="w-full md:w-1/2">
+            @if($banners->count())
+            {{-- Image carousel fills the full right half --}}
+            <div id="hero-slider" class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 w-full" style="height:300px;">
+                @foreach($banners as $i => $banner)
+                <div class="hero-slide absolute inset-0 transition-opacity duration-700 {{ $i === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0' }}">
+                    <img src="{{ asset('storage/'.$banner->image_path) }}"
+                         alt="{{ $banner->title }}"
+                         class="w-full h-full object-cover">
+                    {{-- Optional caption overlay --}}
+                    @if($banner->title || $banner->button_text)
+                    <div class="absolute bottom-0 left-0 right-0 p-4" style="background: linear-gradient(to top, rgba(0,0,0,0.65), transparent);">
+                        @if($banner->title)
+                        <p class="text-white text-sm font-semibold leading-tight">{{ $banner->title }}</p>
+                        @endif
+                        @if($banner->button_text && $banner->button_link)
+                        <a href="{{ $banner->button_link }}"
+                           class="inline-block mt-1.5 text-xs font-bold px-3 py-1 rounded-lg text-black"
+                           style="background-color: var(--kmc-gold);">
+                            {{ $banner->button_text }}
+                        </a>
+                        @endif
+                    </div>
+                    @endif
+                </div>
+                @endforeach
+
+                @if($banners->count() > 1)
+                {{-- Prev / Next arrows --}}
+                <button onclick="sliderPrev()" class="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center transition-colors text-xs">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button onclick="sliderNext()" class="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center transition-colors text-xs">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                {{-- Dots --}}
+                <div class="absolute bottom-2 right-3 z-20 flex gap-1.5">
+                    @foreach($banners as $i => $banner)
+                    <button onclick="sliderGoto({{ $i }})" class="slider-dot w-2 h-2 rounded-full transition-colors {{ $i === 0 ? 'bg-white' : 'bg-white/40' }}"></button>
+                    @endforeach
+                </div>
+                @endif
             </div>
-            @endforeach
+            @else
+            {{-- Stats grid fallback --}}
+            <div class="grid grid-cols-2 gap-4 text-center">
+                @foreach([
+                    [setting('total_students','2600+'), 'Students'],
+                    ['45+', 'Years of Excellence'],
+                    ['3', 'Faculties'],
+                    ['10+', 'PG & PhD Programmes']
+                ] as [$num, $label])
+                <div class="bg-white/10 backdrop-blur border border-white/20 rounded-xl p-5">
+                    <p class="text-3xl font-bold" style="color: var(--kmc-gold);">{{ $num }}</p>
+                    <p class="text-sm text-white mt-1">{{ $label }}</p>
+                </div>
+                @endforeach
+            </div>
+            @endif
         </div>
+
     </div>
 </section>
 
@@ -391,6 +443,47 @@
     </div>
 </section>
 
+{{-- Gallery Preview --}}
+@if($galleryItems->count())
+<section class="py-14 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex items-end justify-between mb-8">
+            <div>
+                <p class="font-semibold mb-1 uppercase text-sm tracking-wider" style="color: var(--kmc-gold-dark);">Campus Life</p>
+                <h2 class="text-3xl font-bold" style="color: var(--kmc-navy);">Photo Gallery</h2>
+                <div class="w-16 h-1 mt-3 rounded" style="background-color: var(--kmc-gold);"></div>
+            </div>
+            <a href="{{ route('gallery.index') }}"
+               class="text-sm font-semibold flex items-center gap-1 transition-opacity hover:opacity-70"
+               style="color: var(--kmc-navy);">
+                View All Photos <i class="fas fa-arrow-right ml-1"></i>
+            </a>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+            @foreach($galleryItems as $item)
+            <a href="{{ route('gallery.index') }}"
+               class="group relative aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all hover:-translate-y-0.5 block">
+                <img src="{{ asset('storage/'.$item->image_path) }}"
+                     alt="{{ $item->title }}"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                     loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                    <p class="text-white text-xs font-semibold leading-tight">{{ $item->title }}</p>
+                </div>
+            </a>
+            @endforeach
+        </div>
+        <div class="text-center mt-8">
+            <a href="{{ route('gallery.index') }}"
+               class="inline-block text-white font-semibold px-8 py-3 rounded-lg transition-opacity hover:opacity-90 text-sm"
+               style="background-color: var(--kmc-navy);">
+                <i class="fas fa-images mr-2"></i>Browse Full Gallery
+            </a>
+        </div>
+    </div>
+</section>
+@endif
+
 @endsection
 
 @push('scripts')
@@ -424,5 +517,30 @@ function initAutoScroll(id, speed) {
 
 initAutoScroll('ann-scroll', 0.5);
 initAutoScroll('evt-scroll', 0.5);
+
+// Hero banner slider
+(function () {
+    var slides = document.querySelectorAll('.hero-slide');
+    var dots   = document.querySelectorAll('.slider-dot');
+    if (!slides.length) return;
+    var current = 0, total = slides.length, timer;
+
+    function goTo(n) {
+        slides[current].classList.replace('opacity-100', 'opacity-0');
+        slides[current].classList.replace('z-10', 'z-0');
+        if (dots[current]) dots[current].classList.replace('bg-white', 'bg-white/40');
+        current = (n + total) % total;
+        slides[current].classList.replace('opacity-0', 'opacity-100');
+        slides[current].classList.replace('z-0', 'z-10');
+        if (dots[current]) dots[current].classList.replace('bg-white/40', 'bg-white');
+    }
+
+    window.sliderNext = function () { clearInterval(timer); goTo(current + 1); startAuto(); };
+    window.sliderPrev = function () { clearInterval(timer); goTo(current - 1); startAuto(); };
+    window.sliderGoto = function (n) { clearInterval(timer); goTo(n); startAuto(); };
+
+    function startAuto() { timer = setInterval(function () { goTo(current + 1); }, 5000); }
+    if (total > 1) startAuto();
+})();
 </script>
 @endpush

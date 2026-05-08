@@ -37,6 +37,7 @@ use App\Http\Controllers\Admin\CollegeCommitteeController as AdminCollegeCommitt
 use App\Http\Controllers\Admin\ResearchArticleController as AdminResearchArticleController;
 use App\Http\Controllers\Admin\DepartmentController as AdminDepartmentController;
 use App\Http\Controllers\Admin\DepartmentGalleryController as AdminDepartmentGalleryController;
+use App\Http\Controllers\Admin\BannerController as AdminBannerController;
 use App\Http\Controllers\SearchController;
 
 // Home
@@ -200,6 +201,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('events', AdminEventController::class)->except(['show']);
         Route::resource('faculty', AdminFacultyController::class)->except(['show']);
         Route::resource('gallery', AdminGalleryController::class)->only(['index', 'create', 'store', 'destroy']);
+        Route::resource('banners', AdminBannerController::class)->except(['show']);
         Route::resource('downloads', AdminDownloadController::class)->only(['index', 'create', 'store', 'destroy']);
 
         Route::resource('committees', AdminCommitteeController::class)->except(['show']);

@@ -79,6 +79,9 @@
             <a href="{{ route('admin.events.index') }}" class="nav-link {{ request()->routeIs('admin.events.*') ? 'active' : '' }}">
                 <i class="fas fa-calendar-alt icon"></i><span class="nav-label">Events</span>
             </a>
+            <a href="{{ route('admin.banners.index') }}" class="nav-link {{ request()->routeIs('admin.banners.*') ? 'active' : '' }}">
+                <i class="fas fa-sliders-h icon"></i><span class="nav-label">Banner Slides</span>
+            </a>
             <a href="{{ route('admin.gallery.index') }}" class="nav-link {{ request()->routeIs('admin.gallery.*') ? 'active' : '' }}">
                 <i class="fas fa-images icon"></i><span class="nav-label">Gallery</span>
             </a>
