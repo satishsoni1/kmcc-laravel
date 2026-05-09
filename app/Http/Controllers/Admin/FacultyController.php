@@ -11,7 +11,7 @@ class FacultyController extends Controller
 {
     public function index()
     {
-        $faculty = Faculty::orderBy('staff_type')->orderBy('department')->orderBy('order')->paginate(30);
+        $faculty = Faculty::orderBy('staff_type')->orderBy('department')->orderBy('order')->paginate(100);
         return view('admin.faculty.index', compact('faculty'));
     }
 

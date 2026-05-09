@@ -23,7 +23,7 @@
                     class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#2d4077] transition">
                 <option value="">— Select Department —</option>
                 @foreach($departments ?? [] as $dept)
-                <option value="{{ $dept->slug }}" {{ old('department', $m?->department) === $dept->slug ? 'selected' : '' }}>
+                <option value="{{ $dept->name }}" {{ old('department', $m?->department) === $dept->name ? 'selected' : '' }}>
                     {{ $dept->name }}
                 </option>
                 @endforeach

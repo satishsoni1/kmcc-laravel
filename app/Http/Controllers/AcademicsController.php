@@ -49,16 +49,16 @@ class AcademicsController extends Controller
     {
         return redirect()->route('academics.index');
     }
-
+    
     public function department(string $slug)
     {
         $dept        = Department::where('slug', $slug)->where('is_active', true)->firstOrFail();
         $streamInfo  = self::STREAMS[$dept->faculty_group] ?? ['label' => 'Academics'];
         $streamLabel = $streamInfo['label'];
 
-        $teaching    = Faculty::where('department', $slug)->where('is_active', true)
+        $teaching    = Faculty::where('department', $dept->name)->where('is_active', true)
                            ->where('staff_type', 'teaching')->orderBy('order')->get();
-        $nonTeaching = Faculty::where('department', $slug)->where('is_active', true)
+        $nonTeaching = Faculty::where('department', $dept->name)->where('is_active', true)
                            ->where('staff_type', 'non_teaching')->orderBy('order')->get();
         $research    = ResearchArticle::active()->where('department_slug', $slug)
                            ->orderBy('year', 'desc')->orderBy('id', 'desc')->get();
