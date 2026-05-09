@@ -285,13 +285,14 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             @foreach([
-                ['Chairman', 'मा. श्री. संतोष गुरुनाथ जंगम', 'अध्यक्ष – खालापूर तालुका शिक्षण प्रसारक मंडळ, खोपोली', '"शैक्षणिक वर्ष २०२५–२६ मध्ये खालापूर तालुका शिक्षण प्रसारक मंडळाच्या के.एम.सी. महाविद्यालयात प्रवेश घेणाऱ्या सर्व विद्यार्थ्यांचे मनःपूर्वक अभिनंदन व स्वागत. बदलत्या व स्पर्धात्मक युगामध्ये उत्कृष्ट व दर्जेदार शिक्षण घेणे अत्यंत गरजेचे आहे. आपल्या महाविद्यालयात विद्यार्थ्यांच्या सर्वांगीण विकासासाठी आवश्यक ते सर्व प्रयत्न केले जात आहेत. महाविद्यालयाने शैक्षणिक क्षेत्रात उल्लेखनीय प्रगती साधली असून विद्यार्थ्यांना उत्तम मार्गदर्शन मिळत आहे."','about.chairman'],
-                ['Principal', setting('principal_name','Dr. Dayanand Prabhu Gaikwad'), 'I/c Principal, K.M.C. College Khopoli', '"A correct career choice is the key to life development. K.M.C. College strives to provide students the knowledge, skills and values needed to succeed in their chosen careers. With experienced faculty, necessary infrastructure and a supportive academic environment, we are committed to delivering quality education to all our students."','about.principal'],
-            ] as [$role, $name, $title, $message,$link])
+                ['Chairman', 'chairman.png','मा. श्री. संतोष गुरुनाथ जंगम', 'अध्यक्ष – खालापूर तालुका शिक्षण प्रसारक मंडळ, खोपोली', '"शैक्षणिक वर्ष २०२५–२६ मध्ये खालापूर तालुका शिक्षण प्रसारक मंडळाच्या के.एम.सी. महाविद्यालयात प्रवेश घेणाऱ्या सर्व विद्यार्थ्यांचे मनःपूर्वक अभिनंदन व स्वागत. बदलत्या व स्पर्धात्मक युगामध्ये उत्कृष्ट व दर्जेदार शिक्षण घेणे अत्यंत गरजेचे आहे. आपल्या महाविद्यालयात विद्यार्थ्यांच्या सर्वांगीण विकासासाठी आवश्यक ते सर्व प्रयत्न केले जात आहेत. महाविद्यालयाने शैक्षणिक क्षेत्रात उल्लेखनीय प्रगती साधली असून विद्यार्थ्यांना उत्तम मार्गदर्शन मिळत आहे."','about.chairman'],
+                ['Principal', 'principal.png', setting('principal_name','Dr. Dayanand Prabhu Gaikwad'), 'I/c Principal, K.M.C. College Khopoli', '"A correct career choice is the key to life development. K.M.C. College strives to provide students the knowledge, skills and values needed to succeed in their chosen careers. With experienced faculty, necessary infrastructure and a supportive academic environment, we are committed to delivering quality education to all our students."','about.principal'],
+            ] as [$role, $image, $name, $title, $message,$link])
             <div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col md:flex-row">
                 <div class="text-white p-4 flex flex-col items-center justify-center md:w-48 flex-shrink-0" style="background-color: var(--kmc-navy);">
                     <div class="w-20 h-20 rounded-full flex items-center justify-center mb-3" style="background-color: var(--kmc-navy-mid);">
-                        <i class="fas fa-user-tie text-3xl" style="color: var(--kmc-gold);"></i>
+                        <!-- <i class="fas fa-user-tie text-3xl" style="color: var(--kmc-gold);"></i> -->
+                         <img src="{{ asset('storage/' . $image) }}" alt="{{ $role }} Image" class="w-full h-full object-cover rounded-full">
                     </div>
                     <p class="font-bold text-sm text-center">{{ $name }}</p>
                     <p class="text-xs text-blue-300 text-center mt-1">{{ $title }}</p>
