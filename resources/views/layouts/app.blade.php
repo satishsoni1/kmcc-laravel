@@ -143,10 +143,7 @@
                         <div class="dropdown-menu kmc-dropdown hidden absolute left-0 top-full bg-white shadow-xl z-50 min-w-[230px]">
                             @foreach([
                                 ['Governing Body', 'governance.governing-body'],
-                                ['Finance Committee', 'governance.finance-committee'],
-                                ['Autonomy Committee', 'governance.autonomy'],
-                                ['Academic Council', 'governance.academic-council'],
-                                ['Board of Studies', 'governance.board-of-studies'],
+                                ['Purchase Committee', 'governance.finance-committee'],
                                 ['College Development Committee', 'governance.cdc'],
                             ] as [$label, $route])
                             <a href="{{ route($route) }}" class="block px-4 py-2.5 text-sm text-gray-700 border-b border-gray-100 hover:bg-blue-50 transition-colors"

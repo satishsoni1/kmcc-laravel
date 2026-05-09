@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="text-center sm:text-left">
-                        <h2 class="text-2xl font-bold mb-1" style="color: var(--kmc-navy);">Dr. / Prof. [Principal Name]</h2>
+                        <h2 class="text-2xl font-bold mb-1" style="color: var(--kmc-navy);">Dr. Makrand S. Wazal</h2>
                         <p class="text-base font-semibold mb-1" style="color: var(--kmc-crimson);">Principal</p>
                         <p class="text-sm text-gray-600 mb-3">K.M.C. College, Khopoli</p>
                         <div class="flex flex-wrap justify-center sm:justify-start gap-2">
@@ -77,7 +77,7 @@
                         <i class="fas fa-signature"></i>
                     </div>
                     <div>
-                        <p class="font-bold text-gray-800">Dr. / Prof. [Principal Name]</p>
+                        <p class="font-bold text-gray-800">Dr. Makrand S. Wazal</p>
                         <p class="text-sm text-gray-500">Principal, K.M.C. College, Khopoli</p>
                     </div>
                 </div>

@@ -40,7 +40,7 @@
                         '1957 — K.T.S.P. Mandal Established',
                         '1979 — K.M.C. College, Khopoli Founded',
                         '2012–13 — Best College Award, University of Mumbai',
-                        '2023 — NAAC Reaccreditation B+ Grade (3rd Cycle)',
+                        '2022 — NAAC Reaccreditation B+ Grade (3rd Cycle)',
                     ] as $milestone)
                     <div class="flex items-center gap-3 bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm font-medium" style="color: var(--kmc-navy);">
                         <i class="fas fa-flag text-xs flex-shrink-0" style="color: var(--kmc-gold-dark);"></i>

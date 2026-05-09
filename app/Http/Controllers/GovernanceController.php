@@ -58,7 +58,9 @@ class GovernanceController extends Controller
     public function otherCommittees()
     {
         $committees = CollegeCommittee::with(['activeMembers'])
-            ->active()->forCategory('other')->orderBy('sort_order')->get();
+            ->active()->forCategory('other')
+            ->where('name', '!=', 'Purchase Committee')
+            ->orderBy('sort_order')->get();
         return view('governance.other-committees', compact('committees'));
     }
 }

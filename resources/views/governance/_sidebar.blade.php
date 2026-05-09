@@ -4,10 +4,7 @@
         @php
         $navItems = [
             ['Governing Body',              route('governance.governing-body')],
-            ['Finance Committee',           route('governance.finance-committee')],
-            ['Autonomy Committee',          route('governance.autonomy')],
-            ['Academic Council',            route('governance.academic-council')],
-            ['Board of Studies',            route('governance.board-of-studies')],
+            ['Purchase Committee',          route('governance.finance-committee')],
             ['College Development Committee', route('governance.cdc')],
         ];
         @endphp
