@@ -23,7 +23,7 @@ class AdminSeeder extends Seeder
 
         // Seed default site settings
         $settings = [
-            ['key' => 'college_name',       'value' => 'K.M.C. College',                          'type' => 'text',     'label' => 'College Name',          'group' => 'general'],
+            ['key' => 'college_name',       'value' => 'K.M.C. College of Arts, Science and Commerce Khopoli', 'type' => 'text',     'label' => 'College Name',          'group' => 'general'],
             ['key' => 'college_tagline',     'value' => 'Khalapur Taluka Shikshan Prasarak Mandal\'s',       'type' => 'text',     'label' => 'College Tagline',       'group' => 'general'],
             ['key' => 'college_motto',       'value' => 'TEJ • GATI • SHAKTI',                               'type' => 'text',     'label' => 'College Motto',         'group' => 'general'],
             ['key' => 'naac_grade',          'value' => "NAAC Reaccredited 'B+' Grade (3rd Cycle)",          'type' => 'text',     'label' => 'NAAC Status',           'group' => 'general'],
@@ -32,7 +32,7 @@ class AdminSeeder extends Seeder
             ['key' => 'chairman_name',       'value' => 'Shri. Santosh Gurunath Jangam',                     'type' => 'text',     'label' => 'Chairman Name',         'group' => 'general'],
             ['key' => 'phone',               'value' => '95116 16009',                                       'type' => 'text',     'label' => 'Phone Number',          'group' => 'contact'],
             ['key' => 'email',               'value' => 'college_kmc@yahoo.co.in',                           'type' => 'text',     'label' => 'Email Address',         'group' => 'contact'],
-            ['key' => 'website',             'value' => 'kmcc.edu.in',                                       'type' => 'text',     'label' => 'Website',               'group' => 'contact'],
+            ['key' => 'website',             'value' => 'kmccollege.in',                                       'type' => 'text',     'label' => 'Website',               'group' => 'contact'],
             ['key' => 'address',             'value' => 'K.M.C. College, Khopoli, Dist. Raigad, Maharashtra','type' => 'textarea', 'label' => 'Address',               'group' => 'contact'],
             ['key' => 'anti_ragging_number', 'value' => '1800-180-5522',                                     'type' => 'text',     'label' => 'Anti-Ragging Helpline', 'group' => 'contact'],
             ['key' => 'facebook_url',        'value' => '',                                                  'type' => 'text',     'label' => 'Facebook URL',          'group' => 'social'],
