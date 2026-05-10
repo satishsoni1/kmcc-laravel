@@ -54,10 +54,11 @@
                             <p class="font-semibold text-blue-900 text-sm leading-snug mb-1">{{ $art->title }}</p>
                             <p class="text-sm text-gray-700 mb-2">{{ $art->authors }}</p>
                             <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-gray-500">
-                                <span class="italic text-gray-600 font-medium">{{ $art->journal_name }}</span>
-                                @if($art->volume)<span>Vol. {{ $art->volume }}</span>@endif
-                                @if($art->issue)<span>Issue {{ $art->issue }}</span>@endif
-                                @if($art->page_no)<span>pp. {{ $art->page_no }}</span>@endif
+                                <span class="italic text-gray-600 font-medium">{{ $art->journal_name }}</span>&nbsp;
+                                <span>{{ $year }}</span>&nbsp;
+                                @if($art->volume)<span>Vol. {{ $art->volume }}</span>&nbsp;@endif
+                                @if($art->issue)<span>Issue {{ $art->issue }}</span>&nbsp;@endif
+                                @if($art->page_no)<span>pp. {{ $art->page_no }}</span>&nbsp;@endif
                             </div>
                             <div class="mt-2 flex flex-wrap items-center gap-2">
                                 @if($art->doi)

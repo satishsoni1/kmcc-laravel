@@ -47,7 +47,7 @@
                     </div>
                     <div class="flex items-center gap-3">
                         <i class="fas fa-globe flex-shrink-0" style="color:var(--kmc-gold);"></i>
-                        <span>{{ setting('website','kmcc.edu.in') }}</span>
+                        <span>{{ setting('website','kmccollege.in') }}</span>
                     </div>
                 </div>
             </div>

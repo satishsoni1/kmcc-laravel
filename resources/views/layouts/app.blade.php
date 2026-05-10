@@ -57,7 +57,7 @@
             <div class="flex items-center gap-4">
                 <span><i class="fas fa-phone-alt mr-1" style="color: var(--kmc-gold);"></i>{{ setting('phone', '95116 16009') }}</span>
                 <span class="hidden sm:inline"><i class="fas fa-envelope mr-1" style="color: var(--kmc-gold);"></i>{{ setting('email', 'college_kmc@yahoo.co.in') }}</span>
-                <span class="hidden md:inline"><i class="fas fa-globe mr-1" style="color: var(--kmc-gold);"></i>{{ setting('website', 'kmcc.edu.in') }}</span>
+                <span class="hidden md:inline"><i class="fas fa-globe mr-1" style="color: var(--kmc-gold);"></i>{{ setting('website', 'kmccollege.in') }}</span>
             </div>
             <div class="flex items-center gap-3">
                 <span class="hidden md:inline text-gray-300">Follow Us:</span>
@@ -418,7 +418,7 @@
                         </li>
                         <li class="flex items-center gap-2">
                             <i class="fas fa-globe flex-shrink-0" style="color: var(--kmc-gold);"></i>
-                            <span>{{ setting('website', 'kmcc.edu.in') }}</span>
+                            <span>{{ setting('website', 'kmccollege.in') }}</span>
                         </li>
                     </ul>
                     <div class="mt-4 pt-4 border-t" style="border-color: var(--kmc-navy);">

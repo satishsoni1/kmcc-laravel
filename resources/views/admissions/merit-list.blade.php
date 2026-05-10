@@ -37,7 +37,7 @@
                     @foreach([
                         ['fas fa-building', 'College Notice Board', 'Merit lists are posted on the main college notice board. Visit the college and check the board on the announced date.'],
                         ['fas fa-whatsapp', 'WhatsApp Groups', 'Join the official college WhatsApp group to receive merit list notifications directly on your phone. Contact the office to join.'],
-                        ['fas fa-globe', 'College Website', 'When available, merit lists may also be published on the college website at kmcc.edu.in. Keep checking regularly.'],
+                        ['fas fa-globe', 'College Website', 'When available, merit lists may also be published on the college website at kmccollege.in. Keep checking regularly.'],
                         ['fas fa-phone-alt', 'Contact College Office', 'If you are unable to check in person, call the college at 95116 16009 during office hours to confirm your status.'],
                     ] as [$icon, $title, $desc])
                     <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-xl border border-gray-200">

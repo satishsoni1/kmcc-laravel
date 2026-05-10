@@ -30,7 +30,7 @@ class NaacPortalSeeder extends Seeder
             'state'                   => 'Maharashtra',
             'pin'                     => '410203',
             'phone'                   => '02192-261234',
-            'email'                   => 'iqac@kmcc.edu.in',
+            'email'                   => 'iqac@kmccollege.in',
             'website'                 => 'https://www.kmcckopoli.edu.in',
             'principal_name'          => 'Dr. Suresh Wagh',
             'iqac_coordinator_name'   => 'Dr. Priya Deshmukh',
@@ -53,13 +53,13 @@ class NaacPortalSeeder extends Seeder
         // ── 2. Departments ─────────────────────────────────────────────────────
         $deptIds = [];
         foreach ([
-            ['Mathematics', 'MATH', 'Dr. A.K. Sharma', 'hod.math@kmcc.edu.in', 8, 320],
-            ['Physics',     'PHY',  'Dr. R.M. Patil',  'hod.phy@kmcc.edu.in',  6, 260],
-            ['Chemistry',   'CHEM', 'Dr. S.V. Joshi',  'hod.chem@kmcc.edu.in', 7, 280],
-            ['Commerce',    'COM',  'Prof. N.D. More',  'hod.com@kmcc.edu.in',  10, 480],
-            ['Economics',   'ECO',  'Prof. K.R. Naik',  'hod.eco@kmcc.edu.in',  5, 200],
-            ['English',     'ENG',  'Dr. M.S. Gaikwad', 'hod.eng@kmcc.edu.in',  6, 210],
-            ['BMS',         'BMS',  'Prof. D.P. Rane',  'hod.bms@kmcc.edu.in',  4, 120],
+            ['Mathematics', 'MATH', 'Dr. A.K. Sharma', 'hod.math@kmccollege.in', 8, 320],
+            ['Physics',     'PHY',  'Dr. R.M. Patil',  'hod.phy@kmccollege.in',  6, 260],
+            ['Chemistry',   'CHEM', 'Dr. S.V. Joshi',  'hod.chem@kmccollege.in', 7, 280],
+            ['Commerce',    'COM',  'Prof. N.D. More',  'hod.com@kmccollege.in',  10, 480],
+            ['Economics',   'ECO',  'Prof. K.R. Naik',  'hod.eco@kmccollege.in',  5, 200],
+            ['English',     'ENG',  'Dr. M.S. Gaikwad', 'hod.eng@kmccollege.in',  6, 210],
+            ['BMS',         'BMS',  'Prof. D.P. Rane',  'hod.bms@kmccollege.in',  4, 120],
         ] as [$name, $code, $hod, $email, $faculty, $students]) {
             $deptIds[$code] = DB::table('np_departments')->insertGetId([
                 'college_id'    => $collegeId,

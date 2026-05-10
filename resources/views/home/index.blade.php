@@ -41,7 +41,7 @@
         <div class="w-full md:w-1/2 text-center md:text-left">
             <p class="font-semibold mb-1 tracking-wider text-xs uppercase" style="color: var(--kmc-gold);">Khalapur Taluka Shikshan Prasarak Mandal's</p>
             <h2 class="text-3xl md:text-5xl font-bold leading-tight mb-1" style="color: var(--kmc-gold);">
-                K.M.C. College Arts Science And Commerce
+                K.M.C. College of Arts, Science and Commerce Khopoli
             </h2>
             <p class="text-sm font-semibold tracking-widest mb-3" style="color: var(--kmc-gold);">TEJ &bull; GATI &bull; SHAKTI</p>
             <p class="text-white text-lg mb-2 max-w-xl">
@@ -373,10 +373,10 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             @foreach([
-                ['fas fa-theater-masks', 'Faculty of Arts', ['B.A. (English)', 'B.A. (History)', 'B.A. (Geography)', 'B.A. (Marathi)', 'B.A. (Political Science)'], 'var(--kmc-navy)'],
+                ['fas fa-theater-masks', 'Faculty of Arts', ['B.A. (English)', 'B.A. (History)', 'B.A. (Geography)', 'B.A. (Marathi)', 'B. A. (Psychology)'], 'var(--kmc-navy)'],
                 ['fas fa-chart-line', 'Faculty of Commerce', ['B.Com.', 'BAF (Accounting & Finance)', 'BBI (Banking & Insurance)', 'M.Com. (Advanced Accounting)', 'Ph.D. in Commerce'], '#1b5e20'],
-                ['fas fa-flask', 'Faculty of Science', ['B.Sc. (Physics / Chemistry / Maths)', 'B.Sc. Computer Science', 'B.Sc. IT', 'M.Sc. (Organic & Inorganic Chemistry)', 'M.Sc. (Computer Science)'], '#4a148c'],
-                ['fas fa-graduation-cap', 'Postgraduate & Ph.D.', ['M.Sc. Physics (20 Seats)', 'M.Com.', 'M.Sc. Computer Science', 'Ph.D. Chemistry', 'Ph.D. Commerce / Physics / Geography'], '#bf360c'],
+                ['fas fa-flask', 'Faculty of Science', ['B. Sc. (Chemistry)', 'B. Sc. (Physics)', 'B.Sc. Computer Science', 'B.Sc. IT', 'M.Sc. (Chemistry)', 'M.Sc. (Computer Science)', 'M. Sc. (Physics)'], '#4a148c'],
+                ['fas fa-graduation-cap', 'Postgraduate & Ph.D.', ['M.Sc. Physics', 'M.Com.', 'M.Sc. Computer Science', 'Ph.D. Chemistry', 'Ph.D. Commerce'], '#bf360c'],
             ] as [$icon, $faculty, $courses, $bg])
             <div class="bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="text-white p-5 text-center" style="background-color: {{ $bg }};">
