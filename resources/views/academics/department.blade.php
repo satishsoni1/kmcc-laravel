@@ -85,7 +85,7 @@
                     @endif
 
                     @if($dept->vision || $dept->mission || $dept->goals)
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         @if($dept->vision)
                         <div class="bg-blue-50 border border-blue-100 rounded-xl p-5">
                             <div class="flex items-center gap-2 mb-2">
@@ -113,10 +113,9 @@
                             <p class="text-gray-600 text-sm leading-relaxed">{{ $dept->goals }}</p>
                         </div>
                         @endif
-                    </div>
+                    </div> -->
                     @endif
-
-                    @if($dept->highlights && count($dept->highlights))
+                    @if(is_array($dept->highlights) && count($dept->highlights) > 0)
                     <div>
                         <h4 class="font-bold text-blue-900 mb-3 text-sm">Department Highlights</h4>
                         <ul class="space-y-2">
@@ -136,7 +135,7 @@
 
             {{-- 2. Programmes Offered --}}
             <div id="tab-programmes" class="dept-tab-panel hidden">
-                @if($dept->programmes_offered && count($dept->programmes_offered))
+                    @if(is_array($dept->programmes_offered) && count($dept->programmes_offered) > 0)
                 <h3 class="text-lg font-bold text-blue-900 mb-4">Programmes Offered</h3>
                 <div class="overflow-x-auto rounded-xl border border-gray-200">
                     <table class="w-full text-sm">
@@ -172,7 +171,7 @@
             {{-- 3. Teaching Staff --}}
             <div id="tab-teaching" class="dept-tab-panel hidden">
                 <h3 class="text-lg font-bold text-blue-900 mb-4">Teaching Staff</h3>
-                @if($teaching->isNotEmpty())
+                @if(is_array($teaching) && count($teaching) > 0)
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     @foreach($teaching as $member)
                     <div class="flex items-start gap-3 p-4 border border-gray-100 rounded-xl hover:shadow-sm transition-shadow bg-gray-50">
@@ -201,7 +200,7 @@
             {{-- 4. Non-Teaching Staff --}}
             <div id="tab-nonteaching" class="dept-tab-panel hidden">
                 <h3 class="text-lg font-bold text-blue-900 mb-4">Non-Teaching Staff</h3>
-                @if($nonTeaching->isNotEmpty())
+                @if(is_array($nonTeaching) && count($nonTeaching) > 0)
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     @foreach($nonTeaching as $member)
                     <div class="flex items-start gap-3 p-4 border border-gray-100 rounded-xl hover:shadow-sm transition-shadow bg-gray-50">
@@ -228,11 +227,11 @@
             <div id="tab-research" class="dept-tab-panel hidden">
                 <div class="flex items-center justify-between mb-4">
                     <h3 class="text-lg font-bold text-blue-900">Research Publications</h3>
-                    @if($research->isNotEmpty())
+                    @if(is_array($research) && count($research) > 0)
                     <a href="{{ route('research.publications') }}" class="text-xs text-blue-600 hover:underline">View all college publications &rarr;</a>
                     @endif
                 </div>
-                @if($research->isNotEmpty())
+                @if(is_array($research) && count($research) > 0)
                 <div class="space-y-4">
                     @foreach($research as $art)
                     <div class="border border-gray-200 rounded-xl p-5 hover:shadow-sm transition-shadow">
@@ -281,7 +280,7 @@
             {{-- 7. Gallery --}}
             <div id="tab-gallery" class="dept-tab-panel hidden">
                 <h3 class="text-lg font-bold text-blue-900 mb-4">Gallery</h3>
-                @if($gallery->isNotEmpty())
+                @if(is_array($gallery) && count($gallery) > 0)
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
                     @foreach($gallery as $photo)
                     <div class="rounded-xl overflow-hidden border border-gray-200 group cursor-pointer" onclick="openLightbox('{{ asset('storage/'.$photo->image_path) }}', '{{ addslashes($photo->caption ?? '') }}')">

@@ -57,6 +57,7 @@ Route::prefix('about')->name('about.')->group(function () {
     Route::get('/about-college', [AboutController::class, 'college'])->name('college');
     Route::get('/chairmans-desk', [AboutController::class, 'chairmanDesk'])->name('chairman');
     Route::get('/vcs-desk', [AboutController::class, 'vcDesk'])->name('vc');
+    Route::get('/secretarys-desk', [AboutController::class, 'secretaryDesk'])->name('secretary');
     Route::get('/principals-desk', [AboutController::class, 'principalDesk'])->name('principal');
     Route::get('/our-team', [AboutController::class, 'team'])->name('team');
     Route::get('/facilities', [AboutController::class, 'facilities'])->name('facilities');

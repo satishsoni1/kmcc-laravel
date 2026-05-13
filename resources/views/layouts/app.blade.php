@@ -116,7 +116,8 @@
                         <div class="dropdown-menu kmc-dropdown hidden absolute left-0 top-full bg-white shadow-xl z-50 min-w-[230px]">
                             @foreach([
                                 ['From Chairman\'s Desk', 'about.chairman'],
-                                ['From VP\'s Desk', 'about.vc'],
+                                ['From Secretary\'s Desk', 'about.secretary'],
+                                ['From Desk of Vice-chairman-CDC', 'about.vc'],
                                 ['From Principal\'s Desk', 'about.principal'],
                                 ['About K.T.S.P.', 'about.sanstha'],
                                 ['About Emblem', 'about.emblem'],
