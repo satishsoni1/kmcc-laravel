@@ -375,7 +375,7 @@
             @foreach([
                 ['fas fa-theater-masks', 'Faculty of Arts', ['B.A. (English)', 'B.A. (History)', 'B.A. (Geography)', 'B.A. (Marathi)', 'B. A. (Psychology)'], 'var(--kmc-navy)'],
                 ['fas fa-chart-line', 'Faculty of Commerce', ['B.Com.', 'BAF (Accounting & Finance)', 'BBI (Banking & Insurance)', 'M.Com. (Advanced Accounting)', 'Ph.D. in Commerce'], '#1b5e20'],
-                ['fas fa-flask', 'Faculty of Science', ['B. Sc. (Chemistry)', 'B. Sc. (Physics)', 'B.Sc. Computer Science', 'B.Sc. IT', 'M.Sc. (Chemistry)', 'M.Sc. (Computer Science)', 'M. Sc. (Physics)'], '#4a148c'],
+                ['fas fa-flask', 'Faculty of Science', ['B. Sc. (Chemistry)', 'B. Sc. (Physics)', 'B.Sc. Computer Science', 'B.Sc. IT', 'M.Sc. (Computer Science)', 'M. Sc. (Physics)'], '#4a148c'],
                 ['fas fa-graduation-cap', 'Postgraduate & Ph.D.', ['M.Sc. Physics', 'M. Sc. Chemistry', 'M.Com.', 'M.Sc. Computer Science', 'Ph.D. Chemistry', 'Ph.D. Commerce'], '#bf360c'],
             ] as [$icon, $faculty, $courses, $bg])
             <div class="bg-white rounded-xl shadow-md overflow-hidden">
