@@ -15,7 +15,7 @@
     <div class="bg-white rounded-xl shadow-sm overflow-hidden group">
         <div class="relative aspect-square bg-gray-100">
             <img src="{{ asset('storage/'.$item->image_path) }}" alt="{{ $item->title }}"
-                 class="w-full h-full object-cover">
+                 class=" w-full h-full object-cover object-top">
             <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                 <form action="{{ route('admin.gallery.destroy', $item) }}" method="POST" onsubmit="return confirm('Delete this image?')">
                     @csrf @method('DELETE')

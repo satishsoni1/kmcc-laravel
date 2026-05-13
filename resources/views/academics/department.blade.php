@@ -177,7 +177,7 @@
                     <div class="flex items-start gap-3 p-4 border border-gray-100 rounded-xl hover:shadow-sm transition-shadow bg-gray-50">
                         <div class="w-14 h-14 rounded-full overflow-hidden bg-blue-100 flex-shrink-0 flex items-center justify-center">
                             @if($member->photo)
-                                <img src="{{ asset('storage/'.$member->photo) }}" alt="{{ $member->name }}" class="w-full h-full object-cover">
+                                <img src="{{ asset('storage/'.$member->photo) }}" alt="{{ $member->name }}" class=" w-full h-full object-cover object-top">
                             @else
                                 <i class="fas fa-user text-blue-300 text-2xl"></i>
                             @endif
@@ -206,7 +206,7 @@
                     <div class="flex items-start gap-3 p-4 border border-gray-100 rounded-xl hover:shadow-sm transition-shadow bg-gray-50">
                         <div class="w-12 h-12 rounded-full overflow-hidden bg-gray-100 flex-shrink-0 flex items-center justify-center">
                             @if($member->photo)
-                                <img src="{{ asset('storage/'.$member->photo) }}" alt="{{ $member->name }}" class="w-full h-full object-cover">
+                                <img src="{{ asset('storage/'.$member->photo) }}" alt="{{ $member->name }}" class=" w-full h-full object-cover object-top">
                             @else
                                 <i class="fas fa-user-tie text-gray-400 text-xl"></i>
                             @endif

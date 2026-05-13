@@ -16,7 +16,7 @@
                         <div class="w-36 h-44 rounded-lg overflow-hidden shadow-lg" style="background-color: var(--kmc-navy);">
                             <img src="{{ asset('storage/vc.png') }}"
                                  alt="Vice-Chairman"
-                                 class="w-full h-full object-cover object-top"
+                                 class=" w-full h-full object-cover object-top object-top"
                                  onerror="this.onerror=null;this.parentElement.innerHTML='<div class=\'w-full h-full flex flex-col items-center justify-center text-white\' style=\'background-color: var(--kmc-navy);\'><i class=\'fas fa-user text-5xl opacity-60 mb-2\'></i><span class=\'text-xs opacity-70\'>Photo</span></div>';">
                         </div>
                     </div>

@@ -19,7 +19,7 @@
         <div class="relative aspect-video bg-gray-100">
             <img src="{{ asset('storage/'.$banner->image_path) }}"
                  alt="{{ $banner->title }}"
-                 class="w-full h-full object-cover">
+                 class=" w-full h-full object-cover object-top">
             <div class="absolute top-2 left-2 flex gap-1">
                 <span class="text-xs px-2 py-0.5 rounded-full font-semibold {{ $banner->is_active ? 'bg-green-500 text-white' : 'bg-gray-400 text-white' }}">
                     {{ $banner->is_active ? 'Active' : 'Hidden' }}

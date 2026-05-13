@@ -69,7 +69,7 @@
                 <div class="hero-slide absolute inset-0 transition-opacity duration-700 {{ $i === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0' }}">
                     <img src="{{ asset('storage/'.$banner->image_path) }}"
                          alt="{{ $banner->title }}"
-                         class="w-full h-full object-cover">
+                         class=" w-full h-full object-cover object-top">
                     {{-- Optional caption overlay --}}
                     @if($banner->title || $banner->button_text)
                     <div class="absolute bottom-0 left-0 right-0 p-4" style="background: linear-gradient(to top, rgba(0,0,0,0.65), transparent);">
@@ -292,7 +292,7 @@
                 <div class="text-white p-4 flex flex-col items-center justify-center md:w-48 flex-shrink-0" style="background-color: var(--kmc-navy);">
                     <div class="w-20 h-20 rounded-full flex items-center justify-center mb-3" style="background-color: var(--kmc-navy-mid);">
                         <!-- <i class="fas fa-user-tie text-3xl" style="color: var(--kmc-gold);"></i> -->
-                         <img src="{{ asset('storage/' . $image) }}" alt="{{ $role }} Image" class="w-full h-full object-cover rounded-full">
+                         <img src="{{ asset('storage/' . $image) }}" alt="{{ $role }} Image" class=" w-full h-full object-cover object-top rounded-full">
                     </div>
                     <p class="font-bold text-sm text-center">{{ $name }}</p>
                     <p class="text-xs text-blue-300 text-center mt-1">{{ $title }}</p>
@@ -466,7 +466,7 @@
                class="group relative aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all hover:-translate-y-0.5 block">
                 <img src="{{ asset('storage/'.$item->image_path) }}"
                      alt="{{ $item->title }}"
-                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                     class=" w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
                      loading="lazy">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
                     <p class="text-white text-xs font-semibold leading-tight">{{ $item->title }}</p>
