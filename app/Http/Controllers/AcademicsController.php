@@ -55,7 +55,7 @@ class AcademicsController extends Controller
         $dept        = Department::where('slug', $slug)->where('is_active', true)->firstOrFail();
         $streamInfo  = self::STREAMS[$dept->faculty_group] ?? ['label' => 'Academics'];
         $streamLabel = $streamInfo['label'];
-
+        
         $teaching    = Faculty::where('department', $dept->name)->where('is_active', true)
                            ->where('staff_type', 'teaching')->orderBy('order')->get();
         $nonTeaching = Faculty::where('department', $dept->name)->where('is_active', true)
@@ -63,7 +63,6 @@ class AcademicsController extends Controller
         $research    = ResearchArticle::active()->where('department_slug', $slug)
                            ->orderBy('year', 'desc')->orderBy('id', 'desc')->get();
         $gallery     = DepartmentGallery::active()->where('department_slug', $slug)->orderBy('order')->get();
-
         return view('academics.department', compact(
             'dept', 'streamLabel', 'teaching', 'nonTeaching', 'research', 'gallery'
         ));

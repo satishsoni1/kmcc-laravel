@@ -171,7 +171,7 @@
             {{-- 3. Teaching Staff --}}
             <div id="tab-teaching" class="dept-tab-panel hidden">
                 <h3 class="text-lg font-bold text-blue-900 mb-4">Teaching Staff</h3>
-                @if(is_array($teaching) && count($teaching) > 0)
+                @if($teaching && count($teaching) > 0)
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     @foreach($teaching as $member)
                     <div class="flex items-start gap-3 p-4 border border-gray-100 rounded-xl hover:shadow-sm transition-shadow bg-gray-50">
@@ -200,7 +200,7 @@
             {{-- 4. Non-Teaching Staff --}}
             <div id="tab-nonteaching" class="dept-tab-panel hidden">
                 <h3 class="text-lg font-bold text-blue-900 mb-4">Non-Teaching Staff</h3>
-                @if(is_array($nonTeaching) && count($nonTeaching) > 0)
+                @if($nonTeaching && count($nonTeaching) > 0)
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     @foreach($nonTeaching as $member)
                     <div class="flex items-start gap-3 p-4 border border-gray-100 rounded-xl hover:shadow-sm transition-shadow bg-gray-50">
@@ -227,11 +227,11 @@
             <div id="tab-research" class="dept-tab-panel hidden">
                 <div class="flex items-center justify-between mb-4">
                     <h3 class="text-lg font-bold text-blue-900">Research Publications</h3>
-                    @if(is_array($research) && count($research) > 0)
+                    @if($research && count($research) > 0)
                     <a href="{{ route('research.publications') }}" class="text-xs text-blue-600 hover:underline">View all college publications &rarr;</a>
                     @endif
                 </div>
-                @if(is_array($research) && count($research) > 0)
+                @if($research && count($research) > 0)
                 <div class="space-y-4">
                     @foreach($research as $art)
                     <div class="border border-gray-200 rounded-xl p-5 hover:shadow-sm transition-shadow">
@@ -280,7 +280,7 @@
             {{-- 7. Gallery --}}
             <div id="tab-gallery" class="dept-tab-panel hidden">
                 <h3 class="text-lg font-bold text-blue-900 mb-4">Gallery</h3>
-                @if(is_array($gallery) && count($gallery) > 0)
+                @if($gallery && count($gallery) > 0)
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
                     @foreach($gallery as $photo)
                     <div class="rounded-xl overflow-hidden border border-gray-200 group cursor-pointer" onclick="openLightbox('{{ asset('storage/'.$photo->image_path) }}', '{{ addslashes($photo->caption ?? '') }}')">
