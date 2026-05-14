@@ -1,7 +1,7 @@
 @extends('layouts.app')
-@section('title', "From Chairman's Desk")
+@section('title', "From Secretary's Desk")
 @section('content')
-@include('partials._page-header', ['title' => "From Chairman's Desk", 'breadcrumbs' => ['About Us' => route('about.index'), "From Chairman's Desk" => null]])
+@include('partials._page-header', ['title' => "From Secretary's Desk", 'breadcrumbs' => ['About Us' => route('about.index'), "From Secretary's Desk" => null]])
 <div class="max-w-7xl mx-auto px-4 py-12">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <aside class="lg:col-span-1">
