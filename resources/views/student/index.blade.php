@@ -25,7 +25,6 @@
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     @foreach([
-                        [route('student.council'), 'fas fa-users', 'bg-blue-50 border-blue-200', 'text-blue-900', 'Student Council', 'Elected student representatives who voice student concerns'],
                         [route('student.welfare'), 'fas fa-heart', 'bg-green-50 border-green-200', 'text-green-800', 'Student Welfare', 'Schemes and support for student well-being'],
                         [route('student.wdc'), 'fas fa-venus', 'bg-pink-50 border-pink-200', 'text-pink-800', 'Women Dev. Cell', 'Empowering women students through awareness and support'],
                         [route('student.library'), 'fas fa-book', 'bg-yellow-50 border-yellow-200', 'text-yellow-800', 'Library', 'Well-stocked library with books, journals and e-resources'],
