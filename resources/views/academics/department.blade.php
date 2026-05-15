@@ -182,12 +182,18 @@
                                 <i class="fas fa-user text-blue-300 text-2xl"></i>
                             @endif
                         </div>
-                        <div class="min-w-0">
+                        <div class="min-w-0 flex-1">
                             <p class="font-semibold text-blue-900 text-sm leading-snug">{{ $member->name }}</p>
                             <p class="text-xs text-gray-500 mb-1">{{ $member->designation }}</p>
                             @if($member->qualification)<p class="text-xs text-gray-400 italic">{{ $member->qualification }}</p>@endif
                             @if($member->specialization)<p class="text-xs text-blue-600 mt-0.5">{{ $member->specialization }}</p>@endif
                             @if($member->experience_years)<p class="text-xs text-gray-400 mt-0.5">{{ $member->experience_years }} yrs exp.</p>@endif
+                            @if($member->cv)
+                            <a href="{{ asset('storage/'.$member->cv) }}" target="_blank" rel="noopener"
+                               class="inline-flex items-center gap-1 mt-2 text-xs font-medium text-white bg-red-600 hover:bg-red-700 px-2.5 py-1 rounded-full transition-colors">
+                                <i class="fas fa-file-pdf text-[10px]"></i> View CV
+                            </a>
+                            @endif
                         </div>
                     </div>
                     @endforeach
@@ -211,9 +217,15 @@
                                 <i class="fas fa-user-tie text-gray-400 text-xl"></i>
                             @endif
                         </div>
-                        <div class="min-w-0">
+                        <div class="min-w-0 flex-1">
                             <p class="font-semibold text-blue-900 text-sm leading-snug">{{ $member->name }}</p>
                             <p class="text-xs text-gray-500">{{ $member->designation }}</p>
+                            @if($member->cv)
+                            <a href="{{ asset('storage/'.$member->cv) }}" target="_blank" rel="noopener"
+                               class="inline-flex items-center gap-1 mt-2 text-xs font-medium text-white bg-red-600 hover:bg-red-700 px-2.5 py-1 rounded-full transition-colors">
+                                <i class="fas fa-file-pdf text-[10px]"></i> View CV
+                            </a>
+                            @endif
                         </div>
                     </div>
                     @endforeach

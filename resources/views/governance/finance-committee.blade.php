@@ -13,7 +13,7 @@
                 <h3 class="font-bold mb-3" style="color:var(--kmc-navy);">Composition</h3>
                 @php
                 $staticMembers = [
-                    ['Dr. Makrand Wazal',       'Chairman'],
+                    ['Dr. Makarand Wazal',       'Chairman'],
                     ['Mr. Dilip Porwal',         'Member'],
                     ['Dr. V. B. Suryawanshi',    'Member'],
                     ['Dr. A. A. Nagargoje',      'Member'],

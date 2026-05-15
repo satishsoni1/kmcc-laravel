@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Department;
 use App\Models\Faculty;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FacultyController extends Controller
 {
@@ -37,10 +38,15 @@ class FacultyController extends Controller
             'order'            => 'nullable|integer|min:0',
             'is_active'        => 'boolean',
             'photo'            => 'nullable|image|max:3072',
+            'cv'               => 'nullable|mimes:pdf|max:5120',
         ]);
 
         if ($request->hasFile('photo')) {
             $data['photo'] = $request->file('photo')->store('faculty', 'public');
+        }
+
+        if ($request->hasFile('cv')) {
+            $data['cv'] = $request->file('cv')->store('faculty/cv', 'public');
         }
 
         $data['is_active'] = $request->boolean('is_active', true);
@@ -73,11 +79,25 @@ class FacultyController extends Controller
             'order'            => 'nullable|integer|min:0',
             'is_active'        => 'boolean',
             'photo'            => 'nullable|image|max:3072',
+            'cv'               => 'nullable|mimes:pdf|max:5120',
+            'remove_cv'        => 'nullable|boolean',
         ]);
 
         if ($request->hasFile('photo')) {
             $data['photo'] = $request->file('photo')->store('faculty', 'public');
         }
+
+        if ($request->hasFile('cv')) {
+            if ($faculty->cv) {
+                Storage::disk('public')->delete($faculty->cv);
+            }
+            $data['cv'] = $request->file('cv')->store('faculty/cv', 'public');
+        } elseif ($request->boolean('remove_cv') && $faculty->cv) {
+            Storage::disk('public')->delete($faculty->cv);
+            $data['cv'] = null;
+        }
+
+        unset($data['remove_cv']);
 
         $data['is_active'] = $request->boolean('is_active');
         $data['order']     = $data['order'] ?? 0;
@@ -89,6 +109,12 @@ class FacultyController extends Controller
 
     public function destroy(Faculty $faculty)
     {
+        if ($faculty->photo) {
+            Storage::disk('public')->delete($faculty->photo);
+        }
+        if ($faculty->cv) {
+            Storage::disk('public')->delete($faculty->cv);
+        }
         $faculty->delete();
         return redirect()->route('admin.faculty.index')->with('success', 'Faculty member deleted.');
     }

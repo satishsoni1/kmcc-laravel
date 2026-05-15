@@ -97,6 +97,25 @@
         </div>
     </div>
 
+    <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-1.5">CV / Resume <span class="text-gray-400 font-normal text-xs">(PDF only, max 5 MB)</span></label>
+        @if($m?->cv)
+        <div class="flex items-center gap-3 mb-2 p-3 bg-green-50 border border-green-200 rounded-lg">
+            <i class="fas fa-file-pdf text-red-500 text-lg"></i>
+            <a href="{{ asset('storage/'.$m->cv) }}" target="_blank" class="text-sm text-blue-700 hover:underline font-medium flex-1 truncate">
+                View current CV
+            </a>
+            <label class="flex items-center gap-1.5 text-xs text-red-600 cursor-pointer">
+                <input type="checkbox" name="remove_cv" value="1" class="w-3.5 h-3.5">
+                Remove CV
+            </label>
+        </div>
+        @endif
+        <input type="file" name="cv" accept=".pdf"
+               class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#2d4077] transition">
+        <p class="text-xs text-gray-400 mt-1">Upload a new file to replace the existing CV.</p>
+    </div>
+
     <label class="flex items-center gap-2 cursor-pointer">
         <input type="checkbox" name="is_active" value="1" {{ old('is_active', $m?->is_active ?? true) ? 'checked' : '' }} class="w-4 h-4 rounded">
         <span class="text-sm font-medium text-gray-700">Active (show on website)</span>

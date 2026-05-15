@@ -16,7 +16,7 @@
                 <div class="p-6 grid grid-cols-1 sm:grid-cols-2 gap-5">
                     @foreach([
                         [setting('chairman_name','Shri. Santosh Gurunath Jangam'), 'Chairman', 'K.T.S.P. Mandal, Khopoli', 'fas fa-crown'],
-                        [setting('principal_name','Dr. Makrand S. Wazal'),  'Principal', 'K.M.C. College, Khopoli', 'fas fa-user-tie'],
+                        [setting('principal_name','Dr. Makarand S. Wazal'),  'Principal', 'K.M.C. College, Khopoli', 'fas fa-user-tie'],
                     ] as [$name,$role,$org,$icon])
                     <div class="flex items-start gap-4 rounded-xl p-4 border" style="background-color:#f0f4ff; border-color:#c7d2fe;">
                         <div class="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0" style="background-color:var(--kmc-navy);">

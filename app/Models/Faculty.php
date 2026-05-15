@@ -13,7 +13,7 @@ class Faculty extends Model
 
     protected $fillable = [
         'name', 'designation', 'department', 'staff_type', 'qualification', 'specialization',
-        'email', 'phone', 'photo', 'bio', 'experience_years', 'is_active', 'order',
+        'email', 'phone', 'photo', 'cv', 'bio', 'experience_years', 'is_active', 'order',
     ];
 
     protected $casts = [
