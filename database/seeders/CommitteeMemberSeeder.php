@@ -53,7 +53,7 @@ class CommitteeMemberSeeder extends Seeder
 
         // ── CDC – College Development Committee (17 members from Prospectus) ──
         $cdc = [
-            [1,  'Dr. Dayanand Prabhu Gaikwad',         'I/c Principal',                      'K.M.C. College, Khopoli',                   'Chairperson'],
+            [1,  'Dr. Dayanand Prabhu Gaikwad',         'Principal',                      'K.M.C. College, Khopoli',                   'Chairperson'],
             [2,  'Dr. Amol Arjun Nagargoje',             'IQAC Co-ordinator',                  'K.M.C. College, Khopoli',                   'Member'],
             [3,  'Dr. Archana Ashok Vaidya',             'HOD, Chemistry',                     'K.M.C. College, Khopoli',                   'Member'],
             [4,  'Dr. Suryakant Rajaram Patil',          'HOD, Physics',                       'K.M.C. College, Khopoli',                   'Member'],
@@ -87,7 +87,7 @@ class CommitteeMemberSeeder extends Seeder
 
         // ── Academic Council ─────────────────────────────────────────────
         $this->seed('academic_council', [
-            [1,  'Dr. Dayanand Prabhu Gaikwad',   'I/c Principal',              'K.M.C. College, Khopoli',        'Chairperson'],
+            [1,  'Dr. Dayanand Prabhu Gaikwad',   'Principal',              'K.M.C. College, Khopoli',        'Chairperson'],
             [2,  'Dr. Amol Arjun Nagargoje',       'IQAC Co-ordinator',          'K.M.C. College, Khopoli',        'Member'],
             [3,  'Dr. Archana Ashok Vaidya',       'HOD, Chemistry',             'K.M.C. College, Khopoli',        'Member'],
             [4,  'Dr. Suryakant Rajaram Patil',    'HOD, Physics',               'K.M.C. College, Khopoli',        'Member'],
@@ -108,7 +108,7 @@ class CommitteeMemberSeeder extends Seeder
             [1,  'Shri. Santosh Gurunath Jangam',   'Chairman, K.T.S.P. Mandal',  'K.T.S.P. Mandal, Khopoli',      'Chairman'],
             [2,  'Shri. Abubakar Aadam Jalgaonkar', 'Vice-Chairman',              'K.T.S.P. Mandal, Khopoli',      'Member'],
             [3,  'Shri. Kishor Balkrushna Patil',   'Secretary',                  'K.T.S.P. Mandal, Khopoli',      'Member'],
-            [4,  'Dr. Dayanand Prabhu Gaikwad',     'I/c Principal',              'K.M.C. College, Khopoli',       'Ex-Officio Member'],
+            [4,  'Dr. Dayanand Prabhu Gaikwad',     'Principal',              'K.M.C. College, Khopoli',       'Ex-Officio Member'],
             [5,  'Dr. Sandeep Govind Shinde',        'HOD, Commerce',              'K.M.C. College, Khopoli',       'Member'],
             [6,  'Shri. Suresh Ramchandra More',    'Accounts Officer',           'K.M.C. College, Khopoli',       'Member Secretary'],
             [7,  'CA Mahesh Vitthal Patil',          'Chartered Accountant',       'Patil & Associates, Khopoli',   'External Auditor'],
@@ -139,7 +139,7 @@ class CommitteeMemberSeeder extends Seeder
 
         // ── IQAC ─────────────────────────────────────────────────────────
         $this->seed('iqac', [
-            [1,  'Dr. Dayanand Prabhu Gaikwad',   'I/c Principal',              'K.M.C. College, Khopoli',        'Chairperson'],
+            [1,  'Dr. Dayanand Prabhu Gaikwad',   'Principal',              'K.M.C. College, Khopoli',        'Chairperson'],
             [2,  'Dr. Amol Arjun Nagargoje',       'IQAC Co-ordinator',          'K.M.C. College, Khopoli',        'Co-ordinator'],
             [3,  'Dr. Archana Ashok Vaidya',       'HOD, Chemistry',             'K.M.C. College, Khopoli',        'Member'],
             [4,  'Dr. Suryakant Rajaram Patil',    'HOD, Physics',               'K.M.C. College, Khopoli',        'Member'],
@@ -157,7 +157,7 @@ class CommitteeMemberSeeder extends Seeder
 
         // ── Autonomy Committee ───────────────────────────────────────────
         $this->seed('autonomy', [
-            [1,  'Dr. Dayanand Prabhu Gaikwad',   'I/c Principal',              'K.M.C. College, Khopoli',        'Chairman'],
+            [1,  'Dr. Dayanand Prabhu Gaikwad',   'Principal',              'K.M.C. College, Khopoli',        'Chairman'],
             [2,  'Dr. Amol Arjun Nagargoje',       'IQAC Co-ordinator',          'K.M.C. College, Khopoli',        'Member Secretary'],
             [3,  'Dr. Archana Ashok Vaidya',       'Senior Faculty',             'K.M.C. College, Khopoli',        'Member'],
             [4,  'Dr. Sandeep Govind Shinde',      'Senior Faculty',             'K.M.C. College, Khopoli',        'Member'],

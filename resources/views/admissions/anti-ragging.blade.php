@@ -97,7 +97,7 @@
                         <tbody class="divide-y divide-gray-100">
                             <tr class="hover:bg-gray-50">
                                 <td class="px-4 py-3 font-medium text-gray-700">Chairperson</td>
-                                <td class="px-4 py-3 text-gray-600">{{ setting('principal_name', 'Dr. Dayanand Prabhu Gaikwad') }} (I/c Principal)</td>
+                                <td class="px-4 py-3 text-gray-600">{{ setting('principal_name', 'Dr. Dayanand Prabhu Gaikwad') }} (Principal)</td>
                             </tr>
                             <tr class="hover:bg-gray-50">
                                 <td class="px-4 py-3 font-medium text-gray-700">Nodal Officer</td>

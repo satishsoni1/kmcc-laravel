@@ -83,7 +83,7 @@
                 <div class="space-y-4 text-sm">
                     <div class="pb-4 border-b border-gray-100">
                         <p class="font-semibold text-blue-900">{{ setting('principal_name', 'Dr. Dayanand Prabhu Gaikwad') }}</p>
-                        <p class="text-gray-600 text-xs">I/c Principal</p>
+                        <p class="text-gray-600 text-xs">Principal</p>
                     </div>
                     <div class="pb-4 border-b border-gray-100">
                         <p class="font-semibold text-blue-900">{{ setting('chairman_name', 'Shri. Santosh Gurunath Jangam') }}</p>
