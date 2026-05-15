@@ -3,7 +3,6 @@
     <nav class="divide-y divide-gray-100">
         @foreach([
             ['Student Corner', route('student.index')],
-            ['Student Council', route('student.council')],
             ['Student Welfare', route('student.welfare')],
             ['Women Dev. Cell', route('student.wdc')],
             ['Library', route('student.library')],
