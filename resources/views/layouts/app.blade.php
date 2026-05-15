@@ -251,7 +251,6 @@
                         </a>
                         <div class="dropdown-menu kmc-dropdown hidden absolute right-0 top-full bg-white shadow-xl z-50 min-w-[220px]">
                             @foreach([
-                                ['Student Council', 'student.council'],
                                 ['Student Welfare', 'student.welfare'],
                                 ['Women Development Cell', 'student.wdc'],
                                 ['Library', 'student.library'],
