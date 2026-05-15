@@ -94,7 +94,7 @@
 
 @push('scripts')
 <script>
-const images = @json(
+const images = {!! json_encode(
     $items->map(function($i) {
         return [
             'src' => asset('storage/' . $i->image_path),
@@ -102,7 +102,7 @@ const images = @json(
             'category' => $i->category,
         ];
     })->values()
-);
+) !!};
 
 let current = 0;
 
