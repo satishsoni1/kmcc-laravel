@@ -94,11 +94,13 @@
 
 @push('scripts')
 <script>
-const images = @json($items->map(fn($i) => [
-    'src'      => asset('storage/'.$i->image_path),
-    'title'    => $i->title,
-    'category' => $i->category,
-]));
+const images = @json($items->map(function($i) {
+    return [
+        'src'      => asset('storage/' . $i->image_path),
+        'title'    => $i->title,
+        'category' => $i->category,
+    ];
+}));
 
 let current = 0;
 
