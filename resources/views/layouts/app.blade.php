@@ -432,7 +432,7 @@
         {{-- Emergency Helplines --}}
         <div style="background-color: #b91c1c;" class="border-t border-red-900">
             <div class="max-w-7xl mx-auto px-4 py-2.5">
-                <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-xs text-white">
+                <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-white">
                     <span class="font-bold tracking-wider text-red-200 flex items-center gap-1">
                         <i class="fas fa-exclamation-triangle"></i> EMERGENCY HELPLINES:
                     </span>
