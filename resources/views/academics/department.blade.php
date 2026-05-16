@@ -7,7 +7,79 @@
 ])
 
 @php $c = $dept->colorClasses; @endphp
+<style>
+    .department-content {
+    max-width: 100% !important;
+    color: #334155;
+    font-size: 17px;
+    line-height: 1.9;
+}
 
+/* Main Heading */
+.department-content h1,
+.department-content h2 {
+    font-size: 32px !important;
+    font-weight: 800 !important;
+    color: #1e3a8a !important;
+    margin-top: 40px !important;
+    margin-bottom: 20px !important;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e2e8f0;
+    line-height: 1.3;
+}
+
+/* Sub Heading */
+.department-content h3 {
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    color: #1d4ed8 !important;
+    margin-top: 30px !important;
+    margin-bottom: 16px !important;
+    line-height: 1.4;
+}
+
+/* Paragraph */
+.department-content p {
+    margin-bottom: 18px !important;
+    color: #475569 !important;
+    line-height: 1.9 !important;
+}
+
+/* UL */
+.department-content ul {
+    list-style-type: disc !important;
+    padding-left: 28px !important;
+    margin-top: 20px !important;
+    margin-bottom: 24px !important;
+}
+
+/* LI */
+.department-content li {
+    margin-bottom: 10px !important;
+    padding-left: 4px;
+    color: #334155 !important;
+    line-height: 1.8 !important;
+}
+
+/* Bullet Color */
+.department-content li::marker {
+    color: #2563eb;
+    font-size: 18px;
+}
+
+/* HR */
+.department-content hr {
+    margin-top: 40px !important;
+    margin-bottom: 40px !important;
+    border-color: #cbd5e1 !important;
+}
+
+/* Bold */
+.department-content strong {
+    color: #0f172a !important;
+    font-weight: 700 !important;
+}
+</style>
 <div class="max-w-7xl mx-auto px-4 py-10">
 
     {{-- Department header card --}}
@@ -80,7 +152,45 @@
                     <div>
                         <h3 class="text-lg font-bold text-blue-900 mb-3">About the Department</h3>
                         <div class="w-10 h-1 bg-yellow-500 mb-4"></div>
-                        <p class="text-gray-600 leading-relaxed">{{ $dept->about }}</p>
+<div class="department-content
+            prose
+            prose-slate
+            prose-lg
+            max-w-none
+
+            prose-headings:scroll-mt-24
+            prose-headings:font-bold
+            prose-headings:text-slate-900
+
+            prose-h2:text-2xl
+            prose-h2:mt-12
+            prose-h2:mb-5
+            prose-h2:border-b
+            prose-h2:border-slate-200
+            prose-h2:pb-3
+
+            prose-h3:text-xl
+            prose-h3:mt-8
+            prose-h3:mb-4
+
+            prose-p:text-slate-700
+            prose-p:leading-8
+            prose-p:mb-5
+
+            prose-strong:text-slate-900
+
+            prose-ul:my-6
+            prose-ul:space-y-2
+
+            prose-li:text-slate-700
+            prose-li:leading-7
+            prose-li:marker:text-blue-700
+
+            prose-hr:my-10
+            prose-hr:border-slate-200
+">
+    {!! Str::markdown($dept->about) !!}
+</div>
                     </div>
                     @endif
 
@@ -191,7 +301,7 @@
                             @if($member->cv)
                             <a href="{{ asset('storage/'.$member->cv) }}" target="_blank" rel="noopener"
                                class="inline-flex items-center gap-1 mt-2 text-xs font-medium text-white bg-red-600 hover:bg-red-700 px-2.5 py-1 rounded-full transition-colors">
-                                <i class="fas fa-file-pdf text-[10px]"></i> View CV
+                                <i class="fas fa-file-pdf text-[10px]"></i> View
                             </a>
                             @endif
                         </div>

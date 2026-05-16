@@ -39,17 +39,17 @@
                 </blockquote>
 
                 <div class="space-y-4 text-gray-700 leading-relaxed">
-                    <p>Dear Students,</p><p>
-Greetings from KTSP Mandal’s KMC College of Arts, Commerce &amp; Science (KMC).</p><p>
+                    <p class="text-justify">Dear Students,</p><p class="text-justify">
+Greetings from KTSP Mandal’s KMC College of Arts, Commerce &amp; Science (KMC).</p><p class="text-justify">
 We are glad to introduce KMC, a premier NAAC Accredited Institute in Khopoli. Under the
 patronage of Khalapur Taluka Sikshan Prasarak Mandal, we at KMC, endeavours to promote
-quality education at UG &amp; PG level including various specializations.</p><p>
+quality education at UG &amp; PG level including various specializations.</p><p class="text-justify">
 Our college has consistently strived to uphold the ideals of academic excellence, holistic
-development, and social responsibility.</p><p>
+development, and social responsibility.</p><p class="text-justify">
 Education, in today’s dynamic world, is not confined merely to textbooks and examinations. It is a
 continuous process of learning, unlearning, and relearning. At our institution, we are committed to
 nurturing young minds by providing a stimulating academic environment supported by qualified
-faculty, modern infrastructure, and a culture of innovation.</p><p>
+faculty, modern infrastructure, and a culture of innovation.</p><p class="text-justify">
 We offer a wide range of undergraduate, postgraduate programmes and Doctoral Research
 Programmes in Arts, Commerce, and Science streams, designed to cater to the diverse aspirations
 of students. Our dedicated faculty members continuously strive to create an inclusive and
@@ -57,19 +57,19 @@ engaging learning environment. Along with academic rigor, we emphasize co-curric
 extracurricular activities, community engagement, and the development of ethical and
 constitutional values among students, as envisioned in NEP 2020 ensuring the all-round
 development of our students. Our focus remains on developing critical thinking, ethical values,
-leadership qualities, and a sense of social commitment.</p><p>
+leadership qualities, and a sense of social commitment.</p><p class="text-justify">
 The college also encourages participation in research, extension activities, and community
 engagement programmes. Through various initiatives, we aim to prepare our students not only for
 successful careers but also for responsible citizenship. Alongside academic excellence, we give
 due importance to sports and cultural activities as essential components of holistic development.
 Our students are encouraged to actively participate in various sports competitions and cultural
-events, which help in nurturing teamwork, leadership, discipline, and creativity.</p><p>
+events, which help in nurturing teamwork, leadership, discipline, and creativity.</p><p class="text-justify">
 As we move towards becoming a multidisciplinary institution of excellence, we remain committed
 to nurturing responsible, innovative, and socially conscious citizens who can contribute
-meaningfully to the nation’s progress.</p><p>
+meaningfully to the nation’s progress.</p><p class="text-justify">
 I invite all aspiring students to be a part of this vibrant academic community and make the most of
 the opportunities provided. I am confident that your journey with us will be enriching and
-transformative.</p><p>
+transformative.</p><p class="text-justify">
 I extend my best wishes to all students for their bright and successful future.
 </p>
                 </div>

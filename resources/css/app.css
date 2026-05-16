@@ -25,7 +25,7 @@
 .college-name { color: var(--color-kmc-crimson-light); }
 
 /* Justify all body paragraphs site-wide */
-main p { text-align: justify; }
+.text-justify { text-align: justify; }
 
 /* KMC brand utility overrides */
 .kmc-nav-link:hover { background-color: var(--color-kmc-gold); }

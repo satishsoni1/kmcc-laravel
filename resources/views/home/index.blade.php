@@ -302,7 +302,7 @@
                 </div>
                 <div class="p-6">
                     <i class="fas fa-quote-left text-3xl text-yellow-200 mb-3 block"></i>
-                    <p class="text-gray-600 text-sm leading-relaxed italic">{{ $message }}</p>
+                    <p class="text-justify text-gray-600 text-sm leading-relaxed italic">{{ $message }}</p>
                     <a href="{{ route($link) }}" class="inline-block mt-4 text-sm font-semibold transition-colors hover:opacity-75" style="color: var(--kmc-navy);">
                         More <i class="fas fa-arrow-right ml-1"></i>
                     </a>
