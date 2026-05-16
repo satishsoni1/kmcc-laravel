@@ -10,13 +10,13 @@
             <div class="bg-white rounded-xl shadow-md p-8">
                 <h2 class="text-2xl font-bold mb-2" style="color: var(--kmc-navy);">K.M.C. College, Khopoli</h2>
                 <div class="w-12 h-1 mb-6 rounded" style="background-color: var(--kmc-gold);"></div>
-                <p class="text-gray-600 leading-relaxed mb-4">
+                <p class="text-justify text-gray-600 leading-relaxed mb-4">
                     K.M.C. College is an ambitious and progressive institution aimed at quality education. It was set up in <strong>1979</strong> to cater to the needs of higher education in Khopoli and adjoining areas. The College is affiliated to Mumbai University and offers education in Arts, Commerce and Science streams.
                 </p>
-                <p class="text-gray-600 leading-relaxed mb-4">
+                <p class="text-justify text-gray-600 leading-relaxed mb-4">
                     We are meeting the educational needs of around <strong>2600 students</strong> today. Our main focus is on career orientation and all-around personality development of our students. Teaching-Learning and evaluation is vital to the development of our college. In this context, we have evolved different curricular, extracurricular, and sports activities to make the student the prime player in the educational field.
                 </p>
-                <p class="text-gray-600 leading-relaxed">
+                <p class="text-justify text-gray-600 leading-relaxed">
                     Our college offers many opportunities for all-round development of students' personalities. We are proud of our alumni who are occupying respectable positions in various Government and Non-Government institutions and industries throughout the country.
                 </p>
             </div>
@@ -32,10 +32,10 @@
 
             <div class="bg-white rounded-xl shadow-md p-8">
                 <h3 class="text-lg font-bold mb-4" style="color: var(--kmc-navy);">Location</h3>
-                <p class="text-gray-600 leading-relaxed mb-4">
+                <p class="text-justify text-gray-600 leading-relaxed mb-4">
                     K.M.C. College lies in the heart of Khopoli in a self-sufficient and independent campus. It is situated at the foot hills of the <strong>Sahyadri Mountains</strong> on the <strong>Mumbai–Pune–Bengaluru National Highway</strong> in Raigad District and is well connected to Mumbai, Pune and other metropolitan areas.
                 </p>
-                <p class="text-gray-600 leading-relaxed">
+                <p class="text-justify text-gray-600 leading-relaxed">
                     The National Highway passes through the satellite town of Khopoli. The local railway also links Khopoli to Mumbai, making the college easily accessible to students from across the region.
                 </p>
             </div>

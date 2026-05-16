@@ -9,10 +9,10 @@
             <div class="bg-white rounded-xl shadow-md p-8">
                 <h2 class="text-2xl font-bold mb-2" style="color: var(--kmc-navy);">Khalapur Taluka Shikshan Prasarak Mandal</h2>
                 <div class="w-12 h-1 mb-6 rounded" style="background-color: var(--kmc-gold);"></div>
-                <p class="text-gray-600 leading-relaxed mb-4">
+                <p class="text-justify text-gray-600 leading-relaxed mb-4">
                     K.T.S.P. Mandal, a renowned educational institution in Raigad District, was established in the year <strong>1957</strong>. Being registered as a public trust and society, K.T.S.P. Mandal has been striving to achieve the objectives of bringing transformations in the educational, cultural and social fields in Maharashtra.
                 </p>
-                <p class="text-gray-600 leading-relaxed mb-6">
+                <p class="text-justify text-gray-600 leading-relaxed mb-6">
                     With a strong commitment to accessible and quality education, the Mandal has expanded its reach over the decades and today operates a wide network of institutions catering to students from rural, tribal, and farming communities of the Khalapur region in Raigad District.
                 </p>
 

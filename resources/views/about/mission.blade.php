@@ -10,11 +10,11 @@
                 <h2 class="text-2xl font-bold text-blue-900 mb-2">Our Mission</h2>
                 <div class="w-12 h-1 bg-yellow-500 mb-6"></div>
                 <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-r-xl mb-6">
-                    <p class="text-base font-semibold text-gray-800 leading-relaxed italic">
+                    <p class="text-justify text-base font-semibold text-gray-800 leading-relaxed italic">
                         "To provide quality higher education that integrates academic rigor with ethical values, fosters critical thinking and innovation, and prepares students for meaningful participation in a diverse and dynamic world."
                     </p>
                 </div>
-                <p class="text-gray-600 leading-relaxed mb-6">Our mission guides every academic and administrative decision at KMC College. We are committed to delivering a transformative educational experience that equips students not just with degrees, but with the wisdom, skills, and character needed to lead fulfilling lives.</p>
+                <p class="text-justify text-gray-600 leading-relaxed mb-6">Our mission guides every academic and administrative decision at KMC College. We are committed to delivering a transformative educational experience that equips students not just with degrees, but with the wisdom, skills, and character needed to lead fulfilling lives.</p>
                 <h3 class="text-lg font-bold text-blue-900 mb-4">Mission Statements</h3>
                 <ul class="space-y-3">
                     @foreach([

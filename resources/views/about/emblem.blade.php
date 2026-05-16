@@ -15,7 +15,7 @@
                         <span class="text-blue-900 font-bold text-3xl">KMCC</span>
                     </div> -->
                     <div>
-                        <p class="text-gray-600 leading-relaxed mb-4">The emblem of KMC College symbolizes the institution's core values of knowledge, wisdom, and service. Each element of the emblem carries deep meaning reflecting our educational philosophy and cultural heritage.</p>
+                        <p class="text-justify text-gray-600 leading-relaxed mb-4">The emblem of KMC College symbolizes the institution's core values of knowledge, wisdom, and service. Each element of the emblem carries deep meaning reflecting our educational philosophy and cultural heritage.</p>
                         <ul class="space-y-3">
                             @foreach([
                                 ['The Open Book', 'Represents the pursuit of knowledge and the college\'s commitment to academic excellence.'],
