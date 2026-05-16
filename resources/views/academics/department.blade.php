@@ -18,7 +18,6 @@
 /* Main Heading */
 .department-content h1,
 .department-content h2 {
-    font-size: 32px !important;
     font-weight: 800 !important;
     color: #1e3a8a !important;
     margin-top: 40px !important;
@@ -30,7 +29,6 @@
 
 /* Sub Heading */
 .department-content h3 {
-    font-size: 24px !important;
     font-weight: 700 !important;
     color: #1d4ed8 !important;
     margin-top: 30px !important;
