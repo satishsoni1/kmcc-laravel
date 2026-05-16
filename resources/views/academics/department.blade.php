@@ -10,16 +10,14 @@
 <style>
     .department-content {
     max-width: 100% !important;
-    color: #334155;
-    font-size: 17px;
     line-height: 1.9;
 }
 
 /* Main Heading */
 .department-content h1,
 .department-content h2 {
-    font-weight: 800 !important;
-    color: #1e3a8a !important;
+    font-weight: var(--font-weight-bold) !important;
+    color: var(--kmc-navy) !important;
     margin-top: 40px !important;
     margin-bottom: 20px !important;
     padding-bottom: 10px;
@@ -29,8 +27,9 @@
 
 /* Sub Heading */
 .department-content h3 {
-    font-weight: 700 !important;
-    color: #1d4ed8 !important;
+    font-weight: var(--font-weight-bold) !important;
+    
+    color: var(--kmc-navy) !important;
     margin-top: 30px !important;
     margin-bottom: 16px !important;
     line-height: 1.4;
@@ -39,7 +38,6 @@
 /* Paragraph */
 .department-content p {
     margin-bottom: 18px !important;
-    color: #475569 !important;
     line-height: 1.9 !important;
 }
 
@@ -55,13 +53,12 @@
 .department-content li {
     margin-bottom: 10px !important;
     padding-left: 4px;
-    color: #334155 !important;
     line-height: 1.8 !important;
 }
 
 /* Bullet Color */
 .department-content li::marker {
-    color: #2563eb;
+    color: var(--kmc-navy) !important;
     font-size: 18px;
 }
 
@@ -74,8 +71,8 @@
 
 /* Bold */
 .department-content strong {
-    color: #0f172a !important;
-    font-weight: 700 !important;
+    color: var(--kmc-navy) !important;
+    font-weight: var(--font-weight-bold) !important;
 }
 </style>
 <div class="max-w-7xl mx-auto px-4 py-10">
