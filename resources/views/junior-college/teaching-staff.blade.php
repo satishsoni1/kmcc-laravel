@@ -46,7 +46,7 @@
                                     <div class="flex items-center gap-3">
                                         @if($member->photo)
                                         <img src="{{ asset('storage/'.$member->photo) }}"
-                                             class="w-10 h-10 rounded-full object-cover flex-shrink-0 border-2"
+                                             class="w-10 h-10 rounded-full object-cover object-top flex-shrink-0 border-2"
                                              style="border-color: var(--kmc-gold);">
                                         @else
                                         <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background-color: var(--kmc-navy);">
