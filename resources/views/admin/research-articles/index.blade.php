@@ -3,11 +3,18 @@
 @section('page-title', 'Research Articles')
 
 @section('content')
-<div class="flex items-center justify-between mb-5">
+<div class="flex flex-wrap items-center justify-between gap-3 mb-5">
     <p class="text-sm text-gray-500">{{ $articles->total() }} total articles</p>
-    <a href="{{ route('admin.research-articles.create') }}" class="flex items-center gap-2 px-4 py-2 rounded-lg text-white text-sm font-semibold transition-opacity hover:opacity-90" style="background-color: #2d4077;">
-        <i class="fas fa-plus"></i> Add Research Article
-    </a>
+    <div class="flex items-center gap-2">
+        <a href="{{ route('admin.research-articles.import.form') }}"
+           class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 transition-colors">
+            <i class="fas fa-file-excel text-green-600"></i> Bulk Import (Excel)
+        </a>
+        <a href="{{ route('admin.research-articles.create') }}"
+           class="flex items-center gap-2 px-4 py-2 rounded-lg text-white text-sm font-semibold transition-opacity hover:opacity-90" style="background-color: #2d4077;">
+            <i class="fas fa-plus"></i> Add Article
+        </a>
+    </div>
 </div>
 
 <div class="bg-white rounded-xl shadow-sm overflow-hidden">

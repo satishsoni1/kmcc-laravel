@@ -44,9 +44,15 @@
                                 <td class="px-4 py-3 text-gray-500 text-center font-medium">{{ $i + 1 }}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center gap-3">
-                                        <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background-color: var(--kmc-navy);">
+                                        @if($member->photo)
+                                        <img src="{{ asset('storage/'.$member->photo) }}"
+                                             class="w-10 h-10 rounded-full object-cover flex-shrink-0 border-2"
+                                             style="border-color: var(--kmc-gold);">
+                                        @else
+                                        <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background-color: var(--kmc-navy);">
                                             <i class="fas fa-user text-xs" style="color: var(--kmc-gold);"></i>
                                         </div>
+                                        @endif
                                         <span class="font-medium text-gray-800">{{ $member->name }}</span>
                                     </div>
                                 </td>

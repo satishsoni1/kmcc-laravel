@@ -172,24 +172,7 @@
                         </div>
                     </li>
 
-                    <li class="nav-item relative">
-                        <a href="{{ route('junior-college.index') }}" class="nav-link text-white px-3 py-4 flex items-center gap-1 text-sm font-medium transition-colors {{ request()->routeIs('junior-college.*') ? 'active' : '' }}">
-                            Jr. College <i class="fas fa-chevron-down text-xs ml-0.5"></i>
-                        </a>
-                        <div class="dropdown-menu kmc-dropdown hidden absolute left-0 top-full bg-white shadow-xl z-50 min-w-[230px]">
-                            @foreach([
-                                ['About', 'junior-college.index'],
-                                ['Subjects', 'junior-college.subjects'],
-                                ['Teaching Staff', 'junior-college.teaching-staff'],
-                                ['Admission – Std. XI', 'junior-college.admissions-xi'],
-                                ['Admission – Std. XII', 'junior-college.admissions-xii'],
-                                ['Scholarships', 'junior-college.scholarships'],
-                            ] as [$label, $route])
-                            <a href="{{ route($route) }}" class="block px-4 py-2.5 text-sm text-gray-700 border-b border-gray-100 hover:bg-blue-50 transition-colors"
-                               onmouseover="this.style.color='var(--kmc-navy)'" onmouseout="this.style.color=''">{{ $label }}</a>
-                            @endforeach
-                        </div>
-                    </li>
+                   
 
                     <li class="nav-item relative">
                         <a href="{{ route('iqac.index') }}" class="nav-link text-white px-3 py-4 flex items-center gap-1 text-sm font-medium transition-colors {{ request()->routeIs('iqac.*') ? 'active' : '' }}">
@@ -221,7 +204,7 @@
                         </a>
                     </li>
 
-                    <!-- <li class="nav-item relative">
+                    <li class="nav-item relative">
                         <a href="{{ route('examinations.index') }}" class="nav-link text-white px-3 py-4 flex items-center gap-1 text-sm font-medium transition-colors {{ request()->routeIs('examinations.*') ? 'active' : '' }}">
                             Examinations <i class="fas fa-chevron-down text-xs ml-0.5"></i>
                         </a>
@@ -241,7 +224,7 @@
                                onmouseover="this.style.color='var(--kmc-navy)'" onmouseout="this.style.color=''">{!! $label !!}</a>
                             @endforeach
                         </div>
-                    </li> -->
+                    </li>
 
                     <li class="nav-item relative">
                         <a href="{{ route('admissions.index') }}" class="nav-link text-white px-3 py-4 flex items-center gap-1 text-sm font-medium transition-colors {{ request()->routeIs('admissions.*') ? 'active' : '' }}">
@@ -256,7 +239,6 @@
                                 ['Scholarships', 'admissions.scholarships'],
                                 ['Merit Lists', 'admissions.merit-list'],
                                 ['Code of Conduct', 'admissions.code-of-conduct'],
-                                ['Examinations', 'examinations.index'],
                                 ['Anti-Ragging Cell', 'admissions.anti-ragging'],
                             ] as [$label, $route])
                             <a href="{{ route($route) }}" class="block px-4 py-2.5 text-sm text-gray-700 border-b border-gray-100 hover:bg-blue-50 transition-colors"
@@ -265,7 +247,7 @@
                         </div>
                     </li>
 
-                    <li class="nav-item relative">
+                    <!-- <li class="nav-item relative">
                         <a href="{{ route('student.index') }}" class="nav-link text-white px-3 py-4 flex items-center gap-1 text-sm font-medium transition-colors {{ request()->routeIs('student.*') ? 'active' : '' }}">
                             Student Corner <i class="fas fa-chevron-down text-xs ml-0.5"></i>
                         </a>
@@ -286,7 +268,7 @@
                                onmouseover="this.style.color='var(--kmc-navy)'" onmouseout="this.style.color=''">{{ $label }}</a>
                             @endforeach
                         </div>
-                    </li>
+                    </li> -->
 
                     <li class="nav-item relative">
                         <a href="{{ route('research.index') }}" class="nav-link text-white px-3 py-4 flex items-center gap-1 text-sm font-medium transition-colors {{ request()->routeIs('research.*') ? 'active' : '' }}">
@@ -304,7 +286,24 @@
                             @endforeach
                         </div>
                     </li>
-
+ <li class="nav-item relative">
+                        <a href="{{ route('junior-college.index') }}" class="nav-link text-white px-3 py-4 flex items-center gap-1 text-sm font-medium transition-colors {{ request()->routeIs('junior-college.*') ? 'active' : '' }}">
+                            Jr. College <i class="fas fa-chevron-down text-xs ml-0.5"></i>
+                        </a>
+                        <div class="dropdown-menu kmc-dropdown hidden absolute left-0 top-full bg-white shadow-xl z-50 min-w-[230px]">
+                            @foreach([
+                                ['About', 'junior-college.index'],
+                                ['Subjects', 'junior-college.subjects'],
+                                ['Teaching Staff', 'junior-college.teaching-staff'],
+                                ['Admission – Std. XI', 'junior-college.admissions-xi'],
+                                ['Admission – Std. XII', 'junior-college.admissions-xii'],
+                                ['Scholarships', 'junior-college.scholarships'],
+                            ] as [$label, $route])
+                            <a href="{{ route($route) }}" class="block px-4 py-2.5 text-sm text-gray-700 border-b border-gray-100 hover:bg-blue-50 transition-colors"
+                               onmouseover="this.style.color='var(--kmc-navy)'" onmouseout="this.style.color=''">{{ $label }}</a>
+                            @endforeach
+                        </div>
+                    </li>
                     <li>
                         <a href="{{ route('contact.index') }}" class="nav-link text-white px-3 py-4 block text-sm font-medium transition-colors {{ request()->routeIs('contact.*') ? 'active' : '' }}">
                             Contact
@@ -334,12 +333,13 @@
                 ['About Us', 'about.index', 'fas fa-info-circle'],
                 ['Governance', 'governance.index', 'fas fa-landmark'],
                 ['Academics', 'academics.index', 'fas fa-book'],
-                ['Jr. College', 'junior-college.index', 'fas fa-school'],
+                
                 ['IQAC', 'iqac.index', 'fas fa-certificate'],
                 ['NAAC', 'naac.index', 'fas fa-award'],
+                ['Examinations', 'examinations.index', 'fas fa-clipboard-list'],
                 ['Admission', 'admissions.index', 'fas fa-graduation-cap'],
-                ['Student Corner', 'student.index', 'fas fa-users'],
                 ['Research', 'research.index', 'fas fa-flask'],
+                ['Jr. College', 'junior-college.index', 'fas fa-school'],
                 ['NIRF', 'nirf.index', 'fas fa-chart-bar'],
                 ['Contact Us', 'contact.index', 'fas fa-phone'],
             ] as [$label, $route, $icon])

@@ -8,7 +8,7 @@ class JuniorCollegeStaff extends Model
 {
     protected $table = 'junior_college_staff';
 
-    protected $fillable = ['name', 'designation', 'qualification', 'subjects', 'is_active', 'order'];
+    protected $fillable = ['name', 'designation', 'qualification', 'subjects', 'photo', 'is_active', 'order'];
 
     protected $casts = ['is_active' => 'boolean'];
 

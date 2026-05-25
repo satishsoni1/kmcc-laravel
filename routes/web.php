@@ -268,6 +268,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::delete('contact-submissions/{contactSubmission}', [AdminContactSubmissionController::class, 'destroy'])->name('contact-submissions.destroy');
 
         Route::resource('research-articles', AdminResearchArticleController::class)->except(['show']);
+        Route::get('research-articles-import', [AdminResearchArticleController::class, 'importForm'])->name('research-articles.import.form');
+        Route::post('research-articles-import', [AdminResearchArticleController::class, 'import'])->name('research-articles.import');
+        Route::get('research-articles-template', [AdminResearchArticleController::class, 'downloadTemplate'])->name('research-articles.template');
 
         Route::resource('junior-college-staff', AdminJuniorCollegeStaffController::class)->except(['show']);
 

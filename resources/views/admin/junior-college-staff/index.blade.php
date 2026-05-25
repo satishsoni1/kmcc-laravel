@@ -28,9 +28,13 @@
             <tr class="hover:bg-gray-50 transition-colors">
                 <td class="px-4 py-3">
                     <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background-color: #2d4077;">
+                        @if($member->photo)
+                        <img src="{{ asset('storage/'.$member->photo) }}" class="w-9 h-9 rounded-full object-cover flex-shrink-0 border border-gray-200">
+                        @else
+                        <div class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style="background-color: #2d4077;">
                             <i class="fas fa-user text-xs" style="color: #ffee8c;"></i>
                         </div>
+                        @endif
                         <div>
                             <p class="font-medium text-gray-800">{{ $member->name }}</p>
                             <p class="text-xs text-gray-500">{{ $member->designation }}</p>

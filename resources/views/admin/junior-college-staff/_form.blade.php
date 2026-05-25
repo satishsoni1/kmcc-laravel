@@ -36,6 +36,34 @@
         </div>
     </div>
 
+    {{-- Photo Upload --}}
+    <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Photo</label>
+        <div class="flex items-start gap-4">
+            {{-- Preview --}}
+            <div id="photo-preview-wrap" class="flex-shrink-0 {{ isset($staff) && $staff->photo ? '' : 'hidden' }}">
+                <img id="photo-preview"
+                     src="{{ isset($staff) && $staff->photo ? asset('storage/'.$staff->photo) : '' }}"
+                     class="w-20 h-20 rounded-full object-cover border-2 border-gray-200">
+            </div>
+            <div class="flex-1">
+                <label class="flex items-center gap-3 px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-blue-400 transition-colors">
+                    <i class="fas fa-camera text-gray-400"></i>
+                    <span class="text-sm text-gray-500">Click to choose photo (JPG/PNG, max 2MB)</span>
+                    <input type="file" name="photo" accept="image/*" class="hidden" id="photo-input"
+                           onchange="previewPhoto(this)">
+                </label>
+                @error('photo')<p class="text-xs text-red-500 mt-1">{{ $message }}</p>@enderror
+                @if(isset($staff) && $staff->photo)
+                <label class="flex items-center gap-2 mt-2 cursor-pointer text-xs text-red-500">
+                    <input type="checkbox" name="remove_photo" value="1">
+                    Remove current photo
+                </label>
+                @endif
+            </div>
+        </div>
+    </div>
+
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Display Order</label>
@@ -68,3 +96,17 @@
         Cancel
     </a>
 </div>
+
+@push('scripts')
+<script>
+function previewPhoto(input) {
+    const wrap = document.getElementById('photo-preview-wrap');
+    const img  = document.getElementById('photo-preview');
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = e => { img.src = e.target.result; wrap.classList.remove('hidden'); };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+</script>
+@endpush

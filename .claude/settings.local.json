@@ -5,7 +5,10 @@
       "Bash(python3 -c \"import docx\")",
       "Bash(textutil -convert txt -stdout \"/Users/apple/Documents/kmcc-laravel/public/documents/About English Dept.docx\")",
       "Bash(python3 -c ' *)",
-      "Bash(php -r \"require '/Users/apple/Documents/kmcc-laravel/vendor/autoload.php';\")"
+      "Bash(php -r \"require '/Users/apple/Documents/kmcc-laravel/vendor/autoload.php';\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(list\\(d.get\\('require',{}\\).keys\\(\\)\\)\\)\")",
+      "Bash(composer show *)",
+      "Bash(php -r ' *)"
     ]
   }
 }
