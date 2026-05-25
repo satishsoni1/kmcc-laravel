@@ -38,6 +38,8 @@ use App\Http\Controllers\Admin\ResearchArticleController as AdminResearchArticle
 use App\Http\Controllers\Admin\DepartmentController as AdminDepartmentController;
 use App\Http\Controllers\Admin\DepartmentGalleryController as AdminDepartmentGalleryController;
 use App\Http\Controllers\Admin\BannerController as AdminBannerController;
+use App\Http\Controllers\JuniorCollegeController;
+use App\Http\Controllers\Admin\JuniorCollegeStaffController as AdminJuniorCollegeStaffController;
 use App\Http\Controllers\SearchController;
 
 // Home
@@ -186,6 +188,16 @@ Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index
 // Downloads
 Route::get('/downloads', [DownloadsController::class, 'index'])->name('downloads.index');
 
+// Junior College
+Route::prefix('junior-college')->name('junior-college.')->group(function () {
+    Route::get('/', [JuniorCollegeController::class, 'index'])->name('index');
+    Route::get('/subjects', [JuniorCollegeController::class, 'subjects'])->name('subjects');
+    Route::get('/teaching-staff', [JuniorCollegeController::class, 'teachingStaff'])->name('teaching-staff');
+    Route::get('/admissions-xi', [JuniorCollegeController::class, 'admissionsXI'])->name('admissions-xi');
+    Route::get('/admissions-xii', [JuniorCollegeController::class, 'admissionsXII'])->name('admissions-xii');
+    Route::get('/scholarships', [JuniorCollegeController::class, 'scholarships'])->name('scholarships');
+});
+
 // ─── Admin Panel ──────────────────────────────────────────────────────────────
 Route::prefix('admin')->name('admin.')->group(function () {
 
@@ -256,6 +268,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::delete('contact-submissions/{contactSubmission}', [AdminContactSubmissionController::class, 'destroy'])->name('contact-submissions.destroy');
 
         Route::resource('research-articles', AdminResearchArticleController::class)->except(['show']);
+
+        Route::resource('junior-college-staff', AdminJuniorCollegeStaffController::class)->except(['show']);
 
         Route::resource('departments', AdminDepartmentController::class)->except(['show']);
         Route::get('department-gallery', [AdminDepartmentGalleryController::class, 'index'])->name('department-gallery.index');

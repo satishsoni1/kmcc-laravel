@@ -89,6 +89,11 @@
                 <i class="fas fa-download icon"></i><span class="nav-label">Downloads</span>
             </a>
 
+            <p class="sidebar-section-label">Junior College</p>
+            <a href="{{ route('admin.junior-college-staff.index') }}" class="nav-link {{ request()->routeIs('admin.junior-college-staff.*') ? 'active' : '' }}">
+                <i class="fas fa-chalkboard-teacher icon"></i><span class="nav-label">Jr. College Staff</span>
+            </a>
+
             <p class="sidebar-section-label">Academics</p>
             <a href="{{ route('admin.departments.index') }}" class="nav-link {{ request()->routeIs('admin.departments.*') ? 'active' : '' }}">
                 <i class="fas fa-university icon"></i><span class="nav-label">Departments</span>

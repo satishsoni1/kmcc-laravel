@@ -2,12 +2,14 @@
     <div class="text-white px-5 py-3 font-bold text-sm" style="background-color: var(--kmc-navy);">Admissions</div>
     <nav class="divide-y divide-gray-100">
         @foreach([
+        
             ['Online Admission', route('admissions.index')],
             ['Prospectus', route('admissions.prospectus')],
             ['Fees Structure', route('admissions.fees')],
             ['Admission Process', route('admissions.process')],
             ['Scholarships', route('admissions.scholarships')],
             ['Merit Lists', route('admissions.merit-list')],
+            ['Examinations', 'examinations.index', 'fas fa-clipboard-list'],
             ['Code of Conduct', route('admissions.code-of-conduct')],
             ['Anti-Ragging Cell', route('admissions.anti-ragging')],
         ] as [$label, $url])
