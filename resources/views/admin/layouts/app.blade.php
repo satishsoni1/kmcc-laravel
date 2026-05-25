@@ -165,6 +165,9 @@
             </a>
 
             <p class="sidebar-section-label">System</p>
+            <a href="{{ route('admin.launch.index') }}" class="nav-link {{ request()->routeIs('admin.launch.*') ? 'active' : '' }}">
+                <i class="fas fa-rocket icon"></i><span class="nav-label">Website Launch</span>
+            </a>
             <a href="{{ route('admin.settings.index') }}" class="nav-link {{ request()->routeIs('admin.settings.*') ? 'active' : '' }}">
                 <i class="fas fa-cog icon"></i><span class="nav-label">Settings</span>
             </a>

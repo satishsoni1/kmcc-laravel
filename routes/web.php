@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LaunchController;
+use App\Http\Controllers\Admin\LaunchSettingsController as AdminLaunchSettingsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\GovernanceController;
@@ -41,6 +43,13 @@ use App\Http\Controllers\Admin\BannerController as AdminBannerController;
 use App\Http\Controllers\JuniorCollegeController;
 use App\Http\Controllers\Admin\JuniorCollegeStaffController as AdminJuniorCollegeStaffController;
 use App\Http\Controllers\SearchController;
+
+// ─── Launch / Inauguration ────────────────────────────────────────────────────
+Route::get('/coming-soon', [LaunchController::class, 'comingSoon'])->name('launch.coming-soon');
+Route::get('/launch/ceremony', [LaunchController::class, 'ceremony'])->name('launch.ceremony');
+Route::get('/launch/display', [LaunchController::class, 'display'])->name('launch.display');
+Route::post('/launch/press', [LaunchController::class, 'press'])->name('launch.press');
+Route::get('/launch/status', [LaunchController::class, 'status'])->name('launch.status');
 
 // Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -229,6 +238,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         Route::get('settings', [AdminSettingsController::class, 'index'])->name('settings.index');
         Route::put('settings', [AdminSettingsController::class, 'update'])->name('settings.update');
+
+        // ── Launch / Inauguration ─────────────────────────────────────────────
+        Route::get('launch', [AdminLaunchSettingsController::class, 'index'])->name('launch.index');
+        Route::post('launch', [AdminLaunchSettingsController::class, 'update'])->name('launch.update');
+        Route::post('launch/generate-tokens', [AdminLaunchSettingsController::class, 'generateTokens'])->name('launch.generate-tokens');
+        Route::post('launch/reset', [AdminLaunchSettingsController::class, 'reset'])->name('launch.reset');
+        Route::post('launch/mark-live', [AdminLaunchSettingsController::class, 'markLive'])->name('launch.mark-live');
 
         // ── Academics ──────────────────────────────────────────────────────────
         Route::resource('academic-programmes', AdminAcademicProgrammeController::class)->except(['show']);

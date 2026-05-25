@@ -4,6 +4,22 @@
 
 @section('content')
 
+@php $launchedAt = setting('launch_completed_at'); @endphp
+@if($launchedAt)
+{{-- Inauguration Banner --}}
+<div class="text-center py-2 px-4 text-xs font-semibold" style="background:linear-gradient(90deg,var(--kmc-navy-dark),var(--kmc-navy),var(--kmc-navy-dark)); color:rgba(255,238,140,.9);">
+    <i class="fas fa-flag mr-1.5" style="color:var(--kmc-gold);"></i>
+    Website Inaugurated by
+    <strong style="color:var(--kmc-gold);">{{ setting('launch_chairman_name','the Chairman') }}, Chairman</strong>
+    &amp;
+    <strong style="color:var(--kmc-gold);">{{ setting('launch_principal_name','the Principal') }}, Principal</strong>
+
+    on
+    <strong style="color:var(--kmc-gold);">{{ \Carbon\Carbon::parse($launchedAt)->format('d M Y') }}</strong>
+    <i class="fas fa-flag ml-1.5" style="color:var(--kmc-gold);"></i>
+</div>
+@endif
+
 {{-- Announcement Ticker --}}
 <div class="text-black py-1.5 text-sm" style="background-color: var(--kmc-gold);">
     <div class="max-w-7xl mx-auto px-4 flex items-center gap-3">
