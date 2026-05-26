@@ -13,7 +13,6 @@
     <strong style="color:var(--kmc-gold);">{{ setting('launch_chairman_name','the Chairman') }}, Chairman</strong>
     &amp;
     <strong style="color:var(--kmc-gold);">{{ setting('launch_principal_name','the Principal') }}, Principal</strong>
-
     on
     <strong style="color:var(--kmc-gold);">{{ \Carbon\Carbon::parse($launchedAt)->format('d M Y') }}</strong>
     <i class="fas fa-flag ml-1.5" style="color:var(--kmc-gold);"></i>
