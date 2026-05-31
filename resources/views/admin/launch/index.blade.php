@@ -6,8 +6,10 @@
 @php
     $isComingSoon = $config['launch_mode'] === 'coming_soon';
     $isLaunched   = !empty($config['launch_completed_at']);
-    $principalPressed = !empty($config['launch_principal_pressed_at']);
-    $chairmanPressed  = !empty($config['launch_chairman_pressed_at']);
+    $m1Pressed = !empty($config['launch_member1_pressed_at']);
+    $m2Pressed = !empty($config['launch_member2_pressed_at']);
+    $m3Pressed = !empty($config['launch_member3_pressed_at']);
+    $m4Pressed = !empty($config['launch_member4_pressed_at']);
 @endphp
 
 {{-- Status Banner --}}
@@ -52,18 +54,32 @@
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Principal's Full Name <span class="text-red-500">*</span></label>
-                        <input type="text" name="launch_principal_name"
-                               value="{{ old('launch_principal_name', $config['launch_principal_name']) }}"
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Member 1 Full Name <span class="text-red-500">*</span></label>
+                        <input type="text" name="launch_member1_name"
+                               value="{{ old('launch_member1_name', $config['launch_member1_name'] ?? 'Member 1') }}"
                                class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                               placeholder="Dr. Anjali Sharma" required>
+                               placeholder="e.g. Dr. Anjali Sharma" required>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Chairman's Full Name <span class="text-red-500">*</span></label>
-                        <input type="text" name="launch_chairman_name"
-                               value="{{ old('launch_chairman_name', $config['launch_chairman_name']) }}"
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Member 2 Full Name <span class="text-red-500">*</span></label>
+                        <input type="text" name="launch_member2_name"
+                               value="{{ old('launch_member2_name', $config['launch_member2_name'] ?? 'Member 2') }}"
                                class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                               placeholder="Shri Ramchandra Patil" required>
+                               placeholder="e.g. Shri Ramchandra Patil" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Member 3 Full Name <span class="text-red-500">*</span></label>
+                        <input type="text" name="launch_member3_name"
+                               value="{{ old('launch_member3_name', $config['launch_member3_name'] ?? 'Member 3') }}"
+                               class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                               placeholder="Enter name" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Member 4 Full Name <span class="text-red-500">*</span></label>
+                        <input type="text" name="launch_member4_name"
+                               value="{{ old('launch_member4_name', $config['launch_member4_name'] ?? 'Member 4') }}"
+                               class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                               placeholder="Enter name" required>
                     </div>
                 </div>
 
@@ -101,22 +117,26 @@
                 Generating new tokens will also <strong>reset the ceremony state</strong>.
             </p>
 
-            @if($config['launch_token_principal'] && $config['launch_token_chairman'])
+            @if($config['launch_token_member1'] && $config['launch_token_member2'] && $config['launch_token_member3'] && $config['launch_token_member4'])
             <div class="space-y-3 mb-5">
                 @php
                     $baseUrl = request()->getSchemeAndHttpHost();
-                    $urlPrincipal = $baseUrl . '/launch/ceremony?token=' . $config['launch_token_principal'];
-                    $urlChairman  = $baseUrl . '/launch/ceremony?token=' . $config['launch_token_chairman'];
+                    $urlMember1 = $baseUrl . '/launch/ceremony?token=' . $config['launch_token_member1'];
+                    $urlMember2 = $baseUrl . '/launch/ceremony?token=' . $config['launch_token_member2'];
+                    $urlMember3 = $baseUrl . '/launch/ceremony?token=' . $config['launch_token_member3'];
+                    $urlMember4 = $baseUrl . '/launch/ceremony?token=' . $config['launch_token_member4'];
                     $urlDisplay   = $baseUrl . '/launch/display';
                 @endphp
 
                 @foreach([
-                    ['Principal', $config['launch_token_principal'], $urlPrincipal, 'bg-blue-50 border-blue-200', 'text-blue-700', $principalPressed],
-                    ['Chairman',  $config['launch_token_chairman'],  $urlChairman,  'bg-purple-50 border-purple-200', 'text-purple-700', $chairmanPressed],
-                ] as [$title, $token, $url, $bg, $text, $pressed])
+                    [$config['launch_member1_name'] ?: 'Member 1', $config['launch_token_member1'], $urlMember1, 'bg-blue-50 border-blue-200', 'text-blue-700', $m1Pressed, 'member1'],
+                    [$config['launch_member2_name'] ?: 'Member 2', $config['launch_token_member2'], $urlMember2, 'bg-purple-50 border-purple-200', 'text-purple-700', $m2Pressed, 'member2'],
+                    [$config['launch_member3_name'] ?: 'Member 3', $config['launch_token_member3'], $urlMember3, 'bg-pink-50 border-pink-200', 'text-pink-700', $m3Pressed, 'member3'],
+                    [$config['launch_member4_name'] ?: 'Member 4', $config['launch_token_member4'], $urlMember4, 'bg-teal-50 border-teal-200', 'text-teal-700', $m4Pressed, 'member4'],
+                ] as [$name, $token, $url, $bg, $text, $pressed, $id])
                 <div class="{{ $bg }} border rounded-xl p-4">
                     <div class="flex items-center justify-between mb-2">
-                        <p class="text-xs font-bold {{ $text }} uppercase tracking-wide">{{ $title }}'s Console</p>
+                        <p class="text-xs font-bold {{ $text }} uppercase tracking-wide">{{ $name }}'s Console</p>
                         @if($pressed)
                         <span class="text-xs px-2 py-0.5 rounded-full bg-green-100 text-green-700 font-semibold">✓ Key Pressed</span>
                         @else
@@ -126,8 +146,8 @@
                     <div class="flex items-center gap-2">
                         <input type="text" value="{{ $url }}" readonly
                                class="flex-1 bg-white border border-gray-200 rounded-lg px-3 py-2 text-xs font-mono text-gray-700 focus:outline-none"
-                               id="url-{{ strtolower($title) }}" onclick="this.select()">
-                        <button onclick="copyURL('url-{{ strtolower($title) }}')"
+                               id="url-{{ $id }}" onclick="this.select()">
+                        <button onclick="copyURL('url-{{ $id }}')"
                                 class="px-3 py-2 rounded-lg text-xs font-semibold text-white flex-shrink-0"
                                 style="background-color:#2d4077;">
                             <i class="fas fa-copy"></i> Copy
@@ -173,7 +193,7 @@
                         style="background-color:#b89b1e;"
                         onclick="return confirm('Generate new tokens? This will reset any previously pressed keys.')">
                     <i class="fas fa-sync-alt mr-1"></i>
-                    {{ $config['launch_token_principal'] ? 'Regenerate Tokens (Resets Ceremony)' : 'Generate Tokens' }}
+                    {{ $config['launch_token_member1'] ? 'Regenerate Tokens (Resets Ceremony)' : 'Generate Tokens' }}
                 </button>
             </form>
         </div>
@@ -189,24 +209,23 @@
                 <i class="fas fa-satellite-dish text-red-500"></i> Live Ceremony Status
             </h3>
             <div class="space-y-3" id="live-status">
-                <div class="flex items-center gap-3 p-3 rounded-lg border {{ $principalPressed ? 'bg-green-50 border-green-200' : 'bg-gray-50 border-gray-200' }}">
-                    <div class="w-3 h-3 rounded-full {{ $principalPressed ? 'bg-green-500' : 'bg-gray-300' }} flex-shrink-0"></div>
+                @foreach([
+                    ['member1', $m1Pressed, $config['launch_member1_name'] ?: 'Member 1', 'launch_member1_pressed_at'],
+                    ['member2', $m2Pressed, $config['launch_member2_name'] ?: 'Member 2', 'launch_member2_pressed_at'],
+                    ['member3', $m3Pressed, $config['launch_member3_name'] ?: 'Member 3', 'launch_member3_pressed_at'],
+                    ['member4', $m4Pressed, $config['launch_member4_name'] ?: 'Member 4', 'launch_member4_pressed_at'],
+                ] as [$id, $pressed, $name, $pressedKey])
+                <div class="flex items-center gap-3 p-3 rounded-lg border {{ $pressed ? 'bg-green-50 border-green-200' : 'bg-gray-50 border-gray-200' }}">
+                    <div class="w-3 h-3 rounded-full {{ $pressed ? 'bg-green-500' : 'bg-gray-300' }} flex-shrink-0"></div>
                     <div class="flex-1">
-                        <p class="text-xs font-semibold text-gray-700">Principal's Key</p>
-                        <p class="text-xs {{ $principalPressed ? 'text-green-600' : 'text-gray-400' }}">
-                            {{ $principalPressed ? 'Activated at ' . \Carbon\Carbon::parse($config['launch_principal_pressed_at'])->format('h:i:s A') : 'Not yet pressed' }}
+                        <p class="text-xs font-semibold text-gray-700">{{ $name }}</p>
+                        <p class="text-xs {{ $pressed ? 'text-green-600' : 'text-gray-400' }}">
+                            {{ $pressed ? 'Activated at ' . \Carbon\Carbon::parse($config[$pressedKey])->format('h:i:s A') : 'Not yet pressed' }}
                         </p>
                     </div>
                 </div>
-                <div class="flex items-center gap-3 p-3 rounded-lg border {{ $chairmanPressed ? 'bg-green-50 border-green-200' : 'bg-gray-50 border-gray-200' }}">
-                    <div class="w-3 h-3 rounded-full {{ $chairmanPressed ? 'bg-green-500' : 'bg-gray-300' }} flex-shrink-0"></div>
-                    <div class="flex-1">
-                        <p class="text-xs font-semibold text-gray-700">Chairman's Key</p>
-                        <p class="text-xs {{ $chairmanPressed ? 'text-green-600' : 'text-gray-400' }}">
-                            {{ $chairmanPressed ? 'Activated at ' . \Carbon\Carbon::parse($config['launch_chairman_pressed_at'])->format('h:i:s A') : 'Not yet pressed' }}
-                        </p>
-                    </div>
-                </div>
+                @endforeach
+
                 @if($isLaunched)
                 <div class="flex items-center gap-3 p-3 rounded-lg border bg-blue-50 border-blue-200">
                     <i class="fas fa-rocket text-blue-500 flex-shrink-0"></i>
@@ -255,13 +274,12 @@
                 <i class="fas fa-info-circle"></i> How to Run the Ceremony
             </h3>
             <ol class="text-xs text-blue-700 space-y-1.5 list-decimal list-inside leading-relaxed">
-                <li>Set names & event date, save settings</li>
+                <li>Set 4 member names & event date, save settings</li>
                 <li>Set mode to <strong>Coming Soon</strong></li>
                 <li>Generate tokens (fresh tokens for each event)</li>
-                <li>Open <strong>Principal URL</strong> on one tablet/laptop</li>
-                <li>Open <strong>Chairman URL</strong> on a second tablet/laptop</li>
+                <li>Open each <strong>Member URL</strong> on 4 separate tablets/laptops</li>
                 <li>Open <strong>Audience URL</strong> on the hall projector</li>
-                <li>Both press their buttons on-stage — <strong>3-2-1 countdown fires</strong></li>
+                <li>All 4 press their buttons on-stage — <strong>3-2-1 countdown fires</strong></li>
                 <li>Full-screen celebration on all screens 🎉</li>
                 <li>Website goes live automatically</li>
             </ol>

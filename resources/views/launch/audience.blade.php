@@ -35,12 +35,12 @@
         .event-sub   { font-size:clamp(.7rem,1.5vw,1rem); color:rgba(255,255,255,.5); margin-bottom:40px; }
 
         /* Key display */
-        .keys-row { display:flex; gap:clamp(24px,5vw,80px); justify-content:center; margin-bottom:40px; flex-wrap:wrap; }
+        .keys-row { display:flex; gap:clamp(12px,2.5vw,32px); justify-content:center; margin-bottom:40px; flex-wrap:nowrap; }
         .key-card {
             display:flex; flex-direction:column; align-items:center; gap:16px;
             background:rgba(255,255,255,.04); border:2px solid rgba(255,238,140,.15);
-            border-radius:24px; padding:clamp(24px,4vw,40px) clamp(28px,5vw,60px);
-            transition:all .6s; min-width:220px;
+            border-radius:24px; padding:clamp(16px,2.5vw,32px) clamp(20px,3.5vw,48px);
+            transition:all .6s; min-width:180px;
         }
         .key-card.activated {
             background:rgba(255,238,140,.1); border-color:rgba(255,238,140,.5);
@@ -49,10 +49,10 @@
 
         /* Lock icon — transforms to key when active */
         .key-orb {
-            width:clamp(80px,12vw,120px); height:clamp(80px,12vw,120px); border-radius:50%;
+            width:clamp(60px,8vw,90px); height:clamp(60px,8vw,90px); border-radius:50%;
             border:3px solid rgba(255,238,140,.2);
             display:flex; align-items:center; justify-content:center;
-            font-size:clamp(2rem,4vw,3rem); color:rgba(255,255,255,.2);
+            font-size:clamp(1.5rem,3vw,2.2rem); color:rgba(255,255,255,.2);
             transition:all .8s; background:rgba(255,255,255,.04);
             position:relative;
         }
@@ -67,10 +67,10 @@
             50%{box-shadow:0 0 0 16px rgba(255,238,140,.08),0 0 70px rgba(255,238,140,.5);}
         }
 
-        .key-name { font-size:clamp(1rem,2.5vw,1.4rem); font-weight:800; color:white; }
+        .key-name { font-size:clamp(0.9rem,1.8vw,1.2rem); font-weight:800; color:white; }
         .key-role { font-size:clamp(.65rem,1.2vw,.85rem); color:rgba(255,238,140,.6); }
         .key-status-text {
-            font-size:clamp(.65rem,1.2vw,.8rem); color:rgba(255,255,255,.35);
+            font-size:clamp(.6rem,1vw,.75rem); color:rgba(255,255,255,.35);
             transition:color .4s; letter-spacing:.08em; text-transform:uppercase;
         }
         .key-card.activated .key-status-text { color:#7dea60; font-weight:700; }
@@ -78,7 +78,7 @@
         /* Center divider text */
         .and-text {
             display:flex; align-items:center; justify-content:center;
-            font-size:clamp(1.2rem,3vw,2rem); color:rgba(255,238,140,.3); font-weight:300;
+            font-size:clamp(1rem,2vw,1.5rem); color:rgba(255,238,140,.3); font-weight:300;
             align-self:center; padding-top:0;
         }
 
@@ -188,22 +188,16 @@
     <p class="event-sub">Khalapur Taluka Shikshan Prasarak Mandal &bull; Est. 1979 &bull; NAAC Reaccredited 'B+' Grade</p>
 
     <div class="keys-row">
-        
-
-        <div class="key-card" id="card-chairman">
-            <div class="key-orb"><i class="fas fa-lock" id="icon-chairman"></i></div>
-            <div class="key-name">{{ $chairmanName }}</div>
-            <div class="key-role">Chairman, K.T.S.P. Mandal</div>
-            <div class="key-status-text" id="stat-chairman">Awaiting activation…</div>
+        @foreach(['member1', 'member2', 'member3', 'member4'] as $m)
+        <div class="key-card" id="card-{{ $m }}">
+            <div class="key-orb"><i class="fas fa-lock" id="icon-{{ $m }}"></i></div>
+            <div class="key-name">{{ ${$m . 'Name'} }}</div>
+            <div class="key-status-text" id="stat-{{ $m }}">Awaiting activation…</div>
         </div>
+        @if(!$loop->last)
         <div class="and-text">&amp;</div>
-        <div class="key-card" id="card-principal">
-            <div class="key-orb"><i class="fas fa-lock" id="icon-principal"></i></div>
-            <div class="key-name">{{ $principalName }}</div>
-            <div class="key-role">Principal, K.M.C. College</div>
-            <div class="key-status-text" id="stat-principal">Awaiting activation…</div>
-        </div>
-        
+        @endif
+        @endforeach
     </div>
 
     <div class="status-banner" id="status-banner">
@@ -228,7 +222,9 @@
     <div class="launchers">
         <div class="launcher-pill">
             <div class="lp-role">Inaugurated by</div>
-            <div class="lp-name">{{ $chairmanName }} & {{ $principalName }}</div>
+            <div class="lp-name">
+                {{ $member1Name }}, {{ $member2Name }}, {{ $member3Name }} & {{ $member4Name }}
+            </div>
         </div>
     </div>
     <p class="celeb-date" id="celeb-date"></p>
@@ -279,15 +275,25 @@ function poll() {
 
 function update(data) {
     // Update key cards
-    const ppressed = data.principal_pressed;
-    const cpressed = data.chairman_pressed;
+    const m1pressed = data.member1_pressed;
+    const m2pressed = data.member2_pressed;
+    const m3pressed = data.member3_pressed;
+    const m4pressed = data.member4_pressed;
 
-    document.getElementById('card-principal').classList.toggle('activated', ppressed);
-    document.getElementById('card-chairman').classList.toggle('activated',  cpressed);
-    document.getElementById('icon-principal').className = ppressed ? 'fas fa-key' : 'fas fa-lock';
-    document.getElementById('icon-chairman').className  = cpressed ? 'fas fa-key' : 'fas fa-lock';
-    document.getElementById('stat-principal').textContent = ppressed ? '✓ Key Activated' : 'Awaiting activation…';
-    document.getElementById('stat-chairman').textContent  = cpressed ? '✓ Key Activated' : 'Awaiting activation…';
+    document.getElementById('card-member1').classList.toggle('activated', m1pressed);
+    document.getElementById('card-member2').classList.toggle('activated', m2pressed);
+    document.getElementById('card-member3').classList.toggle('activated', m3pressed);
+    document.getElementById('card-member4').classList.toggle('activated', m4pressed);
+
+    document.getElementById('icon-member1').className = m1pressed ? 'fas fa-key' : 'fas fa-lock';
+    document.getElementById('icon-member2').className = m2pressed ? 'fas fa-key' : 'fas fa-lock';
+    document.getElementById('icon-member3').className = m3pressed ? 'fas fa-key' : 'fas fa-lock';
+    document.getElementById('icon-member4').className = m4pressed ? 'fas fa-key' : 'fas fa-lock';
+
+    document.getElementById('stat-member1').textContent = m1pressed ? '✓ Key Activated' : 'Awaiting activation…';
+    document.getElementById('stat-member2').textContent = m2pressed ? '✓ Key Activated' : 'Awaiting activation…';
+    document.getElementById('stat-member3').textContent = m3pressed ? '✓ Key Activated' : 'Awaiting activation…';
+    document.getElementById('stat-member4').textContent = m4pressed ? '✓ Key Activated' : 'Awaiting activation…';
 
     const banner = document.getElementById('status-banner');
     const text   = document.getElementById('status-text');
@@ -295,18 +301,15 @@ function update(data) {
     if (data.state === 'idle') {
         text.textContent = 'Awaiting inauguration keys…';
         banner.classList.remove('both-active');
-    } else if (data.state === 'principal_pressed') {
-        text.textContent = `${data.principal_name}'s key is active — awaiting ${data.chairman_name}…`;
-        banner.classList.remove('both-active');
-    } else if (data.state === 'chairman_pressed') {
-        text.textContent = `${data.chairman_name}'s key is active — awaiting ${data.principal_name}…`;
-        banner.classList.remove('both-active');
-    } else if (data.state === 'both_pressed' || data.state === 'launched') {
-        text.textContent = '🚀 Both Keys Activated — Launching!';
+    } else if (data.state === 'launched' || data.state === 'all_pressed') {
+        text.textContent = '🚀 All Keys Activated — Launching!';
         banner.classList.add('both-active');
+    } else {
+        text.textContent = `${data.pressed_count} of 4 keys active — waiting for remaining…`;
+        banner.classList.remove('both-active');
     }
 
-    if ((data.state === 'both_pressed' || data.state === 'launched') && !countdownRunning) {
+    if ((data.state === 'all_pressed' || data.state === 'launched') && !countdownRunning) {
         countdownRunning = true;
         launched = true;
         runCountdown();

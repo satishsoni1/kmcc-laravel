@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ $role === 'principal' ? $principalName : $chairmanName }} | Inauguration Console</title>
+    <title>
+        @if($role === 'member1') {{ $member1Name }}
+        @elseif($role === 'member2') {{ $member2Name }}
+        @elseif($role === 'member3') {{ $member3Name }}
+        @elseif($role === 'member4') {{ $member4Name }}
+        @endif
+        | Inauguration Console
+    </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root { --navy:#2d4077; --gold:#ffee8c; --crimson:#e31e24; }
@@ -255,10 +262,11 @@
 <div class="role-badge">
     <p class="role-title">Inauguration Console</p>
     <p class="role-name">
-        @if($role === 'principal') {{ $principalName }} @else {{ $chairmanName }} @endif
-    </p>
-    <p class="role-sub">
-        @if($role === 'principal') Principal, K.M.C. College, Khopoli @else Chairman, K.T.S.P. Mandal @endif
+        @if($role === 'member1') {{ $member1Name }}
+        @elseif($role === 'member2') {{ $member2Name }}
+        @elseif($role === 'member3') {{ $member3Name }}
+        @elseif($role === 'member4') {{ $member4Name }}
+        @endif
     </p>
 </div>
 
@@ -267,21 +275,15 @@
 
     {{-- Keys status --}}
     <div class="keys-strip">
-        <div class="key-indicator" id="ind-chairman">
-            <div class="key-dot" id="dot-chairman"></div>
+        @foreach(['member1', 'member2', 'member3', 'member4'] as $m)
+        <div class="key-indicator" id="ind-{{ $m }}">
+            <div class="key-dot" id="dot-{{ $m }}"></div>
             <div class="key-info">
-                <div class="key-person">{{ $chairmanName }}, Chairman, K.T.S.P. Mandal</div>
-                <div class="key-status" id="stat-chairman">Awaiting key...</div>
+                <div class="key-person">{{ ${$m . 'Name'} }}</div>
+                <div class="key-status" id="stat-{{ $m }}">Awaiting key...</div>
             </div>
         </div>
-        <div class="key-indicator" id="ind-principal">
-            <div class="key-dot" id="dot-principal"></div>
-            <div class="key-info">
-                <div class="key-person">{{ $principalName }}, Principal, K.M.C. College</div>
-                <div class="key-status" id="stat-principal">Awaiting key...</div>
-            </div>
-        </div>
-        
+        @endforeach
     </div>
 
     {{-- THE BUTTON --}}
@@ -302,7 +304,7 @@
     {{-- Status --}}
     <div class="status-msg">
         <p class="status-main" id="status-main">Ready and waiting</p>
-        <p class="status-sub" id="status-sub">Both keys must be activated to launch the website</p>
+        <p class="status-sub" id="status-sub">All 4 keys must be activated to launch the website</p>
     </div>
 
 </div>
@@ -321,15 +323,11 @@
     <h2 class="celeb-title">Website Officially Launched!</h2>
     <p class="celeb-subtitle">The digital gateway to K.M.C. College is now open to the world.</p>
     <div class="launchers">
+        @foreach(['member1', 'member2', 'member3', 'member4'] as $m)
         <div class="launcher-card">
-            <p class="launcher-title">Chairman</p>
-            <p class="launcher-name">{{ $chairmanName }}</p>
+            <p class="launcher-name">{{ ${$m . 'Name'} }}</p>
         </div>
-        <div class="launcher-card">
-            <p class="launcher-title">Principal</p>
-            <p class="launcher-name">{{ $principalName }}</p>
-        </div>
-        
+        @endforeach
     </div>
     <p class="celeb-date" id="celeb-date"></p>
     <div class="counters">
@@ -394,10 +392,11 @@ function activateKey() {
 
     const btn = document.getElementById('launch-btn');
     btn.classList.add('pressed');
+    btn.classList.remove('urgent');
     btn.disabled = true;
     document.getElementById('btn-label').textContent = '✓ Activated';
-    document.getElementById('btn-sub').textContent   = 'Waiting for second key';
-    document.getElementById('btn-hint').textContent  = 'Key activated — waiting for the other party';
+    document.getElementById('btn-sub').textContent   = 'Waiting for others';
+    document.getElementById('btn-hint').textContent  = 'Key activated — waiting for the other parties';
 
     fetch('/launch/press', {
         method:'POST',
@@ -429,22 +428,18 @@ function handleState(data) {
         return;
     }
 
-    if (data.state === 'principal_pressed' || data.state === 'chairman_pressed') {
-        const otherPressed = data.state === 'principal_pressed' ? 'principal' : 'chairman';
-        if (otherPressed !== MY_ROLE && !myPressed) {
-            // Other person pressed, urge me
-            const btn = document.getElementById('launch-btn');
-            btn.classList.add('urgent');
-            document.getElementById('btn-hint').style.color = '#ffee8c';
-            document.getElementById('btn-hint').textContent = '⚡ The other key is active — Press YOUR button NOW!';
-            document.getElementById('status-main').textContent = 'One key activated — press yours to launch!';
-        }
+    const myPressedState = data[MY_ROLE + '_pressed'];
+    if (!myPressedState && data.pressed_count > 0) {
+        const btn = document.getElementById('launch-btn');
+        btn.classList.add('urgent');
+        document.getElementById('btn-hint').style.color = '#ffee8c';
+        document.getElementById('btn-hint').textContent = '⚡ Other key(s) active — Press YOUR button NOW!';
+        document.getElementById('status-main').textContent = `${data.pressed_count} key(s) active — press yours!`;
     }
 
-    if (data.state === 'both_pressed' && !countdownRunning) {
+    if ((data.state === 'all_pressed' || data.state === 'launched') && !countdownRunning) {
         countdownRunning = true;
         clearInterval(pollInterval);
-        // Server will trigger launch on both_pressed — re-check once more then countdown
         setTimeout(() => {
             fetch('/launch/status').then(r=>r.json()).then(d => {
                 if (d.state === 'launched') runCountdown();
@@ -455,21 +450,27 @@ function handleState(data) {
 }
 
 function updateKeyIndicators(data) {
-    setKeyState('principal', data.principal_pressed);
-    setKeyState('chairman',  data.chairman_pressed);
+    setKeyState('member1', data.member1_pressed);
+    setKeyState('member2', data.member2_pressed);
+    setKeyState('member3', data.member3_pressed);
+    setKeyState('member4', data.member4_pressed);
 
-    if (data.state === 'idle') {
-        document.getElementById('status-main').textContent = 'Ready — awaiting activation';
-        document.getElementById('status-sub').textContent  = 'Both keys must be activated to launch the website';
-    } else if (data.state === 'principal_pressed') {
-        document.getElementById('status-main').textContent = `${data.principal_name}'s key is active`;
-        document.getElementById('status-sub').textContent  = `Waiting for ${data.chairman_name} to press…`;
-    } else if (data.state === 'chairman_pressed') {
-        document.getElementById('status-main').textContent = `${data.chairman_name}'s key is active`;
-        document.getElementById('status-sub').textContent  = `Waiting for ${data.principal_name} to press…`;
-    } else if (data.state === 'both_pressed' || data.state === 'launched') {
-        document.getElementById('status-main').textContent = '🚀 Both keys active — Launching!';
+    if (data.state === 'launched' || data.state === 'all_pressed') {
+        document.getElementById('status-main').textContent = '🚀 All keys active — Launching!';
         document.getElementById('status-sub').textContent  = '';
+    } else {
+        if (data.pressed_count === 0) {
+            document.getElementById('status-main').textContent = 'Ready — awaiting activation';
+            document.getElementById('status-sub').textContent  = 'All 4 keys must be activated to launch the website';
+        } else {
+            document.getElementById('status-main').textContent = `${data.pressed_count} of 4 keys active`;
+            let waitingFor = [];
+            if (!data.member1_pressed) waitingFor.push(data.member1_name);
+            if (!data.member2_pressed) waitingFor.push(data.member2_name);
+            if (!data.member3_pressed) waitingFor.push(data.member3_name);
+            if (!data.member4_pressed) waitingFor.push(data.member4_name);
+            document.getElementById('status-sub').textContent  = 'Awaiting: ' + waitingFor.join(', ');
+        }
     }
 }
 

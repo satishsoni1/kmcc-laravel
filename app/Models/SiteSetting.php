@@ -22,4 +22,13 @@ class SiteSetting extends Model
         static::updateOrCreate(['key' => $key], ['value' => $value]);
         Cache::forget("setting_{$key}");
     }
+
+    public static function clearPreviousPresses(): void
+    {
+        static::set('launch_member1_pressed_at', '');
+        static::set('launch_member2_pressed_at', '');
+        static::set('launch_member3_pressed_at', '');
+        static::set('launch_member4_pressed_at', '');
+        static::set('launch_completed_at', '');
+    }
 }
