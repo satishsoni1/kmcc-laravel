@@ -158,6 +158,9 @@
             <a href="{{ route('admin.college-committees.index') }}" class="nav-link {{ request()->routeIs('admin.college-committees.*') ? 'active' : '' }}">
                 <i class="fas fa-layer-group icon"></i><span class="nav-label">College Committees</span>
             </a>
+            <a href="{{ route('admin.office-staff.index') }}" class="nav-link {{ request()->routeIs('admin.office-staff.*') ? 'active' : '' }}">
+                <i class="fas fa-id-badge icon"></i><span class="nav-label">Office Staff</span>
+            </a>
 
             <p class="sidebar-section-label">Research</p>
             <a href="{{ route('admin.research-articles.index') }}" class="nav-link {{ request()->routeIs('admin.research-articles.*') ? 'active' : '' }}">

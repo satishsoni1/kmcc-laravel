@@ -1,0 +1,72 @@
+@extends('layouts.app')
+@section('title', 'Office Staff')
+@section('content')
+
+@include('partials._page-header', [
+    'title'       => 'Office Staff',
+    'subtitle'    => 'Administrative and support staff of K.M.C. College, Khopoli',
+    'breadcrumbs' => ['About Us' => route('about.index'), 'Office Staff' => null],
+])
+
+<div class="max-w-7xl mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <aside class="lg:col-span-1">
+            @include('about._sidebar')
+        </aside>
+
+        <main class="lg:col-span-2 space-y-6">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="px-6 py-5 border-b border-gray-100">
+                    <h3 class="text-xl font-bold" style="color: var(--kmc-navy);">Office &amp; Administrative Staff</h3>
+                    <div class="w-10 h-1 mt-2" style="background-color: var(--kmc-gold);"></div>
+                </div>
+
+                @if($staff->isEmpty())
+                <div class="px-6 py-12 text-center text-gray-400">
+                    <i class="fas fa-id-badge text-4xl mb-3 opacity-40"></i>
+                    <p class="text-sm">Staff details will be updated soon.</p>
+                </div>
+                @else
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-4 py-3 text-left font-semibold text-gray-600 text-xs uppercase tracking-wide">Sr. No.</th>
+                                <th class="px-4 py-3 text-left font-semibold text-gray-600 text-xs uppercase tracking-wide">Name</th>
+                                <th class="px-4 py-3 text-left font-semibold text-gray-600 text-xs uppercase tracking-wide">Designation</th>
+                                <th class="px-4 py-3 text-left font-semibold text-gray-600 text-xs uppercase tracking-wide hidden sm:table-cell">Department / Office</th>
+                                <th class="px-4 py-3 text-left font-semibold text-gray-600 text-xs uppercase tracking-wide hidden md:table-cell">Qualification</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-50">
+                            @foreach($staff as $i => $member)
+                            <tr class="hover:bg-blue-50 transition-colors">
+                                <td class="px-4 py-3 text-gray-500 text-center font-medium">{{ $i + 1 }}</td>
+                                <td class="px-4 py-3">
+                                    <div class="flex items-center gap-3">
+                                        @if($member->photo)
+                                        <img src="{{ asset('storage/'.$member->photo) }}"
+                                             class="w-10 h-10 rounded-full object-cover object-top flex-shrink-0 border-2"
+                                             style="border-color: var(--kmc-gold);">
+                                        @else
+                                        <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background-color: var(--kmc-navy);">
+                                            <i class="fas fa-user text-xs" style="color: var(--kmc-gold);"></i>
+                                        </div>
+                                        @endif
+                                        <span class="font-medium text-gray-800">{{ $member->name }}</span>
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3 text-gray-600">{{ $member->designation }}</td>
+                                <td class="px-4 py-3 text-gray-500 text-xs hidden sm:table-cell">{{ $member->department ?? '—' }}</td>
+                                <td class="px-4 py-3 text-gray-500 text-xs hidden md:table-cell">{{ $member->qualification ?? '—' }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                @endif
+            </div>
+        </main>
+    </div>
+</div>
+@endsection

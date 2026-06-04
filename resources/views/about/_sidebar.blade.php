@@ -14,6 +14,7 @@
             ['About College', route('about.college')],
             ['Board of Executives', route('about.board')],
             ['Our Team', route('about.team')],
+            ['Office Staff', route('about.office-staff')],
             ['Facilities', route('about.facilities')],
             ['Committees & Associations', route('about.committees')],
             ['Institutions', route('about.institutions')],

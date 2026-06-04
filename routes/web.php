@@ -42,6 +42,7 @@ use App\Http\Controllers\Admin\DepartmentGalleryController as AdminDepartmentGal
 use App\Http\Controllers\Admin\BannerController as AdminBannerController;
 use App\Http\Controllers\JuniorCollegeController;
 use App\Http\Controllers\Admin\JuniorCollegeStaffController as AdminJuniorCollegeStaffController;
+use App\Http\Controllers\Admin\OfficeStaffController as AdminOfficeStaffController;
 use App\Http\Controllers\SearchController;
 
 // ─── Launch / Inauguration ────────────────────────────────────────────────────
@@ -75,6 +76,7 @@ Route::prefix('about')->name('about.')->group(function () {
     Route::get('/committees', [AboutController::class, 'committees'])->name('committees');
     Route::get('/board-of-executives', [AboutController::class, 'boardOfExecutives'])->name('board');
     Route::get('/institutions', [AboutController::class, 'institutions'])->name('institutions');
+    Route::get('/office-staff', [AboutController::class, 'officeStaff'])->name('office-staff');
 });
 
 // Governance & Administration
@@ -289,6 +291,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('research-articles-template', [AdminResearchArticleController::class, 'downloadTemplate'])->name('research-articles.template');
 
         Route::resource('junior-college-staff', AdminJuniorCollegeStaffController::class)->except(['show']);
+
+        Route::resource('office-staff', AdminOfficeStaffController::class)->except(['show']);
 
         Route::resource('departments', AdminDepartmentController::class)->except(['show']);
         Route::get('department-gallery', [AdminDepartmentGalleryController::class, 'index'])->name('department-gallery.index');

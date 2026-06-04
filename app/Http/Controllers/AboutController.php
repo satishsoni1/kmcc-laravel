@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Faculty;
 use App\Models\CommitteeMember;
 use App\Models\CollegeCommittee;
+use App\Models\OfficeStaff;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -94,5 +95,11 @@ class AboutController extends Controller
     public function institutions()
     {
         return view('about.institutions');
+    }
+
+    public function officeStaff()
+    {
+        $staff = OfficeStaff::active()->orderBy('order')->orderBy('id')->get();
+        return view('about.office-staff', compact('staff'));
     }
 }
