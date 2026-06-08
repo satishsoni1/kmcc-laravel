@@ -3,8 +3,9 @@
     <nav class="divide-y divide-gray-100">
         @foreach([
             ['From Chairman\'s Desk', route('about.chairman')],
+            ['From Vice-chairman\'s Desk', route('about.vc')],
             ['From Secretary\'s Desk', route('about.secretary')],
-            ['From Desk of Vice-chairman-CDC', route('about.vc')],
+            ['From Desk of Vice-chairman-CDC', route('about.vc-cdc')],
             ['From Principal\'s Desk', route('about.principal')],
             ['About K.T.S.P.', route('about.sanstha')],
             ['About Emblem', route('about.emblem')],
