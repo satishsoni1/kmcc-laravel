@@ -54,6 +54,10 @@ class AboutController extends Controller
     {
         return view('about.vc');
     }
+    public function vcCdcDesk()
+    {
+        return view('about.vc-cdc');
+    }
 
     public function principalDesk()
     {
