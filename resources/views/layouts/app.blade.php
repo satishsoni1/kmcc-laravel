@@ -118,7 +118,7 @@
                                 ['From Chairman\'s Desk', 'about.chairman'],
                                 ['From Vice-chairman\'s Desk', 'about.vc'],
                                 ['From Secretary\'s Desk', 'about.secretary'],
-                                ['From Desk of Vice-chairman-CDC', 'about.vc-cdc'],
+                                ['From Desk of Vice-chairman CDC', 'about.vc-cdc'],
                                 ['From Principal\'s Desk', 'about.principal'],
                                 ['About K.T.S.P.', 'about.sanstha'],
                                 ['About Emblem', 'about.emblem'],

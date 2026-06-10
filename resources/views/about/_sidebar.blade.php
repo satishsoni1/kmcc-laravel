@@ -5,7 +5,7 @@
             ['From President\'s Desk', route('about.chairman')],
             ['From Vice-president\'s Desk', route('about.vc')],
             ['From Secretary\'s Desk', route('about.secretary')],
-            ['From Desk of Vice-chairman-CDC', route('about.vc-cdc')],
+            ['From Desk of Vice-chairman CDC', route('about.vc-cdc')],
             ['From Principal\'s Desk', route('about.principal')],
             ['About K.T.S.P.', route('about.sanstha')],
             ['About Emblem', route('about.emblem')],
