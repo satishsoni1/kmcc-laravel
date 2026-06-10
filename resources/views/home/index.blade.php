@@ -165,7 +165,7 @@
                     </div>
                 </div>
                 @empty
-                @foreach(['BBI, BAF, B.Sc.IT New Courses Now Available — Apply!', 'Admission 2025-26: Online Portal Open', 'NAAC Reaccredited B+ Grade — 3rd Cycle Achieved', 'NSS Annual Camp Registration Begins', 'Career Katta: Maharashtra Govt. Skill Programmes', 'Guest Lecture: Industry & Career Opportunities', 'Library Updated with New Reference Titles', 'Sports Day Registration Open for All Students'] as $notice)
+                @foreach([] as $notice)
                 <div class="px-4 py-3 hover:bg-gray-50 transition-colors">
                     <div class="flex items-start gap-2">
                         <i class="fas fa-circle text-xs mt-1.5 flex-shrink-0" style="color: var(--kmc-gold);"></i>
@@ -185,7 +185,16 @@
                 </h3>
             </div>
             <div class="p-4 grid grid-cols-2 gap-3">
-                @foreach([] as [$icon, $label, $route, $color])
+                @foreach([
+                    ['fas fa-file-alt', 'Exam Form', 'examinations.exam-form', 'bg-blue-50 text-blue-700'],
+                    ['fas fa-id-card', 'Hall Ticket', 'examinations.hall-ticket', 'bg-green-50 text-green-700'],
+                    ['fas fa-chart-bar', 'Results', 'examinations.results', 'bg-yellow-50 text-yellow-700'],
+                    ['fas fa-user-graduate', 'Admission', 'admissions.index', 'bg-purple-50 text-purple-700'],
+                    ['fas fa-book', 'Library', 'student.library', 'bg-red-50 text-red-700'],
+                    ['fas fa-laptop', 'E-Resources', 'student.e-resources', 'bg-indigo-50 text-indigo-700'],
+                    ['fas fa-briefcase', 'Placement', 'student.placement', 'bg-orange-50 text-orange-700'],
+                    ['fas fa-comments', 'Feedback', 'student.feedback', 'bg-teal-50 text-teal-700'],
+                ] as [$icon, $label, $route, $color])
                 <a href="{{ route($route) }}" class="flex flex-col items-center gap-2 p-3 rounded-lg {{ $color }} hover:opacity-80 transition-opacity text-center border border-transparent hover:border-current">
                     <i class="{{ $icon }} text-xl"></i>
                     <span class="text-xs font-semibold">{{ $label }}</span>
