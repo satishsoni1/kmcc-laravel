@@ -2,8 +2,8 @@
     <div class="text-white px-5 py-3 font-bold text-sm" style="background-color: var(--kmc-navy);">About Us</div>
     <nav class="divide-y divide-gray-100">
         @foreach([
-            ['From Chairman\'s Desk', route('about.chairman')],
-            ['From Vice-chairman\'s Desk', route('about.vc')],
+            ['From President\'s Desk', route('about.chairman')],
+            ['From Vice-president\'s Desk', route('about.vc')],
             ['From Secretary\'s Desk', route('about.secretary')],
             ['From Desk of Vice-chairman-CDC', route('about.vc-cdc')],
             ['From Principal\'s Desk', route('about.principal')],
