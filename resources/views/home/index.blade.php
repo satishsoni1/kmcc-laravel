@@ -185,16 +185,7 @@
                 </h3>
             </div>
             <div class="p-4 grid grid-cols-2 gap-3">
-                @foreach([
-                    ['fas fa-file-alt', 'Exam Form', 'examinations.exam-form', 'bg-blue-50 text-blue-700'],
-                    ['fas fa-id-card', 'Hall Ticket', 'examinations.hall-ticket', 'bg-green-50 text-green-700'],
-                    ['fas fa-chart-bar', 'Results', 'examinations.results', 'bg-yellow-50 text-yellow-700'],
-                    ['fas fa-user-graduate', 'Admission', 'admissions.index', 'bg-purple-50 text-purple-700'],
-                    ['fas fa-book', 'Library', 'student.library', 'bg-red-50 text-red-700'],
-                    ['fas fa-laptop', 'E-Resources', 'student.e-resources', 'bg-indigo-50 text-indigo-700'],
-                    ['fas fa-briefcase', 'Placement', 'student.placement', 'bg-orange-50 text-orange-700'],
-                    ['fas fa-comments', 'Feedback', 'student.feedback', 'bg-teal-50 text-teal-700'],
-                ] as [$icon, $label, $route, $color])
+                @foreach([] as [$icon, $label, $route, $color])
                 <a href="{{ route($route) }}" class="flex flex-col items-center gap-2 p-3 rounded-lg {{ $color }} hover:opacity-80 transition-opacity text-center border border-transparent hover:border-current">
                     <i class="{{ $icon }} text-xl"></i>
                     <span class="text-xs font-semibold">{{ $label }}</span>
@@ -224,12 +215,6 @@
                 </div>
                 @empty
                 @foreach([
-                    ['May', '05', 'Annual Social Gathering & Prize Distribution', 'College Auditorium'],
-                    ['May', '12', 'Kalavishkar — Cultural Festival', 'Main Hall'],
-                    ['May', '18', 'Inter-College Debate Competition', 'Seminar Hall'],
-                    ['Jun', '02', 'Industrial Visit — Commerce Dept.', 'MIDC Area'],
-                    ['Jun', '10', 'Blood Donation Camp — NSS Unit', 'College Grounds'],
-                    ['Jun', '20', 'Sports Day 2025', 'Sports Ground'],
                 ] as [$month, $day, $title, $venue])
                 <div class="px-4 py-3 flex gap-3 hover:bg-gray-50">
                     <div class="text-white text-center rounded-lg p-2 flex-shrink-0 w-12" style="background-color: var(--kmc-navy);">
