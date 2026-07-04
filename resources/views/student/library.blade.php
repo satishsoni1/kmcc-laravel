@@ -76,7 +76,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                         <div>
                             <p class="text-blue-200 font-semibold">Monday – Saturday</p>
-                            <p class="text-white">8:00 AM – 5:30 PM</p>
+                            <p class="text-white">9:30 AM – 5:30 PM</p>
                         </div>
                         <div>
                             <p class="text-blue-200 font-semibold">Sunday / Public Holidays</p>
