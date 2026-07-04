@@ -402,13 +402,16 @@
                         ['B.A. / B.Com. Aided (F.Y. / S.Y. / T.Y.)', $baComAided, ['F.Y.','S.Y.','T.Y.']],
                     ] as [$title, $data, $cols])
                     <details class="border border-gray-200 rounded-lg overflow-hidden group">
-                        <summary class="cursor-pointer list-none px-4 py-3 bg-blue-50 hover:bg-blue-100 transition-colors flex items-center justify-between">
-                            <span class="font-semibold text-blue-900">{{ $title }}</span>
-                            <span class="text-xs text-gray-500 flex items-center gap-3">
+                        <summary class="cursor-pointer list-none px-4 py-3 bg-blue-50 hover:bg-blue-100 transition-colors flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                            <span class="font-semibold text-blue-900 flex items-center justify-between gap-2">
+                                {{ $title }}
+                                <i class="fas fa-chevron-down text-gray-400 group-open:rotate-180 transition-transform sm:hidden"></i>
+                            </span>
+                            <span class="text-xs text-gray-500 flex flex-wrap items-center gap-x-3 gap-y-1">
                                 @foreach($cols as $i => $c)
-                                    <span>{{ $c }}: ₹{{ number_format($data['total'][$i][0]) }}</span>
+                                    <span class="whitespace-nowrap">{{ $c }}: ₹{{ number_format($data['total'][$i][0]) }}</span>
                                 @endforeach
-                                <i class="fas fa-chevron-down text-gray-400 group-open:rotate-180 transition-transform"></i>
+                                <i class="fas fa-chevron-down text-gray-400 group-open:rotate-180 transition-transform hidden sm:inline"></i>
                             </span>
                         </summary>
                         <div class="overflow-x-auto">
@@ -461,13 +464,16 @@
                         ['B.Sc. Computer Science / Information Technology Non-Aided', $bscCsIt, ['F.Y.','S.Y.','T.Y.']],
                     ] as [$title, $data, $cols])
                     <details class="border border-gray-200 rounded-lg overflow-hidden group">
-                        <summary class="cursor-pointer list-none px-4 py-3 bg-green-50 hover:bg-green-100 transition-colors flex items-center justify-between">
-                            <span class="font-semibold text-green-800">{{ $title }}</span>
-                            <span class="text-xs text-gray-500 flex items-center gap-3">
+                        <summary class="cursor-pointer list-none px-4 py-3 bg-green-50 hover:bg-green-100 transition-colors flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                            <span class="font-semibold text-green-800 flex items-center justify-between gap-2">
+                                {{ $title }}
+                                <i class="fas fa-chevron-down text-gray-400 group-open:rotate-180 transition-transform sm:hidden"></i>
+                            </span>
+                            <span class="text-xs text-gray-500 flex flex-wrap items-center gap-x-3 gap-y-1">
                                 @foreach($cols as $i => $c)
-                                    <span>{{ $c }}: ₹{{ number_format($data['total'][$i][0]) }}</span>
+                                    <span class="whitespace-nowrap">{{ $c }}: ₹{{ number_format($data['total'][$i][0]) }}</span>
                                 @endforeach
-                                <i class="fas fa-chevron-down text-gray-400 group-open:rotate-180 transition-transform"></i>
+                                <i class="fas fa-chevron-down text-gray-400 group-open:rotate-180 transition-transform hidden sm:inline"></i>
                             </span>
                         </summary>
                         <div class="overflow-x-auto">
@@ -520,13 +526,16 @@
                         ['M.Sc. Chemistry (Organic & Inorganic)', $mscChemistry],
                     ] as [$title, $data])
                     <details class="border border-gray-200 rounded-lg overflow-hidden group">
-                        <summary class="cursor-pointer list-none px-4 py-3 bg-purple-50 hover:bg-purple-100 transition-colors flex items-center justify-between">
-                            <span class="font-semibold text-purple-800">{{ $title }}</span>
-                            <span class="text-xs text-gray-500 flex items-center gap-3">
+                        <summary class="cursor-pointer list-none px-4 py-3 bg-purple-50 hover:bg-purple-100 transition-colors flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                            <span class="font-semibold text-purple-800 flex items-center justify-between gap-2">
+                                {{ $title }}
+                                <i class="fas fa-chevron-down text-gray-400 group-open:rotate-180 transition-transform sm:hidden"></i>
+                            </span>
+                            <span class="text-xs text-gray-500 flex flex-wrap items-center gap-x-3 gap-y-1">
                                 @foreach($data['cols'] as $i => $c)
-                                    <span>{{ $c }}: ₹{{ number_format($data['total'][$i][0]) }}</span>
+                                    <span class="whitespace-nowrap">{{ $c }}: ₹{{ number_format($data['total'][$i][0]) }}</span>
                                 @endforeach
-                                <i class="fas fa-chevron-down text-gray-400 group-open:rotate-180 transition-transform"></i>
+                                <i class="fas fa-chevron-down text-gray-400 group-open:rotate-180 transition-transform hidden sm:inline"></i>
                             </span>
                         </summary>
                         <div class="overflow-x-auto">
@@ -573,11 +582,14 @@
                 </h3>
                 <div class="space-y-3 mb-6">
                     <details class="border border-gray-200 rounded-lg overflow-hidden group">
-                        <summary class="cursor-pointer list-none px-4 py-3 bg-red-50 hover:bg-red-100 transition-colors flex items-center justify-between">
-                            <span class="font-semibold text-red-800">Ph.D. (Chemistry)</span>
-                            <span class="text-xs text-gray-500 flex items-center gap-3">
-                                <span>Total: ₹{{ number_format($phdTotal) }}</span>
-                                <i class="fas fa-chevron-down text-gray-400 group-open:rotate-180 transition-transform"></i>
+                        <summary class="cursor-pointer list-none px-4 py-3 bg-red-50 hover:bg-red-100 transition-colors flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                            <span class="font-semibold text-red-800 flex items-center justify-between gap-2">
+                                Ph.D. (Chemistry)
+                                <i class="fas fa-chevron-down text-gray-400 group-open:rotate-180 transition-transform sm:hidden"></i>
+                            </span>
+                            <span class="text-xs text-gray-500 flex flex-wrap items-center gap-x-3 gap-y-1">
+                                <span class="whitespace-nowrap">Total: ₹{{ number_format($phdTotal) }}</span>
+                                <i class="fas fa-chevron-down text-gray-400 group-open:rotate-180 transition-transform hidden sm:inline"></i>
                             </span>
                         </summary>
                         <div class="overflow-x-auto">
